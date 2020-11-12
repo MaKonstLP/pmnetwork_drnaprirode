@@ -1,0 +1,228 @@
+.blog_title {
+  font-family: 'Museo Sans Cyrl';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 36px;
+  line-height: 100%;
+  text-align: center;
+  letter-spacing: 0.01em;
+  color: $clrBlack;
+  margin: 47px auto 22px;
+
+  @include for-notdesc {
+    margin: 42px auto 13px;
+    font-size: 30px;
+  }
+
+  @media (max-width: 1299px) {
+    margin: 22px auto 16px;
+    font-size: 24px;
+  }
+
+  @include for-mobile {
+    margin: 35px auto 25px;
+    font-size: 20px;
+  }
+}
+
+.blog_list_wrapper, .post {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  @include for-mobile {
+    flex-direction: column;
+    // max-width: 290px;
+    max-width: 81vw;
+  }
+
+  .blog_item_wrapper {
+    // width: calc(33% - 10px);
+    // width: calc((100% / 3) - 13px);
+    width: 100%;
+    margin-bottom: 39px;
+
+    &:nth-of-type(n+4) {
+      margin-bottom: 32px;
+      transform: translateX(1px);
+
+      .blog_item_title {
+        margin-left: 2px !important;
+      }
+
+      @include for-mobile {
+        display: none;
+      }
+    }
+
+    @include for-notdesc {
+      // width: calc(33% - 15px);
+      margin-bottom: 31px;
+
+      &:nth-of-type(n+4) {
+        margin-bottom: 17px;
+      }
+    }
+
+    @media (max-width: 1299px) {
+      // width: calc(33% - 17px);
+      margin-bottom: 46px;
+
+      &:nth-of-type(n+4) {
+        margin-bottom: 30px;
+      }
+    }
+
+    @include for-mobile {
+      width: 100%;
+      margin-bottom: 26px;
+      transform: translate(-4px, -5px);
+    }
+
+    &:hover > .blog_item > .blog_item_text_wrapper > .blog_item_title {
+      color: $clrFormError;
+      transition: $transition;
+    }
+
+    .blog_item {
+      text-decoration: none;
+
+      .blog_item_img {
+        width: 100%;
+        height: 312px;
+        object-fit: cover;
+
+        @include for-notdesc {
+          height: 195px;
+        }
+
+        @include for-pad {
+          height: 141px;
+        }
+
+        @include for-mobile {
+          height: 195px;
+        }
+      }
+
+      .blog_item_title {
+        font-family: 'Museo Sans Cyrl';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 110%;
+        text-decoration-line: underline;
+        color: $clrTextBlog;
+        margin: 18px 1px 15px;
+        transition: $transition;
+
+        @include for-notdesc {
+          margin: 16px 0 18px;
+          font-size: 18px;
+        }
+
+        @media (max-width: 1299px) {
+          margin: 11px 0 7px;
+          font-size: 14px;
+        }
+
+        @include for-mobile {
+          margin: 17px 0 16px;
+          font-weight: 700;
+          font-size: 18px;
+        }
+      }
+  
+      .blog_item_text {
+        font-family: 'Museo Sans Cyrl';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 130%;
+        color: $clrTextBlog;
+        margin-left: 1px;
+
+        @include for-pad {
+          font-size: 12px;
+          line-height: 120%;
+        }
+
+        @include for-mobile {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+.blog .pagination {
+  margin-bottom: 70px;
+
+  @include for-notdesc {
+    margin-bottom: 50px;
+  }
+
+  @media (max-width: 1299px) {
+    margin-bottom: 42px;
+  }
+
+  @include for-mobile {
+    margin-bottom: 50px;
+  }
+
+  .items_pagination {
+    margin-left: -12px;
+
+    @include for-pad {
+      transform: translateX(-9px) translateY(-4px);
+    }
+  }
+
+  .pagination_switсh {
+    @include for-notdesc {
+      display: none;
+    }
+  }
+}
+
+.blog {
+  .breadcrumbs {
+    @include for-notdesc {
+      margin-top: 16px;
+    }
+  }
+}
+
+.list-view {
+  display: flex;
+  flex-wrap: wrap;
+  // justify-content: space-between;
+  justify-content: flex-start;
+
+  [data-key] {
+    width: calc((100% / 3) - 13px);
+    margin-right: 19.5px;
+
+    @include for-notdesc {
+      width: calc((100% / 3) - 20px);
+      margin-right: 30px;
+    }
+
+    @include for-mobile {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+[data-blog] {
+  @include for-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
+}

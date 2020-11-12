@@ -1,0 +1,35 @@
+{{ use('yii/widgets/Pjax') }}
+{{ use('yii/widgets/ListView') }}
+
+<div class ="content_wrap blog" data-page-type="blog">
+
+  	<div class="content_block" data-blog>
+
+		{{ this.render('//components/generic/title.twig', {'count':count, 'seo':seo}) | raw }}
+
+		{# <h1>{{seo.h1}}</h1> #}
+		<h1 class="blog_title">Заметки о Дне рождения на природе</h1>
+
+		<div class="blog_list_wrapper" data-blog-list>
+
+			{{  pjax_begin({'id' : 'blog-listing','enablePushState':true}) }}
+			{{  list_view_widget(listConfig) }}
+			{{  pjax_end()  }}
+
+		</div>
+		
+	</div>
+
+  {# <div class="content_block items_list_blog" data-blog-wrapper> #}
+
+		{# <div class="items_list" data-blog-list>
+
+			{{  pjax_begin({'id' : 'blog-listing','enablePushState':false}) }}
+			{{  list_view_widget(listConfig) }}
+			{{  pjax_end()  }}
+
+		</div> #}
+
+	{# </div> #}
+
+</div>

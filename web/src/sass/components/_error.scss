@@ -1,0 +1,102 @@
+.main_wrap {
+    justify-content: space-between;
+    height: 100vh;
+}
+
+.error_wrapper {
+    display: flex;
+    align-items: center;
+    padding: 100px 0 20px;
+
+    @include for-notdesc {
+        width: 70vw;
+        margin: 0 auto;
+    }
+
+    @include for-mobile {
+        width: 90vw;
+        flex-direction: column-reverse;
+        justify-content: space-around;
+        padding: 30px 0 20px;
+    }
+
+    .error_img {
+        width: 380px;
+        // margin-top: -5%;
+        margin-left: 20%;
+        transform: translateX(-17px) translateY(-55px);
+
+        @include for-notdesc {
+            margin-left: 0;
+        }
+
+        @include for-mobile {
+            margin: 30px 0 0;
+            width: 50%;
+            transform: none;
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .error_text_wrapper {
+        // margin-left: -1%;
+        transform: translateX(-36px) translateY(-2px);
+
+        @include for-mobile {
+            margin: 0;
+            transform: none;
+        }
+
+        .error_title {
+            font-family:'Red Ring';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 36px;
+            line-height: 43px;
+            color: $clrError;
+            margin: 0 0 20px;
+
+            @include for-notdesc {
+                font-size: 30px;
+            }
+
+            @media (max-width: 1299px) {
+                font-size: 24px;
+                margin: 20px 0 10px;
+            }
+
+            @include for-mobile {
+                font-size: 20px;
+                line-height: normal;
+                margin: 0;
+            }
+        }
+
+        .error_text {
+            font-family: 'Montserrat Regular';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            line-height: 23px;
+            color: $clrError;
+            margin: 0;
+
+            @include for-mobile {
+                font-size: 14px;
+            }
+    
+            .error_link {
+                color: $clrGreen;
+                text-decoration: none;
+                text-decoration-line: underline;
+    
+                &:hover {
+                    color: $clrBtnHover;
+                }
+            }
+        }
+    }    
+}

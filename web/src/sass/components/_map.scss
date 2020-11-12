@@ -1,0 +1,247 @@
+.balloon_layout{
+	display: block;
+	position: absolute;
+	top: auto;
+	left: auto;
+	background: $clrWhite;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+	// &::after {
+	// 	content: '';
+	// 	position: absolute;
+	// 	bottom: -19px;
+	// 	left: calc(50% - 18px);
+	// 	width: 40px;
+	// 	height: 40px;
+	// 	background: $clrWhite;
+	// 	// background: $clrBlack;
+	// 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+	// 	transform: rotate(45deg) skew(20deg, 20deg);
+	// 	// z-index: -1;
+	// }
+
+	.close{
+		position: absolute;
+		width: 15px;
+		height: 15px;
+		top: 8px;
+		right: 8px;
+		cursor: pointer;
+
+		&::before, &:after {
+			content: '';
+			width: 15px;
+			height: 1px;
+			background: $clrBlack;
+			position: absolute;
+			top: 7px;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&:after {
+			transform: rotate(135deg);
+		}
+	}
+	
+	.arrow{
+		content: '';
+		position: absolute;
+		bottom: -19px;
+		left: calc(50% - 18px);
+		width: 40px;
+		height: 40px;
+		background: $clrWhite;
+		// background: $clrBlack;
+		box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+		transform: rotate(45deg) skew(20deg, 20deg);
+	}
+}
+
+.balloon_layout_single {
+	display: flex;
+	justify-content: center;
+	width: 250px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 0px 2px $clrFormError;
+
+	@include for-notdesc {
+		width: 120px;
+	}
+
+	@media (max-width: 1299px) {
+		width: 200px;
+	}
+
+	.close {
+		display: none;
+	}
+
+	.arrow {
+		bottom: -3.5px;
+		left: calc(50% - 5px);
+		width: 10px;
+		height: 10px;
+		transform: rotate(45deg) skew(15deg,15deg);
+		box-shadow: 2px 2px 0px $clrFormError;
+	}
+}
+
+.single_balloon_wrapper {
+	padding: 10px 5px 10px !important;
+	max-width: 250px !important;
+	box-sizing: border-box;
+	
+	@include for-notdesc {
+		max-width: 120px !important;
+	}
+
+	@media (max-width: 1299px) {
+		max-width: 200px !important;
+	}
+
+	.single_balloon_address {
+		p {
+			@include for-notdesc {
+				font-size: 12px !important;
+			}
+
+			@media (max-width: 1299px) {
+				font-size: 14px !important;
+			}
+		}
+	}
+
+	.single_balloon_phone {
+		margin-top: 5px;
+		display: flex;
+		justify-content: center;
+
+		p, a {
+			margin: 0;
+			font-family: 'Proxima Nova';
+			font-style: normal;
+			font-weight: normal;
+			font-size: 14px;
+			line-height: 130%;
+			text-align: center;
+			letter-spacing: 0.01em;
+			color: $clrBlack;
+
+			@include for-notdesc {
+				font-size: 12px;
+			}
+
+			@media (max-width: 1299px) {
+				font-size: 14px;
+			}
+		}
+
+		.telShow {
+			color: $clrBorderImgCard;
+			cursor: pointer;
+		}
+
+		.single_map_tel {
+			text-decoration: none;
+			font-weight: 700;
+			color: $clrBlack;
+		}
+	}
+}
+
+.ymaps-2-1-77-balloon__content {
+	margin: 0 !important;
+	padding: 0 !important;
+}
+
+.balloon_wrapper{
+	display: flex;
+	flex-flow: column nowrap;
+	padding: 25px 15px 20px;
+	width: max-content;
+	max-width: 300px;
+
+	@media (max-width: 356px) {
+		width: 100%;
+		max-width: 250px;
+		box-sizing: border-box;
+	}
+
+	.balloon_content{
+		width: max-content;
+		max-width: 100%;
+		display: flex;
+		justify-content: flex-start;
+		z-index: 1;
+
+		.balloon_text{
+			display: flex;
+			flex-flow: column nowrap;
+
+			.balloon_header{
+				text-align: center;
+
+				a {
+					font-family: 'Museo Sans Cyrl';
+					font-style: normal;
+					font-weight: 600;
+					font-size: 16px;
+					line-height: 100%;
+					color: $clrGreen;
+					text-decoration: none;
+					width: max-content;
+					position: relative;
+					border-bottom: 1px solid $clrGreen;
+				}
+			}
+
+			.balloon_type {
+				p {
+					margin: 2px auto 10px;
+					font-family: 'Proxima Nova';
+					font-style: normal;
+					font-weight: normal;
+					font-size: 12px;
+					line-height: 130%;
+					text-align: center;
+					letter-spacing: 0.01em;
+					color: $clrBlack;
+				}
+			}
+		
+			.balloon_address{
+				p {
+					margin: 0;
+					font-family: 'Proxima Nova';
+					font-style: normal;
+					font-weight: normal;
+					font-size: 14px;
+					line-height: 130%;
+					text-align: center;
+					letter-spacing: 0.01em;
+					color: $clrBlack;
+				}
+			}
+		}
+	}
+	
+	.balloon_link{
+		margin: auto;
+		
+
+		.balloon_link_button{
+			padding: 6px 20px;
+
+			a{
+				font-family: "Montserrat";
+				font-style: normal;
+				font-weight: 500;
+				font-size: 14px;
+				line-height: 22px;
+			}
+		}
+	}
+}

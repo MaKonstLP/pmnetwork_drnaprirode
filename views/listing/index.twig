@@ -1,0 +1,52 @@
+<div class="listing" data-page-type="listing">
+
+	<div class="content_block" data-listing-title>
+
+		{{ this.render('//components/generic/title.twig', {'count':count, 'seo':seo}) | raw }}
+		
+	</div>
+
+	<div class="content_block general_block">
+
+		<div class="filter_listing">
+			{{filter | raw }}
+		</div>
+
+		<div class="main_block">
+
+			<div class="title listing_title">
+				<h1>{{seo.h1}}</h1>
+			</div>
+
+			{{ this.render('//components/generic/slice.twig', {menu:menu, main_flag:main_flag}) | raw }}
+
+			<div class="items_list_listing" data-listing-wrapper>
+				<div class="items_list" data-listing-list>
+
+					{{ this.render('//components/generic/listing.twig', {'items':items, 'img_alt':seo.img_alt}) | raw }}
+
+				</div>
+			</div>
+
+			<div class="pagination"> 
+				<div data-pagination-wrapper data-type='page'>
+					{{pagination | raw }}
+				</div>
+			</div>
+
+			<div class="content_block map listing" data-map-api-subid="{{ subid }}"></div>
+
+			<div data-listing-text-bottom>
+				<div class="seo_text seo_text_listing" data-seo-text>
+					<p>
+						Понтон на воде 400 м2 с белым шатром 260 м2. Вмещает до 180 постояльцев банкетной рассадкой. На территории понтона размещаются 2 маленькие веранды, которые уже входят в стоимость аренды, а на свободных от шатра углах устроилась мягкая мебель. Шатер оборудован барной стойкой со светодиодной подсветкой, необходимым для вечернего освещения количеством люстр, а на каждой стальной дуге вывешены световые «Пары». В случае непогоды по периметру заакрываются шторы, которые не пропускают воду и ветер, и предоставляются газовые и электронные обогреватели. Понтон содержит отдельный подъезд и личную парковку на 20 машиномест, собственно что выделяет ему превосходство перед другими площадками. Ресторан дает текстиль на столы и стулья и индивидуальные тканевые салфетки. Громкая музыка вероятна до 21:30, впоследствии лишь только в фоновом режиме.
+					</p>
+				</div>
+			</div>
+
+			<div class="form_callback_wrapper form_listing"> 
+				{{ this.render('//components/generic/form_callback.twig') | raw }}
+			</div>
+		</div>
+	</div>
+</div>

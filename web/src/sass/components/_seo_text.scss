@@ -1,0 +1,59 @@
+.seo_text{
+    width: calc(100% - 10px);
+    font-family: "Proxima Nova";
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 130%;
+    letter-spacing: 0.01em;
+    text-transform: capitalize;
+    color: $clrBlack;
+    margin: 0 0 0 8px;
+
+    @include for-mobile {
+        width: 90vw;
+        margin: 0;
+    }
+
+    ul{
+        margin: 0;
+
+        li{
+            margin: 0;
+        }
+    }
+
+    ol{
+        margin: 0;
+
+        li{
+            margin: 0;
+        }
+    }
+
+    p{
+        margin: 0;
+    }
+
+    h2{
+        margin: 0;
+    }
+
+    h3{
+        margin: 0;
+    }
+
+    h4{
+        margin: 0;
+    }
+
+    .seo_text_control{
+        display: none;
+    }
+}
+
+.seo_text_listing {
+    @include for-pad {
+        letter-spacing: .02em;
+    }
+}

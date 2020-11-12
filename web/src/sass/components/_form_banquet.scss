@@ -1,0 +1,97 @@
+.dropForm_wrapper {
+    width: 600px;
+    height: max-content;
+    padding: 40px 86px 33px !important;
+    box-sizing: border-box;
+    background: $clrWhite !important;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15) !important;
+    position: absolute !important;
+    top: 120px;
+    left: calc(50% - 300px);
+    margin-bottom: 100px;
+    overflow-y: scroll;
+    max-height: calc(101vh - 100px);
+
+    
+    @include for-mobile {
+        width: 100vw;
+        left: -5vw;
+        top: 0;
+        height: 101vh;
+        padding: 40px 15px !important;
+        max-height: 101vh;
+        z-index: 101;  
+    }
+
+    &::-webkit-scrollbar { /* chrome based */
+        width: 0px;  /* ширина scrollbar'a */
+        background: transparent;  /* опционально */
+    }
+
+    .back_to_header_menu {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+
+        &::before, &:after {
+            content: '';
+            width: 15px;
+            height: 2px;
+            background: $clrBlack;
+            position: absolute;
+            top: 7px;
+        }
+
+        &::before {
+            transform: rotate(45deg);
+        }
+
+        &:after {
+            transform: rotate(135deg);
+        }
+    }
+
+    .form_title {
+        .form_title_desc {
+            margin: 5px auto 0 !important;
+            max-width: 280px !important;
+        }
+    }
+    
+    .form_block {
+        margin-top: 17px !important;
+
+        .form_inputs {
+            .input_wrapper {
+                width: 100% !important;
+
+                input, textarea {
+                    text-align: center !important;
+                }
+
+                .calendar_wrapper {
+                    .calendar_container {
+                        right: auto !important;
+                        left: calc(50% - 157px) !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .form_submit_callback {
+        .checkbox_pseudo {
+            &:before {
+                background-position: 60% center !important;
+            }
+        }
+
+        ._button {
+            margin-top: 15px !important;
+            height: 40px !important;
+        }
+    }
+}

@@ -1,0 +1,320 @@
+.post {
+  display: block;
+
+  .post_content_block {
+    width: 1196px;
+    margin: 0 auto;
+
+    @include for-notdesc {
+      // max-width: 70vw;
+      max-width: 930px;
+    }
+
+    @include for-pad {
+      max-width: 690px;
+    }
+
+    @include for-mobile {
+      max-width: 91vw;
+    }
+
+    .post_title {
+      font-family: 'Proxima Nova';
+      font-style: normal;
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 112.86%;
+      text-align: center;
+      letter-spacing: 0.03em;
+      color: $clrBlack;
+      margin: 49px auto 20px;
+
+      @include for-notdesc {
+        margin: 40px auto 21px;
+        font-size: 30px;
+      }
+
+      @media (max-width: 1299px) {
+        margin: 22px auto 31px;
+        font-size: 24px;
+      }
+
+      @include for-mobile {
+        margin: 31px auto 20px;
+        font-size: 20px;
+      }
+    }
+
+    .post_img {
+      width: 100%;
+      margin-bottom: 27px;
+
+      @include for-notdesc {
+        margin-bottom: 26px;
+      }
+
+      @include for-mobile {
+        margin-bottom: 15px;
+      }
+
+      img {
+        max-width: 100%;
+
+        @include for-notdesc {
+          max-height: 387px;
+          width: 100%;
+          object-fit: cover;
+        }
+
+        @include for-pad {
+          max-height: 288px;
+        }
+
+        @include for-mobile {
+          height: 221px;
+        }
+      }
+    }
+
+    .post_text {
+      p {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        // line-height: 130%;
+        line-height: 21px;
+        color: $clrTextBlog;
+        margin: 0;
+        letter-spacing: 0.01em;
+  
+        @include for-pad {
+          font-size: 14px;
+          line-height: 122%;
+          letter-spacing: 0;
+        }
+      }
+    }
+
+    .post_text_italic {
+      p {
+        font-family: 'Proxima Nova';
+      font-style: italic;
+      font-weight: normal;
+      font-size: 18px;
+      line-height: 130%;
+      color: $clrBlack;
+      position: relative;
+      padding-left: 75px;
+      margin: 51px 0 56px;
+      max-width: 85%;
+
+      @include for-notdesc {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 130%;
+        color: $clrTextBlog;
+        padding-left: 0;
+        margin: 21px 0 25px;
+      }
+
+      @include for-pad {
+        font-size: 14px;
+        line-height: 122%;
+        max-width: 100%;
+        margin: 16px 0 16px;
+      }
+
+      @include for-mobile {
+        margin: 17px 0 34px;
+      }
+
+      &::before {
+        content: '';
+        width: 9px;
+        // height: 150px;
+        height: calc(100% + 35px);
+        background: url('/dist/images/italic.svg');
+        position: absolute;
+        top: -19px;
+        left: 40px;
+
+        @include for-notdesc {
+          display: none;
+        }
+      }
+      }
+    }
+
+    .post_bottom_wrapper {
+      display: flex;
+      align-items: center;
+      margin: 10px 0 60px;
+      justify-content: space-between;
+
+      @include for-notdesc {
+        margin: 17px 0 50px;
+      }
+
+      @include for-pad {
+        margin: 15px 0 50px;
+      }
+
+      @include for-mobile {
+        flex-direction: column;
+        align-items: start;
+        margin: 12px 0 45px;
+      }
+
+      .post_date {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 130%;
+        color: $clrDate;
+        margin: 0;
+
+        @include for-mobile {
+          margin-bottom: 27px;
+        }
+      }
+
+      .post_social {
+        display: flex;
+        align-items: center;
+
+        @include for-mobile {
+          transform: translateX(2px);
+        }
+
+        .post_social_text {
+          font-family: 'Proxima Nova';
+          font-style: normal;
+          font-weight: normal;
+          font-size: 12px;
+          line-height: 130%;
+          color: $clrCardInfo;
+          transform: translateX(-3px);
+        }
+
+        .post_social_icon {
+          width: 22px;
+          height: 22px;
+          margin-left: 9px;
+        }
+      }
+    }    
+  }
+
+  .carousel_post_wrapper {
+    @include for-mobile {
+      max-width: 100%;
+    }
+    .carousel_list_title {
+      font-family: 'Museo Sans Cyrl';
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 100%;
+      text-align: center;
+      letter-spacing: 0.01em;
+      color: $clrBlack;
+      margin: 0 auto 25px;
+
+      @include for-notdesc {
+        margin-bottom: 14px;
+      }
+
+      @media (max-width: 1299px) {
+        margin-bottom: 13px;
+        font-size: 20px;
+        transform: translateX(-3px);
+      }
+    }
+
+    .object_gallery {
+      position: relative;
+
+      @include for-mobile {
+        max-width: 88%;
+        margin: 0 auto;
+      }
+
+      .carousel_nav_prev_list, .carousel_nav_next_list {
+        top: 121px;
+
+        @include for-notdesc {
+          top: 62px;
+        }
+      } 
+
+      .swiper-slide {
+        @include for-mobile {
+          max-width: 100%;
+        }
+      }
+
+      .blog_item_wrapper {
+        width: 100%;
+        margin-bottom: 76px;
+
+        @include for-notdesc {
+          margin-bottom: 50px;
+        }
+
+        @include for-pad {
+          margin-bottom: 41px;
+        }
+
+        @include for-mobile {
+          transform: translate(0px,-2px);
+          margin-bottom: 44px;
+        }
+
+        .blog_item_title {
+          margin: 12px 1px 12px;
+
+          @include for-notdesc {
+            margin: 10px 1px 12px;
+            font-size: 16px;
+          }
+
+          @include for-pad {
+            margin: 10px 1px 0;
+            font-size: 16px;
+          }
+        }
+
+        .blog_item_text {
+          display: none;
+        }
+      }
+    }
+  }  
+}
+
+.post {
+  @include for-mobile {
+    max-width: 91vw !important;
+  }
+  .breadcrumbs {
+    @include for-notdesc {
+      margin-top: 16px;
+    }
+
+    @include for-pad {
+      margin-top: 17px;
+    }
+  }
+}
+
+[data-page] {
+  @include for-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }  
+}

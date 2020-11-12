@@ -1,0 +1,325 @@
+// .listing .breadcrumbs {
+//     @media (max-width: 1299px) {
+//         display: none;
+//     }
+// }
+
+.items_list_listing, ._list {
+
+    .items_list {
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -10px;
+        margin-left: -2px;
+
+        @include for-notdesc {
+            // margin-right: -15px;
+            margin-right: -23px;
+            margin-left: -7px;
+        }
+
+        @include for-mobile {
+            margin-right: 0;
+        }
+    }
+
+    .item {
+        width: calc((100% / 3) - 20px);
+        margin: 0 10px 30px;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $clrBorderCard;
+        box-sizing: border-box;
+        text-decoration: none;
+        transition: $transition;
+
+        @include for-notdesc {
+            width: calc((100% / 2) - 30px);
+            margin: 0 15px 20px;
+        }
+
+        @include for-pad {
+            width: calc((100% / 2) - 40px);
+        }
+
+        @include for-mobile {
+            width: calc(100% - 45px);
+            margin: 0 21px 20px;
+        }
+
+        &:hover {
+            background: $clrWhite;
+            box-shadow: $shadowCardHover;
+            transition: $transition;
+
+            .item_img {
+                border-bottom: 4px solid #DC3280;
+                transition: $transition;
+            }
+        }
+
+        .item_img {
+            width: calc(100% + 2px);
+            height: 270px;
+            margin: -1px 0 0 -1px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            border-bottom: 4px solid $clrBorderImgCard;
+            transition: $transition;
+
+            @include for-notdesc {
+                height: 230px;
+            }
+
+            @media (max-width: 1299px) {
+                height: 166px;
+            }
+
+            @include for-mobile {
+                height: 230px;
+            }
+
+            &:hover {
+                border-bottom: 4px solid $clrBorderImgCardHover;
+                transition: $transition;
+            }
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .item_info{
+            padding: 18px 30px 15px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+
+            @include for-notdesc {
+                padding: 18px 30px 19px;
+            }
+
+            @include for-pad {
+                padding: 11px 30px 15px;
+            }
+
+            @include for-mobile {
+                padding: 18px 30px 20px;
+            }
+
+            p {
+                margin: 0;
+            }
+
+            .item_name{
+                font-family: "Museo Sans Cyrl";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 100%;
+                text-align: center;
+                color: #272727;
+                margin-bottom: 6px;
+
+                @include for-notdesc {
+                    font-size: 20px;
+                }
+
+                @media (max-width: 1299px) {
+                    font-size: 18px;
+                    margin-bottom: 2px;
+                }
+
+                @include for-mobile {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .item_type {
+                font-family: "Proxima Nova";
+                font-style: normal;
+                font-weight: normal;
+                font-size: 15px;
+                line-height: 130%;
+                text-align: center;
+                letter-spacing: 0.01em;
+                text-transform: capitalize;
+                color: $clrBlack;
+                margin-bottom: 14px;
+
+                @include for-notdesc {
+                    margin-bottom: 13px;
+                }
+
+                @include for-pad {
+                    margin-bottom: 7px;
+                }
+
+                @include for-mobile {
+                    margin-bottom: 14px;
+                }
+            }
+
+            .item_address_container {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+
+                img {
+                    margin-right: 10px;
+                }
+
+                .item_address {
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 130%;
+                    text-align: center;
+                    letter-spacing: 0.01em;
+                    text-transform: capitalize;
+                    color: $clrBlack;
+
+                    @include for-notdesc {
+                        font-size: 16px;
+                    }
+    
+                    @media (max-width: 1299px) {
+                        font-size: 14px;
+                    }
+    
+                    @include for-mobile {
+                        font-size: 16px;
+                    }
+                }
+
+                .item_address::before {
+                    content: '';
+                    display: inline-block;
+                    background-image: url('/dist/images/adress.svg');
+                    width: 13px;
+                    height: 15px;
+                    transform: translateX(-4px) translateY(2px);
+                }
+            }
+
+            .item_meta {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                justify-content: center;
+
+                .item_meta_item {
+                    display: flex;
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 130%;
+                    letter-spacing: 0.01em;
+                    color: $clrBlack;
+                    margin-bottom: 1px;
+                    order: 1;    
+                    flex-wrap: wrap;
+                    justify-content: center;
+
+                    @include for-notdesc {
+                        font-size: 16px;
+                    }
+    
+                    @media (max-width: 1299px) {
+                        font-size: 14px;
+                    }
+    
+                    @include for-mobile {
+                        font-size: 16px;
+                    }
+
+                    .item_meta_label {
+                        display: flex;
+                        flex-wrap: wrap;
+                        margin-right: 3px;
+                        width: max-content;
+                        max-width: 186px;
+                    }
+
+                    .item_meta_text {  
+                        text-align: center;
+                        color: $clrGreen;
+                    }
+                }
+
+                .item_meta_item:first-child {
+                    order: 2
+                }
+
+                .item_meta_item:last-child {
+                    order: 3
+                }
+            }
+        }
+
+
+        .item_additional-info{
+            display: flex;
+            flex-flow: column nowrap;
+            position: absolute;
+            top: 18px;
+            left: 18px;
+
+            @include for-notdesc {
+                top: 10px;
+                left: 8px; 
+            }
+
+            .item_gift-for-birthday{
+                width: 230px;
+                height: auto;
+                border-radius: 50px;
+                background: url("/dist/images/birthday.svg"), $clrBirthday;
+                background-repeat: no-repeat;
+                background-position: 16px center;
+                display: flex;
+                justify-content: center;
+
+                @include for-notdesc {
+                    width: 200px;
+                    background-position: 12px center;
+                }
+
+                @media (max-width: 1299px) {
+                    display: none;
+                }
+            }
+    
+            span{
+                font-family: "Museo Sans Cyrl";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 245%;
+                color: $clrWhite;
+                padding: 0 16px 0 44px;
+
+                @include for-notdesc {
+                    font-size: 14px;
+                    padding: 0 8px 0 40px;
+                    line-height: 250%;
+                }
+            }
+        }        
+    }
+}
+
+.listing_title {
+    h1 {
+        transform: translateX(-5px);
+    }
+}

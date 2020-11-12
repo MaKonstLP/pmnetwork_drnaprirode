@@ -1,0 +1,39 @@
+<div class="carousel_post_wrapper">
+    <p class="carousel_list_title">Похожие статьи</p>
+
+    <div class="object_gallery _list">
+        <div class="carousel_nav">
+            <div class="carousel_nav_prev_list"></div>
+
+            <div class="carousel_nav_next_list"></div>
+        </div>
+
+        <div class="swiper-container gallery-top-list">
+            <div class="swiper-wrapper">
+
+                <div class="blog_item_wrapper">
+
+                    <a class="blog_item" href="{{ model.getUrl() }}">
+
+                        <img class="blog_item_img" src="{{ model.getFileData('image').src }}" alt="blog article image">
+
+                        <div class="blog_item_text_wrapper">
+
+                        <div class="blog_item_title">
+                            {{ model.name }}
+                        </div>
+
+                        <div class="blog_item_text">
+                            {{ model.short_intro }}
+                        </div>
+
+                        </div>
+
+                    </a>
+                    
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

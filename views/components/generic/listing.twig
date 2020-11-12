@@ -1,0 +1,65 @@
+{% for item in items %}
+
+	<a href="/ploshhadki/{{item.id}}/" class="item swiper-slide {{type}}">
+        <div class="item_img">
+            <img src="{{item.restaurant_images[0].subpath}}=w440-h302-n-l95" loading="lazy" alt="{{img_alt | replace({"**rest_name**" : item.restaurant_name})}}"/>
+
+        </div>
+        <div class="item_info">
+            <p class="item_name">{{item.restaurant_name}}</p>
+
+            <p class="item_type">{{item.restaurant_types[0].name}}</p>
+
+            {% if type != 'other' %}
+            <div class="item_address_container">
+                <p class="item_address">{{item.restaurant_address}}</p>
+            </div>
+                
+            {% endif %}
+                
+            <div class="item_meta">                   
+
+                <div class="item_meta_item">
+                    <span class="item_meta_label">Вместимость: </span>
+                    <span class="item_meta_label">
+
+                    {% set halls = [] %}
+                    {% for room in item.rooms %}
+                        {% if room.capacity not in halls %}
+                            {% set halls = halls|merge([room.capacity]) %}  
+                        {% endif %}
+                    {% endfor %}
+                    {% for hall in halls %}
+                        {% if hall != halls|last %}
+                                <span class="item_meta_label">{{hall}}, </span>
+                            {% else %} 
+                                <span class="item_meta_label">{{hall}} </span>
+                        {% endif %} 
+                    {% endfor %}
+
+                    человек</span>
+                </div>
+
+                <div class="item_meta_item">
+                    <span class="item_meta_label">{{item.rooms|length}} открытых площадки</span>
+                </div>
+
+                {% if item.restaurant_price %}
+                    <div class="item_meta_item">
+                        <span class="item_meta_label">Стоимость: </span><span class="item_meta_text">от {{item.restaurant_price}}р на человека</span>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+
+        <div class="item_additional-info">
+
+            <div class="item_gift-for-birthday">
+                <span>Подарок имениннику</span>
+            </div>
+
+        </div>
+    </a>
+
+{% endfor %}

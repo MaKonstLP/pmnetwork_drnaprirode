@@ -1,0 +1,1204 @@
+.item_page_wrapper {
+    @include for-notdesc {
+        .breadcrumbs {
+            margin-top: 16px;
+        }
+
+        .general_block {
+            padding-left: 0;
+        }
+    }
+
+    @media (max-width: 1299px) {
+        .general_block {
+            flex-direction: column;
+            position: relative;
+            margin-top: 33px;
+        }
+    }
+
+    @include for-mobile {
+        .breadcrumbs {
+            transform: translateX(-2px);
+        }
+    }
+    
+    .card_left {
+        width: 345px;
+        // height: 744px;
+        height: inherit;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+
+        @include for-notdesc {
+            max-width: 23%;
+        }
+
+        @media (max-width: 1299px) {
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            height: max-content;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        .title_mob {
+            display: none;
+
+            @include for-pad {
+                display: block;
+                transform: translateY(-8px);
+                width: 100%;
+
+                h1 {
+                    margin: 0 0 5px 0;
+        
+                    @media (max-width: 1299px) {
+                        font-size: 24px;
+                        margin-bottom: 7px;
+                    }
+                }           
+    
+                .title_address {
+                    font-family: 'Proxima Nova';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 106.92%;
+                    color: $clrGreen;
+                    position: relative;
+
+                    @include for-mobile {
+                        margin-left: 17px !important;
+                        border-bottom: 1px solid $clrGreen;
+                    }
+    
+                    &:after {
+                        content: '';
+                        position: absolute;
+                        width: calc(100% - 21px);
+                        height: 1px;
+                        background: $clrGreen;
+                        right: 0;
+                        bottom: 0;
+
+                        @include for-mobile {
+                            display: none;
+                        }
+                    }
+        
+                    &::before {
+                        content: '';
+                        background: url('/dist/images/cardTitleAddressPoint.svg') no-repeat center center / cover;
+                        width: 11px;
+                        height: 15px;
+                        display: inline-block;
+                        margin-right: 10px;
+                        transform: translateY(4px);
+
+                        @include for-mobile {
+                            position: absolute;
+                            transform: translateY(4px) translateX(-18px) !important;
+                        }
+                    }
+                }
+            }
+
+            @include for-mobile {
+                display: block;
+                transform: translateY(-2px) translateX(2px);
+
+                h1 {
+                    font-family: 'Museo Sans Cyrl';
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 100%;
+                    letter-spacing: 0.01em;
+                    color: $clrBlack;
+                    margin: 0 0 10px;
+                }
+    
+                .title_address {
+                    font-family: 'Proxima Nova';
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 106.92%;
+                    color: $clrGreen;
+                    position: relative;
+                    margin-left: -2px;
+                    // text-decoration-line: underline;
+            
+                    &::before {
+                        content: '';
+                        background: url('/dist/images/cardTitleAddressPoint.svg') no-repeat center center / cover;
+                        width: 11px;
+                        height: 15px;
+                        display: inline-block;
+                        margin-right: 10px;
+                        transform: translateY(4px);
+                    }
+                }
+            }
+        }
+
+        .place_capacity {
+            display: flex;
+            flex-direction: column;
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 19px;
+            color: $clrBlack;
+            // margin-top: 99px;
+            transform: translateX(2px);
+            margin-top: 82px;
+
+            @media (max-width: 1299px) {
+                width: 50%;
+                margin-top: 12px;
+            }
+
+            @include for-mobile {
+                width: 100%;
+                margin-top: 23px;
+                font-size: 14px;
+                line-height: 17px;
+                margin-top: 17px;
+                margin-left: -4px;
+            }
+
+            span {
+                margin-top: 12px;
+
+                @include for-pad {
+                    margin-top: 10px;
+                }
+
+                @include for-mobile {
+                    margin-top: 6px;
+                }
+            }
+
+            span:first-child {
+                margin-top: 0;
+            }
+        }
+        
+        .place_price {
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-weight: bold;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 0.01em;
+            color: $clrBlack;
+            background: #F6F6F6;
+            border-radius: 20px;
+            width: 100%;
+            margin: 24px 0 40px;
+
+            @include for-notdesc {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                padding: 8px 0;
+                // margin: 25px 0;
+                margin: 21px 0 24px;
+            }
+
+            @media (max-width: 1299px) {
+                max-width: 210px;
+                height: max-content;
+                margin-top: 12px;
+            }
+
+            @include for-mobile {
+                width: 100%;
+                margin-top: 16px;
+                margin-bottom: 0;
+                max-width: 100%;
+                flex-direction: row;
+                height: 40px;
+                box-sizing: border-box;
+                align-items: center;
+            }
+
+            span {
+                line-height: 250%;
+
+                @include for-notdesc {
+                    font-size: 16px;
+                    line-height: 110%;
+                }
+
+                &:first-of-type {
+                    margin-left: -5px;
+
+                    @include for-mobile {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            span:last-of-type {
+                font-weight: normal;
+            }
+        }
+
+        .place_reserv {
+            width: 100%;
+            height: max-content;
+            padding: 26px 20px 24px;
+            box-sizing: border-box;
+            border: 1px solid $clrPagination;
+            text-align: center;
+            order: 2;
+            position: sticky;
+            top: 93px;
+
+            @include for-notdesc {
+                padding: 20px 12px;
+                top: 98px;
+                margin-bottom: 632px;
+            }
+
+            @media (max-width: 1299px) {
+                width: 48%;
+                margin-top: 10px;
+                min-height: 156px;
+                height: max-content;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                order: 1;
+                position: relative;
+                top: auto;
+                margin-bottom: 0;
+            }
+
+            @include for-mobile {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .place_reserv_name {
+                font-family: 'Proxima Nova';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                line-height: 22px;
+                color: $clrBlack;
+
+                @include for-notdesc {
+                    line-height: 19px;
+                }
+
+                @include for-pad {
+                    font-size: 16px;
+
+                    br {
+                        display: none;
+                    }
+                }
+
+                span:first-of-type {
+                    @include for-pad {
+                        margin-right: 5px;
+                    }
+                }
+            }
+
+            .place_reserv_present {
+                display: block;
+                font-family: 'Proxima Nova';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 100%;
+                color: $clrBlack;
+                margin: 8px auto 17px;
+                text-align: left;
+                margin-left: 29px;
+
+                @include for-notdesc {
+                    margin: 6px 0px 13px 30px;
+                }
+
+                @include for-pad {
+                    margin: 10px 0 14px 50px;
+                }
+
+                @include for-mobile {
+                    text-align: left;
+                    margin: 9px auto 14px 49px;
+                }
+
+                &::before {
+                    content: '';
+                    background: url('/dist/images/reservBirthday.svg');
+                    width: 21px;
+                    height: 16px;
+                    display: inline-block;
+                    margin-right: 8px;
+                    transform: translateY(5px);
+                    margin-left: -29px;
+
+                    @include for-notdesc {
+                        margin-right: 10px;
+                        margin-left: -31px;
+                    }
+                }
+
+                span {
+                    color: $clrBirthday;
+                }
+            }
+
+            .place_reserv_tel {
+                width: 100%;
+                background: $clrBorderImgCard;
+                border-radius: 20px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 18px 0 20px;
+                box-sizing: border-box;
+
+                @include for-notdesc {
+                    display: flex;
+                    justify-content: center;
+
+                    .place_reserv_telNumber_mob {
+                        display: none;
+                    }
+                }
+
+                @include for-pad {
+                    width: 185px;
+                }
+
+                @include for-mobile {
+                    width: 52vw;
+                    margin: 0 auto;
+                }
+
+                span, a {
+                    font-family: 'Proxima Nova';
+                    font-style: normal;
+                    font-weight: bold;
+                    font-size: 18px;
+                    line-height: 250%;
+                    color: $clrWhite;
+                    text-decoration: none;
+
+                    @include for-notdesc {
+                        font-size: 16px;
+                    }
+
+                    span {
+                        margin-right: 3px;
+
+                        &:nth-child(1), &:nth-child(2) {
+                            margin-right: -5px;
+                        }
+
+                        &:nth-child(6), &:nth-child(8) {
+                            margin-right: 6px;
+                        }
+                    }
+                }
+
+                .place_reserv_telToggle {
+                    width: max-content;
+                    height: max-content;
+                    cursor: pointer;
+                    display: flex;
+                    transform: translateX(-1px);
+
+                    @include for-notdesc {
+                        display: flex;
+                        align-items: center;
+                        height: 40px;
+                    }
+    
+                    span {
+                        font-family: 'Proxima Nova';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 17px;
+                        color: $clrWhite;
+                        border-bottom: 1px dashed $clrWhite;
+
+                        @include for-pad {
+                            transform: translateY(-1px) translateX(-2px);
+                        }
+                    }
+                }
+            }
+        }
+
+        .place_map {
+            height: 210px;
+            margin-bottom: 40px;
+            order: 1;
+
+            @include for-notdesc {
+                height: 170px;
+                margin-bottom: 25px;
+            }
+
+            @media (max-width: 1299px) {
+                width: 48%;
+                margin-top: 24px;
+                min-height: 156px;
+                margin-bottom: 0;
+                // height: 190px;
+                order: 2;
+            }
+
+            @include for-mobile {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .ymaps-2-1-77-map {
+                height: 210px !important;
+
+                @include for-notdesc {
+                    height: 170px !important;
+                }
+
+                @media (max-width: 1299px) {
+                    height: 156px !important;
+                }
+            }
+        }
+    }
+
+    .main_block {
+        // width: 74%;
+        width: calc(74% + 10px);
+
+        @include for-notdesc {
+            width: auto;
+            max-width: calc(100% - 238px);
+            transform: translateX(1px);
+            margin-left: 28px;
+        }
+
+        @media (max-width: 1299px) {
+            width: 100%;
+            max-width: 100%;
+            margin-left: 0;
+        }
+
+        .title {
+            @include for-notdesc {
+                margin-top: 9px;
+            }
+
+            @media (max-width: 1299px) {
+                // position: absolute;
+                // top: 0;
+                // left: 0;
+                // transform: translateY(-337px);
+                // margin-top: 0;
+                display: none;
+            }
+
+            @include for-mobile {
+                display: none;
+            }
+
+            h1 {
+                margin: -1px 0 6px 0;
+
+                @include for-notdesc {
+                    font-size: 30px;
+                    margin-bottom: 8px;
+                }
+
+                @media (max-width: 1299px) {
+                    font-size: 24px;
+                }
+            }           
+
+            .title_address {
+                font-family: 'Proxima Nova';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                line-height: 106.92%;
+                color: $clrGreen;
+                position: relative;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    width: calc(100% - 21px);
+                    height: 1px;
+                    background: $clrGreen;
+                    right: 0;
+                    bottom: 0;
+                }
+    
+                &::before {
+                    content: '';
+                    background: url('/dist/images/cardTitleAddressPoint.svg') no-repeat center center / cover;
+                    width: 11px;
+                    height: 15px;
+                    display: inline-block;
+                    margin-right: 10px;
+                    transform: translateY(4px);
+                }
+            }
+        }
+
+        .place_info_wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding-top: 27px;
+            padding-bottom: 34px;
+
+            @include for-notdesc {
+                margin-bottom: -10px;
+                padding-top: 23px;
+                padding-bottom: 25px;
+            }
+
+            @media (max-width: 1299px) {
+                padding-top: 23px;
+            }
+
+            @include for-mobile {
+                padding-top: 12px;
+                padding-bottom: 17px;
+            }
+
+            .carousel_top_wrapper {
+                width: 710px;
+                position: relative;
+                padding-top: 494px;
+
+                @include for-notdesc {
+                    width: 100%;
+                    padding-top: 489px;
+                }
+
+                @include for-mobile {
+                    padding-top: 286px;
+                    margin-left: -1px;
+                }
+
+                .object_gallery{
+                    display: flex;
+                    flex-flow: column nowrap;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    font-size: 0;
+
+                    @include for-mobile {
+                        margin-left: -1px;
+                    }
+                
+                    .swiper-container{
+                        width: 100%;
+                        height: 300px;
+                        margin-left: auto;
+                        margin-right: auto;
+
+                        @include for-mobile {
+                            height: max-content !important;
+                            max-height: 185px;
+                        }
+                
+                        .swiper-slide{
+                            background-size: cover;
+                            background-position: center;
+                
+                            img{
+                                width: 100%;
+                            }
+                        }
+                
+                        &.gallery-top{
+                            height: 400px;
+                            width: 100%;
+
+                            @include for-notdesc {
+                                height: 388px;
+                            }
+                        }
+                
+                        &.gallery-top-room{
+                            height: 400px;
+                            width: 100%;
+                            }
+                
+                        &.gallery-thumbs-room{
+                            height: 100px;
+                            padding: 10px 0;
+                
+                            .swiper-slide{
+                                cursor: pointer;
+                                width: 20%;
+                                height: 92px;
+                                border: 1px solid white;
+                            }
+                        }
+                
+                        &.gallery-thumbs{
+                            height: 80px;
+                            box-sizing: border-box;
+                            padding-top: 10px;
+                
+                            .swiper-slide{
+                                cursor: pointer;
+                                width: auto !important;
+                                height: 70px !important;
+                            }
+                        }
+                    }
+                }
+
+                .seo_text {
+                    margin: 0 0 30px;
+
+                    @include for-notdesc {
+                        margin: 0 0 23px;
+                    }
+                }
+            }
+
+            .info_wrapper {
+                width: 33%;
+                max-width: 345px;
+                display: flex;
+                flex-direction: column;
+                transform: translateY(-2px);
+
+                @include for-notdesc {
+                    width: 100%;
+                    max-width: none;
+                }
+
+                @include for-mobile {
+                    transform: translateY(2px) translateX(-2px);
+                }
+
+                .info_content {
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 19px;
+                    color: $clrCardInfo;
+                    margin-bottom: 19px;
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    .info_content_title {
+                        margin: 0 4px 0 0;
+                    }
+
+                    .info_content_var {
+                        margin: 0 4px 0 0;
+                        color: $clrBlack;
+                        text-transform: lowercase;
+                        transition: $transition;
+                        position: relative;
+                        cursor: pointer;
+
+                        &:hover {
+                            transition: $transition;
+                            color: $clrGreen;
+
+                            &::after {
+                                content: '';
+                                width: 100%;
+                                height: 1px;
+                                background: $clrGreen;
+                                position: absolute;
+                                left: 0;
+                                bottom: 1px;
+                            }
+                        }
+                    }
+                }
+
+                .info_content_extra {
+                    display: block;
+                    position: relative;
+                    display: flex;
+                    flex-direction: column;
+
+                    .info_content_usd {
+                        color: $clrGreen;
+                        font-weight: 600;
+                        position: absolute;
+                        top: 0;
+                        left: 219px;
+                    }
+
+                    .info_content_var {
+                        margin: 0 4px 0 0 !important;
+                        text-transform: capitalize;
+                        width: max-content;
+                    }
+                }       
+            }
+        }
+
+        .halls_wrapper {
+            width: 100%;
+
+            @include for-mobile {
+                width: 100vw;
+                transform: translateX(-5vw) translateY(3px);
+            }
+
+            .hall_card_wrapper {
+                background: $clrHeaderBg;
+                padding: 40px;
+                padding-bottom: 33px;
+                margin-bottom: 32px;
+                display: flex;
+                flex-wrap: wrap;
+
+                &:last-of-type {
+                    margin-bottom: 17px;
+                }
+
+                @include for-notdesc {
+                    // padding: 25px 30px 20px;
+                    padding: 25px 31px 20px;
+                    margin-bottom: 40px;
+                    flex-direction: column;
+
+                    &:last-of-type {
+                        margin-bottom: 40px;
+                    }
+                }
+
+                @include for-mobile {
+                    padding: 25px 15px 19px;
+                    margin-bottom: 30px;
+
+                    &:last-of-type {
+                        margin-bottom: 33px;
+                    }
+                }
+
+                .hall_card_title {
+                    // width: 33%;
+                    width: calc(33% - 5px);
+
+                    @include for-notdesc {
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    @include for-mobile {
+                        flex-direction: column;
+                    }
+
+                    h2 {
+                        margin: 0 0 10px 0;
+                        font-family: 'Museo Sans Cyrl';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 24px;
+                        line-height: 100%;
+                        color: $clrBlack;
+                        margin-right: 18px;
+
+                        @include for-notdesc {
+                            margin-right: 0;
+                            margin-bottom: 18px;
+                        }
+
+                        @media (max-width: 1299px) {
+                            font-size: 20px;
+                            margin-bottom: 21px;
+                        }
+
+                        @include for-mobile {
+                            margin-bottom: 1px;
+                        }
+                    }
+
+                    span {
+                        font-family: 'Proxima Nova';
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 18px;
+                        line-height: 144%;
+                        letter-spacing: 0.01em;
+                        color: $clrBlack;
+                        margin-right: 18px;
+                        margin-left: 1px;
+
+                        @include for-notdesc {
+                            margin-right: 0;
+                            transform: translateX(-1px) translateY(2px);
+                        }
+
+                        @include for-mobile {
+                            margin-bottom: 18px;
+                        }
+                    }
+                }
+
+                .hall_card_carousel {
+                    position: relative;
+                    // width: 67%;
+                    width: calc(67% + 5px);
+
+                    @include for-notdesc {
+                        width: 100%;
+                        margin-bottom: 20px;
+                    }
+
+                    @include for-mobile {
+                        margin-bottom: 9px;
+                    }
+
+                    .swiper-container {
+                        height: max-content;
+
+                        @include for-notdesc {
+                            max-height: 320px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        img {
+                            height: 446px;
+
+                            @include for-notdesc {
+                                // height: 320px;
+                            }
+
+                            @include for-mobile {
+                                width: 100%;
+                                height: 168px;
+                                object-fit: cover;
+                            }
+                        }
+                    }
+
+                    .carousel_nav_prev_hall, .carousel_nav_next_hall {
+                        // top: 173px;
+                        top: calc(50% - 35px);
+                    }
+
+                    .gallery-thumbs-room {
+                        display: none;
+                    }
+                }
+
+                .hall_card_info {
+                    width: 33%;
+                    height: 0;
+                    transform: translateY(-369px);
+
+                    @include for-notdesc {
+                        transform: none;
+                        height: auto;
+                        width: 100%;
+                        display: flex;
+                        flex-direction: column;
+                        flex-wrap: wrap;
+                        max-height: 60px;
+                    }
+
+                    @include for-pad {
+                        transform: translate(-1px, -2px);
+                    }
+
+                    @include for-mobile {
+                        max-height: max-content;
+                        transform: translate(0px, -2px);
+                    }
+
+                    .info_row {
+                        display: flex;
+                        justify-content: space-between;
+                        margin-bottom: -2px;
+
+                        @include for-notdesc {
+                            width: 50%;
+                            margin: 0;
+                            align-items: baseline;
+                            margin-bottom: -2px;
+                        }
+
+                        @include for-pad {
+                            width: 50%;
+                        }
+
+                        @include for-mobile {
+                            width: 100%;
+                        }
+                    }
+
+                    .info_row_left {
+                        width: 50%;
+                        font-family: 'Proxima Nova';
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 14px;
+                        line-height: 130%;
+                        letter-spacing: 0.01em;
+                        color: $clrPaginationEllipsis;
+
+                        @include for-pad {
+                            width: 65%;
+                        }
+
+                        @include for-mobile {
+                            width: 62%;
+                        }
+                    }
+
+                    .info_row_right {
+                        width: 40%;
+                        margin-right: 18px;
+                        transform: translateX(-5px);
+
+                        @include for-notdesc {
+                            width: 40%;
+                            transform: translateX(3px);
+                        }
+
+                        @include for-pad {
+                            width: 47%;
+                        }
+
+                        @include for-mobile {
+                            width: 50%;
+                        }
+
+                        span {
+                            font-family: 'Proxima Nova';
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 14px;
+                            line-height: 130%;
+                            letter-spacing: 0.01em;
+                            color: $clrBlack;
+                        }
+                    }
+                }
+            }
+        }
+
+        .form_callback_wrapper {
+            width: 100%;
+            margin-left: 0;
+            padding-top: 0;
+        }
+
+        .carousel_list_wrapper {
+            position: relative;
+            padding: 57px 0 30px;
+
+            @include for-notdesc {
+                padding: 50px 0;
+                // width: calc(139% + 28px);
+                // transform: translateX(calc(-23% - 28px));
+                width: calc(130% + 29px);
+                transform: translateX(calc(-23% - 24px));
+            }
+
+            @media (max-width: 1299px) {
+                padding: 38px 0 50px;
+                width: 100%;
+                transform: none;
+            }
+
+            @include for-mobile {
+                padding: 41px 0 50px;
+            }
+
+            ._list {
+                position: relative;
+
+                @include for-mobile {
+                    width: 290px;
+                    margin: 0 auto;
+                }
+            }
+
+            .carousel_list_title {
+                font-family: 'Museo Sans Cyrl';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 30px;
+                line-height: 100%;
+                text-align: center;
+                color: $clrBlack;
+                margin: 0 0 26px;
+
+                @include for-notdesc {
+                    font-size: 24px;
+                    margin-bottom: 20px;
+                }
+
+                @include for-mobile {
+                    font-size: 20px;
+                    margin-bottom: 16px;
+                }
+            }
+
+            .carousel_nav_prev_list, .carousel_nav_next_list {
+                top: 102px;
+
+                @include for-notdesc {
+                    top: 79px;
+                }
+            }
+
+            .swiper-slide {
+                height: auto;
+
+                .item {
+                    width: 100%;
+                    margin: 0 10px 0 0;
+                    // height: 95% !important;
+                    min-height: 100%;
+                }
+            }
+        }
+    }
+}
+
+.carousel_nav {
+    @include for-mobile {
+        display: none;
+    }
+
+    .carousel_nav_prev, .carousel_nav_next, 
+    .carousel_nav_prev_hall, .carousel_nav_next_hall,
+    .carousel_nav_prev_list, .carousel_nav_next_list {
+        position: absolute;
+        top: 149px;
+        left: 0;
+        z-index: 2;
+        width: 60px;
+        height: 70px;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+        background: url('/dist/images/carouselArrow.svg') no-repeat 40% center / 23%, $clrWhite;
+        cursor: pointer;
+        transition: $transition;
+        outline: none !important;
+
+        &:hover {
+            background-size: 26%;
+            transition: $transition;
+        }
+
+        &:active {
+            background-size: 30%;
+            background-position-x: 8px;
+        }
+    }
+
+    .carousel_nav_next,
+    .carousel_nav_next_hall,
+    .carousel_nav_next_list {
+        transform: rotateY(180deg);
+        left: auto;
+        right: 0;
+    }
+
+    .carousel_nav_prev_list, .carousel_nav_next_list {
+        @media (max-width: 1299px) {
+            display: none;
+        }
+    }
+
+    .swiper-button-disabled {
+        opacity: .6;
+        transition: $transition;
+    
+        &:hover {
+            background-size: auto !important;
+        }
+    
+        &:active {
+            background-size: auto !important;
+            background-position-x: 18px !important;
+        }
+    }
+}
+
+.telHidden {
+    display: none !important;
+}
+
+.halls_carousel {
+    @include for-notdesc {
+        .form_wrapper {
+            padding: 25px 75px 26px;
+
+            .form_policy {
+                width: 303px;
+            }
+
+            ._button {
+                width: 320px;
+            }
+        }
+    }
+
+    @include for-pad {
+        .form_wrapper {
+            .form_title {
+                .form_title_desc {
+                    top: 19px;
+                }
+            }
+
+            .form_block {
+                margin-top: 43px;
+
+                .form_submit_callback {
+                    ._button {
+                        width: 320px;
+                    }
+                }
+            }
+        }
+    }
+
+    @include for-mobile {
+        .form_wrapper {
+            padding: 28px 19px 29px;
+
+            .form_title {
+                .form_title_desc {
+                    top: -1px;
+                }
+            }
+
+            .form_block {
+                margin-top: 16px;
+            }
+        }
+    }
+}

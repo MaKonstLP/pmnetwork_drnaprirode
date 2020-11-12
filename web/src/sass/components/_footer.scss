@@ -1,0 +1,227 @@
+footer{
+    width: 100%;
+    height: 103px;
+    background: $clrHeaderBg;
+    z-index: auto;
+
+    @include for-mobile {
+        height: 185px;
+    }
+
+    .footer_container{
+       width: 1440px;
+       display: flex;
+       margin: auto;
+       height: 100%;
+
+        @include for-notdesc {
+            // max-width: 70vw;
+            max-width: 930px;
+            padding-top: 15px;
+            padding-bottom: 19px;
+            height: max-content;
+        }
+
+        @include for-pad {
+            max-width: 69%;
+            min-width: 690px;
+        }
+
+        @include for-pad {
+            position: relative;
+            height: 100%;
+            padding: 0;
+        }
+
+        @include for-mobile {
+            // min-width: 320px;
+            min-width: auto;
+            width: 90vw;
+            max-width: 90vw;
+        }
+    }
+
+    .footer_wrap {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include for-mobile {
+            flex-direction: column;
+            justify-content: start;
+        }
+
+        .footer_block_left {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 430px;
+            height: 100%;
+            margin-left: 45px;
+
+            @include for-notdesc {
+                margin-left: 0;
+                transform: translateX(5px);
+            }
+
+            @include for-mobile {
+                flex-direction: column;
+                max-width: 90vw;
+                margin: 0;
+                // height: max-content;
+                height: 144px;
+                position: absolute;
+                left: 0;
+                transform: translateX(4px) translateY(3px);
+            }
+            
+            .footer_logo{
+                display: flex;
+                align-items: center;
+                text-decoration: none;
+                width: 205px;
+                justify-content: space-between;
+                transform: translateX(-3px) translateY(-4px);
+
+                // @include for-pad {
+                    
+                // }
+
+                @include for-mobile {
+                    left: -4px;
+                    top: 16px;
+                    position: absolute;
+                    // left: 0;
+                    // top: 15px;
+                    margin-left: 0;
+                }
+        
+                .footer_logo_img{
+                    width: 44px;
+                    height: 65px;
+                    background: url("/dist/images/headerLogo.svg");
+                    background-size: contain;
+                    margin-right: 12px;
+                    transition: $transition;    
+                }
+    
+                .footer_logo_text {
+                    padding-top: 18px;
+                    transition: $transition;
+                    transform: translateX(-4px) translateY(4px);
+                    
+                    p {
+                        margin: 0;
+                    }
+                }
+    
+                .footer_logo_text span{
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: 600;
+                    font-size: 18px;
+                    line-height: 112.86%;
+                    text-transform: uppercase;
+                    color: $clrBlack;
+                    letter-spacing: 0.01em;
+    
+                    &:last-of-type{
+                        font-weight: 600;
+                        font-size: 14px;
+                        line-height: 100%;
+                        color: $clrGreen;
+                        display: block;
+                    }
+                }
+            }
+            
+            .footer_info {
+                padding-top: 14px;
+                transform: translateX(-6px) translateY(2px);
+
+                @include for-pad {
+                    transform: translateX(27px) translateY(2px);
+                }
+
+                @include for-mobile {
+                    left: 20px;
+                    top: 90px;
+                    position: absolute;
+                    padding: 0;
+                    // left: 56px;
+                    // top: 92px;
+                    transform: translateX(28px) translateY(2px);
+                }
+
+                .footer_copy, .footer_link {
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 12px;
+                    line-height: 130%;
+                    color: $clrBlack;
+                    margin: 0;
+                    letter-spacing: 0.01em;
+                    margin-bottom: -4px;
+                }
+
+                .footer_link {
+                    color: $clrGreen;
+                    text-decoration: none;
+                    text-decoration-line: underline;
+                }
+            }
+        }
+
+        .footer_block_right {
+            margin-right: 46px;
+            margin-top: 10px;
+
+            @include for-notdesc {
+                margin-right: 0;
+            }
+
+            @include for-pad {
+                transform: translate(1px, -7px);  
+            }
+
+            @include for-mobile {
+                left: 53px;
+                top: 144px;
+                transform: translateY(-3px);
+                position: absolute;
+                margin: 0;
+                // left: 56px;
+                // top: 140px;
+            }
+
+            .footer_phone {
+                font-family: "Museo Sans Cyrl";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 26px;
+                line-height: 31px;
+                color: $clrBlack;
+                text-decoration: none;
+                cursor: pointer;
+
+                @include for-notdesc {
+                    font-size: 24px;
+                    line-height: 22px;
+                }
+
+                @include for-pad {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+
+                @include for-mobile {
+                    font-size: 20px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,67 @@
+
+<div class="slider_container" data-type="{{label}}" data-filter-scroll-block>
+    <div class="average">
+
+        {% if label == 'chek' %}
+            <p>
+                {% if filter_item.active is not null %}
+                    {% for key,value in filter_item.items %}
+                        <span class="average_item {{filter_item.active[key] is defined ? 'visible':''}}" data-value="{{key}}" data-filter-select-item>{{value}} руб.</span>
+                    {% endfor %}
+                {% else %}
+                    {% for key,value in filter_item.items %}
+                        {% if key == 2 %}        
+                            <span class="average_item visible" data-value="{{key}}" data-filter-select-item>{{value}} руб.</span>
+                        {% else %}
+                            <span class="average_item" data-value="{{key}}" data-filter-select-item>{{value}} руб.</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% else %}
+            <p>
+                {% if filter_item.active is not null %}
+                    {% for key,value in filter_item.items %}
+                        <span class="average_item {{filter_item.active[key] is defined ? 'visible':''}}" data-value="{{key}}" data-filter-select-item>{{value}}</span>
+                    {% endfor %}
+                {% else %}
+                    {% for key,value in filter_item.items %}
+                        {% if key == 2 %}        
+                            <span class="average_item visible" data-value="{{key}}" data-filter-select-item>{{value}}</span>
+                        {% else %}
+                            <span class="average_item" data-value="{{key}}" data-filter-select-item>{{value}}</span>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </p>
+        {% endif %}
+
+        <p>{{filter_item.name}}</p>
+    </div>
+    
+    <div class="slider slider_{{label}}">
+        <div class="thumb thumb_{{label}}">
+            <div class="thumb_green"></div>
+        </div>
+    </div>
+
+    <div class="slider_numbers">
+        <p class="slider_{{label}}_left">
+            {% for key,value in filter_item.items %}
+                {% if key == 1 %}        
+                    {{value}}
+                {% endif %}
+            {% endfor %}
+        </p>
+
+        <p class="slider_{{label}}_right">
+            {% for key,value in filter_item.items %}
+                {% if key == filter_item.items|length %}        
+                    {{value}}
+                {% endif %}
+            {% endfor %}
+        </p>
+    </div>
+</div>
+
+

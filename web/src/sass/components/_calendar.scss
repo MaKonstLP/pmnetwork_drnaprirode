@@ -1,0 +1,409 @@
+.calendar_container{
+    display: flex;
+    position: absolute;
+    width: 315px;
+    height: max-content !important;
+    max-height: 345px;
+    top: 0;
+    right: 18px;
+    left: auto;
+    height: auto;
+    background: $clrWhite;
+    border: 1px solid $clrPagination;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+
+    @include for-mobile {
+        right: calc(50% - 157.5px);
+        left: auto !important;
+    }
+
+    .calendar{
+    width: 100%;
+    height: auto;
+    padding: 16px 20px 28px;
+
+    .fc-toolbar.fc-header-toolbar{
+        position: relative;
+        justify-content: center;
+        margin-bottom: 22px;
+
+        .fc-left{
+
+            h2{
+                font-family: "Proxima Nova";
+                font-style: normal;
+                font-weight: 600;
+                font-size: 16px;
+                line-height: 19px;
+                color: #000000;
+            }
+        }
+    
+        .fc-center {
+            display: none;
+        }
+    
+        .fc-right{
+            width: 100%;
+            height: 20px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        .fc-button-group {
+            position: absolute;
+            width: 273px;
+            height: 20px;
+
+            .fc-prev-button {
+                position: absolute;
+                left: 0;
+                width: 22px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                .fc-icon-chevron-left {
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #AFAFAF;
+                    border-radius: 3px;
+                    box-sizing: border-box;
+                    background: url('/dist/images/calendarPrev.svg') no-repeat center center / 40%;
+                    transition: $transition;
+
+                    &:hover {
+                        border: 1px solid $clrGreen;
+                        background: url('/dist/images/calendarPrevHover.svg') no-repeat center center / 40%, $clrGreen;
+                        transition: $transition;
+                    }
+                }
+            }
+
+            .fc-next-button {
+                position: absolute;
+                right: 0;
+                width: 22px;
+                height: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                &:focus {
+                    box-shadow: none;
+                }
+
+                .fc-icon-chevron-right {
+                    width: 20px;
+                    height: 20px;
+                    border: 1px solid #AFAFAF;
+                    border-radius: 3px;
+                    box-sizing: border-box;
+                    background: url('/dist/images/calendarNext.svg') no-repeat 60% center / 40%;
+                    transition: $transition;
+
+                    &:hover {
+                        border: 1px solid $clrGreen;
+                        background: url('/dist/images/calendarNextHover.svg') no-repeat 60% center / 40%, $clrGreen;
+                        transition: $transition;
+                    }
+                }
+            }
+        }
+    }
+
+    .fc-icon {
+        &:before{
+            display: none;
+        }
+    }
+
+    .fc-button.fc-button-primary{
+        padding: 0;
+        background-color: transparent;
+        border-color: transparent;
+    }
+
+    .fc-view-container {
+
+        .fc-widget-header > table > thead > tr {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+    
+        .fc-day-header > span {
+            font-family: 'NotoSans-Regular';
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 19px;
+            color: #999999;
+        }
+
+        .fc-week .fc-widget-content {
+            margin-bottom: 22px;
+        }
+
+        .fc-content-skeleton > table > thead > tr {
+            display: flex;
+            justify-content: space-between;
+            width: 273px;
+        }
+
+        .fc-content-skeleton > table > thead > tr > td {
+            width: 8%;
+        }
+
+        .fc-past, .fc-today, .fc-future {
+            font-family: 'NotoSans-Bold';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 22px;
+            color: #444444;
+        }
+
+        .fc-past:hover, .fc-today:hover, .fc-future:hover {
+            span {
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 1px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid $clrGreen;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    z-index: -1;
+                }
+            }
+        }
+
+        .fc-past:active, .fc-today:active, .fc-future:active {
+            span {
+                color: $clrWhite;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 1px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid $clrGreen;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    background: $clrGreen;
+                    z-index: -1;
+                }
+            }
+        }
+
+        .fc-other-month.fc-past, .fc-other-month.fc-future {
+            opacity: 1 !important;
+            color: #CCCCCC;
+        }
+
+        .fc-row.fc-week.fc-widget-content{
+            height: max-content !important;
+        }
+        
+        .fc-content-skeleton {
+            .fc-selected-date{
+                color: $clrWhite;
+    
+                &:before{
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 1px;
+                    width: 40px;
+                    height: 40px;
+                    border: 1px solid $clrGreen;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    background: $clrGreen;
+                    z-index: -1;
+                }
+            }
+        }  
+    }
+
+    .fc-day-header{
+        font-size: 11px;
+        font-weight: 500;
+    }
+
+    .fc-footer-toolbar{
+        margin-top: 0;
+    }
+
+    .fc-icon{
+        position: relative;
+
+        &:before{
+            display: none;
+            content: "";
+            position: absolute;
+            top: 5px;
+            left: 2px;
+            width: 22px;
+            height: 16px;
+            background: url("/img/korporativ-ng/arrow-right.svg");
+            background-size: contain;
+        }
+    }
+
+    .fc-icon.fc-icon-chevron-left{
+
+        &:before{
+            transform: rotate(180deg);
+            left: 0;
+        }
+    }
+
+    td.fc-today{
+        border: none;
+    }
+
+    td, th{
+        border: none;
+    }
+
+    .fc-dayGrid-view .fc-body .fc-row {
+        min-height: 10px;
+    }
+    .fc-scroller.fc-day-grid-container{
+        height: auto !important;
+        padding: 0 0 2px 0 !important;
+        overflow: visible !important;
+    }
+
+    .fc-content-skeleton{
+        padding-bottom: 0;
+
+        .fc-day-top{
+            cursor: pointer;
+            position: relative;
+            width: 42px !important;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            span {
+                cursor: pointer;
+            }
+        }
+
+        .fc-mon {
+            margin-left: -11px;
+        }
+
+        .fc-sun {
+            margin-right: -14px;
+        }
+
+        .fc-free-day{
+            color: #5BA641;
+
+            &:before{
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 2px;
+                width: 33px;
+                height: 33px;
+                border: 1px solid #5BA641;
+                border-radius: 17px;
+                z-index: -1;
+            }
+        }
+
+        table{
+            thead{
+                td.fc-day-top{
+                    text-align: center;
+                    vertical-align: middle;
+
+                    .fc-day-number{
+                        float: none;
+                        width: 40px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+            }
+        }
+    }
+
+        &.fc-unthemed{
+            td.fc-today{
+                background-color: transparent;
+            }
+        }
+    }
+
+    .fc-booking-button{
+        cursor: pointer;
+        width: 155px;
+        height: 36px;
+        margin-bottom: 25px;
+        border: 1px solid #D83603;
+        border-radius: 5px;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+    
+        &:active{
+            color: black;
+        }
+    }
+
+    .calendar_checkbox{
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 22px;
+        
+    }
+
+    .checkbox_item{
+        display: none;
+    }
+
+    @include for-mobile{
+        left: -74px;
+
+        .calendar{
+            width: 290px;
+            padding: 20px 15px 20px;
+
+            &:before{
+                left: 45px;
+            }
+
+            .fc-content-skeleton{
+                
+                .fc-selected-date:before{
+                    left: 3px;
+                }
+            } 
+        }
+
+        .checkbox_item{
+            padding: 0 0 20px 25px;
+        }
+    }
+}

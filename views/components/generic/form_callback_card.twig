@@ -1,0 +1,48 @@
+<div class="form_wrapper callback">
+
+    <div class="form_title">
+		<p class="form_title_main">Подобрать площадку</p>
+		<p class="form_title_desc">Мы поможем вам подобрать место для проведения Дня рождения</p>
+	</div>
+
+  <form class="form_block" action="/ajax/form/"  data-type="{{type ? type : 'main'}}">
+
+    <div class="form_inputs">
+    
+      <div class="input_wrapper">
+        <input type="text" name="name" data-required data-required placeholder="Ваше имя">
+      </div>
+
+      <div class="input_wrapper">
+        <input type="text" name="phone" data-required data-required placeholder="+7 (999) 999 - 99 - 99">
+      </div>
+
+      <div class="input_wrapper">
+        <input type="text" name="guests_number" data-required placeholder="Количество человек">
+      </div>
+
+      <div class="input_wrapper">
+        <input type="text" name="date" data-required placeholder="Дата праздника">
+        <div class="calendar_wrapper">
+          <div class="open_calendar_button"></div>
+          <div class="calendar_container _hide">
+            <div class="calendar"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="input_wrapper input_wrapper_textarea">
+        <textarea name="question" placeholder="Опишите здесь Ваши пожелания"></textarea>
+      </div>
+    </div>
+
+    <div class="form_submit_callback">
+			<div class="form_policy checkbox_item _active" data-action="form_checkbox" data-form-privacy>
+				<input type="checkbox" name="policy" class="personalData" checked=""  data-required>
+				<p class="checkbox_pseudo">Согласен с <a class="_link" href="/privacy/" target="_blank">политикой конфиденциальности</a></p>
+			</div>
+      <button class="_button" type="submit">Отправить</button>
+		</div>
+
+  </form>
+</div>

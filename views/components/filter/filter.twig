@@ -1,0 +1,33 @@
+<div class="filter_wrapper" data-filter-wrapper>
+	<div class="filter_content">
+
+		{% for label,filter_item in filters %} 
+			{% if filter_item.type == 'scroll' %}
+				{{ this.render('filter_scroll.twig', {
+					'filter_item':filter_item,
+					'label':label,
+					'filter_active': filter_active
+				}) | raw }}
+			{% endif %}
+		{% endfor %}
+
+		{% for label,filter_item in filters %}
+			{% if filter_item.type == 'select' %}
+				{{ this.render('filter_select.twig', {
+					'filter_item':filter_item,
+					'label':label,
+					'filter_active': filter_active,
+					'id': loop.index
+				}) | raw }}
+			{% endif %}
+		{% endfor %}
+
+		<div class="filter_btn_show" data-filter-button>
+			<span>Показать</span>
+		</div>
+
+		<div class="filter_reset_wrapper">
+			<p class="filter_reset">Сбросить фильтр</p>
+		</div>
+	</div>
+</div>

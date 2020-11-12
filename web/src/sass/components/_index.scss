@@ -1,0 +1,559 @@
+.index_title {
+    @include for-notdesc {
+        transform: translateX(3px);
+    }
+
+    @include for-mobile {
+        transform: translateX(5px);
+    }
+
+    h1 {
+        transform: translateX(-2px);
+
+        @include for-pad {
+            transform: translateX(-9px);
+        }
+    }
+
+    p {
+        @include for-notdesc {
+            margin: 4px 0 20px 10px !important;
+        }
+
+        @include for-pad {
+            margin: 8px 0 18px 10px!important;
+            transform: translateX(-10px);
+        }
+
+        @include for-mobile {
+            margin: 8px 0 8px 10px!important;
+            transform: translateX(-14px);
+        }
+    }
+
+    h1, p {
+        text-align: center;
+    }
+}
+
+.seasons_wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    // margin-left: 10px;
+    margin-left: 8px;
+    margin-bottom: 16px;
+
+    @media (max-width: 1299px) {
+        margin-bottom: 30px;
+    }
+
+    @include for-mobile {
+        margin-left: 0;
+        margin-bottom: -10px;
+    }
+
+    .seasons {
+        width: calc(50% - 7px);
+        height: 262px;
+        margin-bottom: 14px;
+        position: relative;
+
+        @include for-notdesc {
+            width: calc(50% - 11px);
+        }
+
+        @media (max-width: 1299px) {
+            // width: 100%;
+            width: calc(100% - 13px);
+            height: 251px;
+            margin-bottom: 20px;
+        }
+
+        @include for-mobile {
+            width: 100%;
+            transform: translateX(-5px);
+        }
+
+        &:nth-child(2n) {
+            @include for-notdesc {
+                transform: translateX(8px);
+            }
+
+            @include for-pad {
+                transform: none;
+                height: 262px;
+            }
+
+            @include for-mobile {
+                width: 100%;
+                transform: translateX(-5px);
+            }
+        }
+
+        &:hover {
+            .seasons_name {
+                line-height: 112.86%;
+                width: 400px;
+                height: 155px;
+                transition: $transition;
+                text-align: left;
+                box-sizing: border-box;
+                padding: 11px 40px 21px;
+
+                @include for-notdesc {
+                    max-width: 100%;
+                    height: 100%;
+                    top: 0 !important;
+                }
+
+                @media (max-width: 1299px) {
+                    top: 0;
+                    left: 0;
+                    min-width: 50%;
+                    width: max-content;
+                    height: 100%;
+                    padding: 14px 20px 10px;
+                }
+    
+                @include for-mobile {
+                    width: 100%;
+                }
+
+                .seasons_name_hiddenContent {
+                    opacity: 1;
+                    transition: $transition;
+
+                    @include for-notdesc {
+                        max-width: calc(100% - 80px);
+                        height: calc(100% - 45px);
+                    }
+
+                    @media (max-width: 1299px) {
+                        max-width: 100%;
+                        height: 100%;
+                    }
+
+                }
+            }
+        }
+
+        .seasons_name {
+            position: absolute;
+            font-family: "Museo Sans Cyrl";
+            font-size: 14px;
+            line-height: 112.86%;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: $clrWhite;
+            padding: 11px 40px 21px;
+            text-align: center;
+            width: 122px;
+            height: 38px;
+            box-sizing: border-box;
+            transition: $transition;
+            overflow: hidden;
+            z-index: 2;
+
+            @media (max-width: 1299px) {
+                top: 0;
+                left: 0;
+                min-width: 50%;
+                width: max-content;
+                height: 100%;
+                padding: 14px 20px 10px;
+            }
+
+            @include for-mobile {
+                width: 100%;
+            }
+
+            span {
+                position: absolute;
+                cursor: default;
+
+                @media (max-width: 1299px) {
+                    top: 14px;
+                    left: 22px;
+                }
+            }
+
+            .seasons_name_hiddenContent {
+                margin-top: 21px;
+                padding-top: 10px;
+                width: 320px;
+                height: 110px;
+                opacity: 0;
+                transition: $transition;
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+                position: absolute;
+
+                @media (max-width: 1299px) {
+                    opacity: 1;
+                    width: 100%;
+                    height: 100%;
+                    position: initial;
+                    box-sizing: border-box;
+                    margin-top: 20px;
+                    padding-top: 11px;
+                }
+
+                a {
+                    font-family: "Proxima Nova";
+                    font-style: normal;
+                    font-weight: normal;
+                    font-size: 16px;
+                    line-height: 100%;
+                    color: $clrWhite;
+                    margin: 0 0 10px 0;
+                    text-decoration: none;
+                    text-transform: none;
+                    width: max-content;
+                    cursor: pointer;
+
+                    @include for-pad {
+                        margin: 0 0 9px 0;
+                    }
+
+                    &:hover {
+                        text-decoration: none;
+                        text-decoration-line: underline;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(1) {
+            background: url('/dist/images/seasonsImg1.jpg') no-repeat center center / cover;
+
+            .seasons_name {
+                background: $clrGreen;
+                top: 16px;
+                left: 0;
+
+                @media (max-width: 1299px) {
+                    top: 0;
+                }
+
+                span {
+                    top: 12px;
+                    left: 42px;
+
+                    @media (max-width: 1299px) {
+                        top: 14px;
+                        left: 22px;
+                    }
+                }
+
+                .seasons_name_hiddenContent {
+                    border-top: 1px solid $clrWhite;
+                    left: 40px;
+                }
+            }
+        }
+
+        &:nth-child(2) {
+            background: url('/dist/images/seasonsImg2.jpg') no-repeat center center / cover;
+
+            .seasons_name {
+                background: $clrPaginationHover;
+                top: 16px;
+                right: 0;
+
+                @media (max-width: 1299px) {
+                    top: 0;
+                    left: auto;
+                    right: 0;
+                }
+
+                span {
+                    top: 12px;
+                    right: 37px;
+
+                    @media (max-width: 1299px) {
+                        top: 14px;
+                        left: 22px;
+                        right: auto;
+                    }
+
+                    @include for-mobile {
+                        left: 20px;
+                    }
+                }
+
+                .seasons_name_hiddenContent {
+                    border-top: 1px solid $clrWhite;
+                    right: 40px;
+
+                    @include for-notdesc {
+                        align-items: flex-end;
+                    }
+
+                    @media (max-width: 1299px) {
+                        align-items: flex-start;
+                    }
+                }
+            }
+        }
+
+        &:nth-child(3) {
+            background: url('/dist/images/seasonsImg3.jpg') no-repeat center center / cover;
+
+            .seasons_name {
+                background: $clrBorderImgCard;
+                bottom: 22px;
+                left: 0;
+
+                @media (max-width: 1299px) {
+                    top: 0;
+                    bottom: auto;
+                }
+
+                span {
+                    bottom: 11px;
+                    left: 41px;
+
+                    @media (max-width: 1299px) {
+                        top: 14px;
+                        left: 22px;
+                    }
+                }
+
+                .seasons_name_hiddenContent {
+                    border-bottom: 1px solid $clrWhite;
+                    margin-top: 0;
+                    padding-top: 0;
+                    padding-bottom: 4px;
+                    left: 40px;
+                    bottom: 36px;
+
+                    @media (max-width: 1299px) {
+                        border-bottom: none;
+                        border-top: 1px solid $clrWhite;
+                        margin-top: 20px;
+                        padding-top: 11px;
+                    }
+
+                    a {
+                        margin-bottom: 0;
+                        margin-top: 10px;
+
+                        @media (max-width: 1299px) {
+                            margin: 0 0 9px 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        &:nth-child(4) {
+            background: url('/dist/images/seasonsImg4.jpg') no-repeat center center / cover;
+
+            .seasons_name {
+                background: $clrBirthday;
+                bottom: 22px;
+                right: 0;
+
+                @media (max-width: 1299px) {
+                    top: 0;
+                    left: auto;
+                    right: 0;
+                    bottom: auto;
+                }
+
+                span {
+                    bottom: 12px;
+                    right: 37px;
+
+                    @media (max-width: 1299px) {
+                        top: 14px;
+                        left: 22px;
+                        right: auto;
+                    }
+                }
+
+                .seasons_name_hiddenContent {
+                    border-bottom: 1px solid $clrWhite;
+                    margin-top: 0;
+                    padding-top: 0;
+                    padding-bottom: 4px;
+                    right: 40px;
+                    bottom: 36px;
+
+                    @include for-notdesc {
+                        align-items: flex-end;
+                    }
+
+                    @media (max-width: 1299px) {
+                        border-bottom: none;
+                        border-top: 1px solid $clrWhite;
+                        margin-top: 20px;
+                        padding-top: 12px;
+                        align-items: flex-start;
+                    }
+
+                    a {
+                        margin-bottom: 0;
+                        margin-top: 10px;
+
+                        @media (max-width: 1299px) {
+                            margin: 0 0 9px 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.popPlaces {
+    h2 {
+        font-family: "Museo Sans Cyrl";
+        font-style: normal;
+        font-weight: 600;
+        font-size: 30px;
+        line-height: 100%;
+        text-align: center;
+        color: $clrBlack;
+        margin: 63px auto 26px;
+        letter-spacing: 0.01em;
+        transform: translateX(5px);
+
+        @include for-notdesc {
+            margin: 31px auto 19px;
+            font-size: 26px;
+            transform: translateX(9px);
+        }
+
+        @media (max-width: 1299px) {
+            margin: 40px auto 25px;
+            font-size: 24px;
+        }
+
+        @include for-mobile {
+            margin: 59px auto 17px;
+            transform: translateX(-3px);
+            font-size: 20px;
+        }
+    }
+
+}
+
+.index_seo_text {
+    position: relative;
+    
+    @include for-notdesc {
+        margin-top: 17px !important;
+    }
+
+    @media (max-width: 1299px) {
+        margin-top: 30px !important;
+        font-size: 14px !important;
+        line-height: 120% !important;
+    }
+
+    @include for-mobile {
+        margin-top: 20px !important;
+        margin-left: -5px !important;
+        transform: translateY(2px);
+    }
+
+    .index_seo_text_wrapper {
+        @include for-mobile {
+            height: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .index_toggle {
+            @include for-mobile {
+                background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%);
+                background-image: -moz-linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%);
+                background-image: -o-linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%);
+                background-image: linear-gradient(rgba(255, 255, 255, 0) 0%, #fff 100%);
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .index_seo_text_wrapper-open {
+        overflow: visible;
+        height: auto;
+    }
+
+    .index_seo_text_wrapper-open .index_toggle {
+        display: none;
+    }
+
+    .index_toggle-btn {
+        display: none;
+
+        @include for-mobile {
+            display: block;
+            font-family: "Proxima Nova";
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 120%;
+            color: $clrFormError;
+            text-transform: none;
+            border-bottom: 1px dashed $clrFormError;
+            margin-top: 6px;
+            width: max-content;
+            transform: translate(0, 7px);
+        }        
+    }
+}
+
+.index_seo_text_2 {
+    @include for-pad {
+        font-size: 15px !important;
+        line-height: 130% !important;
+        letter-spacing: .02em !important;
+    }
+}
+
+.index_block {
+    .form_callback_wrapper {
+        @include for-notdesc {
+            width: 100%;
+            margin-left: 0;
+            transform: translate(9px, -2px);
+        }
+
+        @include for-pad {
+            width: calc(100% + 140px);
+            transform: translate(-192px, 3px);
+        }
+
+        @include for-mobile {
+            width: 91vw;
+            margin: 0;
+            padding: 57px 0 40px;
+            transform: translateX(-4px);
+        }
+
+        .form_wrapper {
+            .form_title {
+                .form_title_desc {
+                    position: absolute;
+                    top: 19px;
+                    left: calc(50% - 245.75px);
+                    width: max-content;
+
+                    @include for-mobile {
+                        position: relative;
+                        top: auto;
+                        left: auto;
+                    }
+                }
+            }
+        }
+    }
+}

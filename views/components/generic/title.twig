@@ -1,0 +1,19 @@
+<div class="breadcrumbs">
+
+	{% for link,name in seo.breadcrumbs %}
+
+		<a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+		{# {% if loop.index == 2 %}
+
+			<a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+		{% else %}
+
+			<a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+		{% endif %} #}
+
+	{% endfor %}
+
+</div>

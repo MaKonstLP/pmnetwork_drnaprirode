@@ -1,0 +1,35 @@
+<div class="dropFilter_wrapper">
+    <p class="dropFilter_header">{{filter_item.name}}</p>
+
+    <div class="dropFilter_content" data-type="{{label}}" data-filter-select-block>
+        <div class="dropFilter_select_wrapper">
+            <div class="shadow"></div>
+            <span class="select"></span>
+        </div>
+
+        <div class="dropFilter_triangle"></div>
+
+        <div class="dropFilter_list_wrapper dropFilter_list_wrapper_hidden">
+            <div class="dropFilter_list dropFilter_list_hidden" id="list_id_{{id}}">
+                <div class="list_content">
+                    {% for key,value in filter_item.items %}
+                        <div class="list_row">
+                            <div class="list_select list_select_{{label}} checkbox_item {{filter_item.active[key] is defined ? '_active':''}}" data-action="filter_checkbox" data-value="{{key}}" data-filter-select-item>
+                                <input type="checkbox" name="filter_checkbox" class="personalData" checked="">
+                                <div class="checkbox_pseudo">
+                                    <div class="filter_select_item"><p>{{value}}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="list_btn">
+                    <div class="btn_apply">
+                        <span>Применить<span>
+                    </div>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>

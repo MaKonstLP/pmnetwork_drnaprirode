@@ -1,0 +1,21 @@
+<div class="content_wrap blog" data-page-type="blog">
+
+	<div class="content_block">
+
+		{{ this.render('//components/generic/title.twig', {'count':count, 'seo':seo}) | raw }}
+
+		<h1 class="blog_title">Заметки о Дне рождении на природе</h1>
+
+		<div class="blog_list_wrapper">
+			{{ this.render('//components/generic/blog.twig') | raw }}
+		</div>
+
+		<div class="pagination blog_pagination"> 
+				<div data-pagination-wrapper>
+					{{pagination | raw }}
+				</div>
+			</div>
+		
+	</div>
+
+</div>

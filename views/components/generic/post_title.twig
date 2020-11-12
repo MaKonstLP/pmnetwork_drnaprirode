@@ -1,0 +1,18 @@
+<div class="breadcrumbs">
+
+	{% for link,name in seo.breadcrumbs %}
+
+
+		{% if loop.index <= 2 %}
+
+			<a class="breadcrumbs_item" href="{{link}}">{{name}}</a>
+
+		{% else %}
+
+			<p class="breadcrumbs_item">Гастротур «Черноморская соль» прошел при поддержке Тоrk</p>
+
+		{% endif %}
+
+	{% endfor %}
+
+</div>

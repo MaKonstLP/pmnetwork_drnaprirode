@@ -1,0 +1,385 @@
+.form_wrapper.callback, .dropForm_wrapper {
+  position: relative;
+  padding: 50px 48px 45px;
+  box-shadow: none;
+  justify-content: center;
+  background: $clrFormBg;
+
+  @include for-notdesc {
+    padding: 27px 65px 25px;
+    // padding: 27px 40px 25px 65px;
+  }
+
+  @include for-mobile {
+    padding: 28px 20px 29px;
+  }
+
+  .form_title{
+    display: flex;
+    flex-flow: column nowrap;
+    position: relative;
+
+    @include for-notdesc {
+      // width: 495px;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .form_title_main{
+      font-family: "Museo Sans Cyrl";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 24px;
+      line-height: 100%;
+      text-align: center;
+      color: $clrBlack;
+      transform: translateY(1px) translateX(-1px);
+
+      @include for-notdesc {
+        font-size: 20px;
+      }
+    }
+
+    .form_title_desc{
+      font-family: "Proxima Nova";
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 106.92%;
+      text-align: center;
+      color: $clrBlack;
+      margin-top: 11px;
+
+      @include for-notdesc {
+        position: absolute;
+        top: 19px;
+        left: calc(50% - 245.75px);
+        width: max-content;
+      }
+
+      @include for-pad {
+        position: relative;
+        max-width: 100%;
+        left: auto;
+        top: 17px;
+      }
+
+      @include for-mobile {
+        top: auto;
+      }
+    }
+  }
+
+  .form_block{
+    display: flex;
+    flex-flow: column wrap;
+    margin-top: 30px;
+
+    @include for-notdesc {
+      margin-top: 44px;
+    }
+
+    @include for-pad {
+      margin-top: 41px;
+    }
+
+    @include for-mobile {
+      margin-top: 17px;
+    }
+
+    ::-webkit-input-placeholder {color: $clrBreadcrumbs;};
+    ::-moz-placeholder          {color: $clrBreadcrumbs;};
+    :-moz-placeholder           {color: $clrBreadcrumbs;};
+    :-ms-input-placeholder      {color: $clrBreadcrumbs;};
+
+    .form_inputs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      @include for-mobile {
+        width: 100%;
+      }
+
+      .input_wrapper{
+        width: calc(25% - 15px);
+        margin-bottom: 21px;
+        position: relative;
+
+        @include for-notdesc {
+          width: calc(50% - 10px);
+          margin-bottom: 15px;
+        }
+
+        @include for-mobile {
+          margin-bottom: 10px;
+          width: 100%;
+        }
+
+        input{
+          width: 100%;
+          box-sizing: border-box;
+          height: 45px;
+          background: $clrWhite;
+          border: 1px solid $clrPagination;
+          box-sizing: border-box;
+          border-radius: 16px;
+          font-family: "Proxima Nova";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 106.92%;
+          color: $clrBlack;
+          padding: 0 18px;
+          outline: none;
+          transition: $transition;
+        }
+
+        .input_error {
+          border: 1px solid $clrFormError;
+          transition: $transition;
+        }
+
+        textarea{
+          background: $clrWhite;
+          border: 1px solid #DADADA;
+          box-sizing: border-box;
+          border-radius: 16px;
+          width: 100%;
+          min-height: 76px;
+          resize: none;
+          outline: none;
+          padding: 18px 15px;
+          font-family: "Proxima Nova";
+          font-style: normal;
+          font-weight: normal;
+          font-size: 16px;
+          line-height: 106.92%;
+          color: $clrBlack;
+
+          @include for-notdesc {
+            padding: 11px 15px;
+          }
+
+          @include for-mobile {
+            height: 97px;
+          }
+        }
+      }
+
+      .input_wrapper_textarea {
+        width: 100%;
+        margin-bottom: 8px;
+      }
+    }
+
+    .form_submit_callback{
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+
+      @include for-mobile {
+        width: 100%;
+      }
+
+      ._button{
+        width: 283px;
+        height: 45px;
+        background: $clrGreen;
+        border-radius: 20px;
+        border: none;
+        margin-top: 25px;
+        font-family: "Museo Sans Cyrl";
+        font-size: 16px;
+        line-height: 142.56%;
+        text-align: center;
+        color: $clrWhite;
+        cursor: pointer;
+        transition: $transition;
+        outline: none;
+
+        @include for-notdesc {
+          margin-top: 14px;
+        }
+
+        @include for-pad {
+          margin-top: 16px;
+        }
+
+        @media (max-width: 359px) {
+          width: 100%;
+        }
+
+        @include for-mobile {
+          margin-top: 16px;
+        }
+      }
+
+      ._button:hover {
+        background: $clrBtnHover;
+        transition: $transition;
+      }
+
+      ._button:active {
+        background: $clrBtnPressed;
+        transition: $transition;
+      }
+
+      .form_policy{
+        display: flex;
+        align-items: center;
+
+        input {
+          margin-right: 9px;
+          position: absolute;
+          z-index: -1;
+          left: -10000px;
+        }
+
+        .checkbox_pseudo {
+          margin: 0;
+          font-family: "Proxima Nova";
+          font-size: 12px;
+          line-height: 106.92%;
+          color: $clrBreadcrumbs;
+
+          @include for-mobile {
+            width: 100%;
+            transform: translate(-4px, 2px);
+          }
+
+          @media (max-width: 359px) {
+            position: relative;
+            margin: 0 auto;
+            width: 66%;
+          }
+
+          @media (max-width: 359px) {
+            text-align: center;
+          }
+
+          ._link {
+            color: $clrBreadcrumbs;
+            text-decoration: none;
+          }
+        }
+
+        .checkbox_pseudo::before {
+          content: '';
+          display: inline-block;
+          width: 14px;
+          height: 14px;
+          border: 1px solid $clrPagination;
+          box-sizing: border-box;
+          border-radius: 3px;
+          margin-right: 9px;
+          transform: translateY(3px);
+          background-repeat: no-repeat;
+          background-position: center center;
+          background-size: 90% 90%;
+          transition: $transition;
+          cursor: pointer;
+
+          @include for-mobile {
+            left: -23px;
+            top: -6px;
+          }
+
+          @media (max-width: 359px) {
+            position: absolute;
+            left: 0;
+            transform: translate(-3px, 11px);
+          }
+        }
+
+        &._active > .checkbox_pseudo::before {
+          border-color: $clrGreen;
+          background-image: url('/dist/images/check.svg');
+          transition: $transition;
+        }
+      }
+    }
+  }
+  .form_success {
+    display: none;
+  }
+
+  .calendar_wrapper {
+    position: absolute;
+    width: 100%;
+    top: 45px;
+
+    .open_calendar_button {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      top: -45px;
+      height: 45px;
+      border-radius: 16px;
+      cursor: pointer;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background-image: url('/dist/images/calendar.svg');
+        width: 18px;
+        height: 20px;
+        top: 13px;
+        right: 16px;
+      }
+    }
+  }
+}
+
+.form_listing {
+  padding-top: 53px !important;
+  transform: translateX(-2px);
+
+  @include for-notdesc {
+    margin-top: -14px;
+  }
+
+  @include for-pad {
+    margin-left: -190px;
+    margin-top: -20px;
+  }
+
+  @include for-mobile {
+    margin-top: -28px;
+  }
+}
+
+.dropForm_wrapper {
+  .form_title{
+    .form_title_desc {
+      position: relative;
+      top: auto;
+      left: auto;
+    }
+  }
+}
+
+.item_page_wrapper {
+  .checkbox_pseudo {
+    @include for-mobile {
+      transform: translate(12px,2px) !important;
+    }
+
+    @media (max-width: 359px) {
+      transform: translate(-4px, 2px) !important;
+      width: 161px !important;
+    }
+  }
+
+  ._button {
+    @include for-mobile {
+      width: 290px !important;
+    }
+   
+    @media (max-width: 359px) {
+      width: 253px!important;
+    }
+  }
+}

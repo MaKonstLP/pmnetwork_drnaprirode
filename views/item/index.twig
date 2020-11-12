@@ -1,0 +1,387 @@
+<div class="item_page_wrapper" data-page-type="item">
+
+    <div class="content_block" data-listing-title>
+        {{ this.render('//components/generic/item_title.twig', {'seo':seo}) | raw }}
+    </div>
+
+    <div class="content_block general_block" data-page-type="item">
+
+        <div class="card_left">
+            <div class="title_mob">
+				<h1>{{seo.h1}}</h1>
+                <span class="title_address">{{item.restaurant_address}}</span>
+			</div>
+
+            <div class="place_capacity">
+                {% set halls = [] %}
+                {% for room in item.rooms %}
+                    {% set roomOptions = room.name ~ " — " ~ room.capacity ~ " чел." %}
+
+                    {% if roomOptions not in halls %}
+                        {% set halls = halls|merge([roomOptions]) %}  
+                    {% endif %}
+
+                {% endfor %}
+                {% for hall in halls %}
+                    <span>{{hall}}</span>
+                {% endfor %}
+            </div>
+
+            <div class="place_price">
+                <span>Стоимость</span>
+                <span>от {{item.restaurant_price}} руб./чел</span>
+            </div>
+
+            <div class="place_reserv">
+                <span class="place_reserv_name"><span>Забронировать</span><br><span>{{seo.h1}}</span></span>
+
+                <p class="place_reserv_present">При бронировании <span>до 20 февраля</span> подарок имениннику!</p>
+
+                <div class="place_reserv_tel">
+                    <span class="place_reserv_telNumber place_reserv_telNumber_mob">+7 
+
+                    {% set array = item.restaurant_phone|split('') %}
+                    {% for elem in array %}
+                        {% if loop.index > 3 and loop.index < 7 %}
+                            <span>{{elem}}</span>
+                        {% endif %}
+                    {% endfor %}
+
+                    <span>•</span><span>•</span><span>•</span><span>•</span><span>•</span><span>•</span><span>•</span></span>
+                    <a href="tel:{{item.restaurant_phone}}" class="place_reserv_telNumber telHidden">{{item.restaurant_phone}}</a>
+
+                    <div class="place_reserv_telToggle _next">
+                        <span>Показать номер</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map place_map">
+                <div id="map" data-mapDotX="{{item.restaurant_latitude}}" data-mapDotY="{{item.restaurant_longitude}}" data-name="{{item.restaurant_name}}" data-address="{{item.restaurant_address}}" data-phone="{{item.restaurant_phone}}" data-balloon="" data-hint="">
+            </div>
+    </div>
+        </div>
+
+        <div class="main_block">
+
+            <div class="title">
+				<h1>{{seo.h1}}</h1>
+                <span class="title_address">{{item.restaurant_address}}</span>
+			</div>
+
+            <div class="place_info_wrapper">
+                
+                <div class="carousel_top_wrapper">
+
+                    <div class="carousel_nav">
+                        <div class="carousel_nav_prev"></div>
+
+                        <div class="carousel_nav_next"></div>
+                    </div>
+
+                    <div class="object_gallery" data-gallery data-id="{{item.restaurant_id}}">
+                        <div class="swiper-container gallery-top">
+                            <div class="swiper-wrapper">
+                                {% for image in item.restaurant_images %}
+                                    <div class="swiper-slide">
+                                        <a href="{{image.waterpath}}=s0" data-lightbox="top_slider"><img src="{{image.subpath}}=w710-h472-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/></a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+
+                        <div class="swiper-container gallery-thumbs">
+                            <div class="swiper-wrapper">
+                                {% for image in item.restaurant_images %}
+                                    <div class="swiper-slide object_thumb">
+                                        <img src="{{image.subpath}}=w138-h92-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div data-listing-text-bottom>
+                        <div class="seo_text" data-seo-text>
+                            <p>
+                                Понтон на воде 400 м2 с белым шатром 260 м2. Вмещает до 180 постояльцев банкетной рассадкой. На территории понтона размещаются 2 маленькие веранды, которые уже входят в стоимость аренды, а на свободных от шатра углах устроилась мягкая мебель. Шатер оборудован барной стойкой со светодиодной подсветкой, необходимым для вечернего освещения количеством люстр, а на каждой стальной дуге вывешены световые «Пары». В случае непогоды по периметру заакрываются шторы, которые не пропускают воду и ветер, и предоставляются газовые и электронные обогреватели. Понтон содержит отдельный подъезд и личную парковку на 20 машиномест, собственно что выделяет ему превосходство перед другими площадками. Ресторан дает текстиль на столы и стулья и индивидуальные тканевые салфетки. Громкая музыка вероятна до 21:30, впоследствии лишь только в фоновом режиме.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="info_wrapper">
+
+                    {% if item.restaurant_types %}
+                        <span class="info_content">
+                            <p class="info_content_title">Тип заведения:</p>
+                            {% for i in item.restaurant_types %}
+                                {% if loop.index != item.restaurant_types|length %}
+                                    <p class="info_content_var">
+                                        {{i.name}},
+                                    </p>
+                                {% else %}
+                                    <p class="info_content_var">
+                                        {{i.name}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </span> 
+                    {% endif %}
+                    
+                    {% if item.restaurant_location %}
+                        <span class="info_content">
+                            <p class="info_content_title">Расположение:</p>
+                            <p class="info_content_var">
+                                
+                            </p>
+                        </span>
+                    {% endif %}
+                    
+                    {% if item.restaurant_cuisine %}
+                        {% set array = item.restaurant_cuisine|split(', ') %}
+                        <span class="info_content">
+                            <p class="info_content_title">Кухня:</p> 
+                            {% for elem in array %}
+                                {% if loop.index != array|length %}
+                                    <p class="info_content_var">
+                                        {{elem}},
+                                    </p>
+                                {% else %}
+                                    <p class="info_content_var">
+                                        {{elem}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                    
+                    {# {% if item. %}
+                        <p class="info_content">
+                            Своя кухня:
+                        </p>
+                    {% endif %} #}
+                    
+                    {% if item.restaurant_special %}
+                        {% set array = item.restaurant_special|split(',') %}
+                        <span class="info_content">
+                            <p class="info_content_title">Особенности:</p>
+                            {% for elem in array %}
+                                {% if loop.index != array|length %}
+                                    <p class="info_content_var">
+                                        {{elem}},
+                                    </p>
+                                {% else %}
+                                    <p class="info_content_var">
+                                        {{elem}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                    
+                    {% if item.restaurant_alcohol %}
+                        <span class="info_content">
+                            <p class="info_content_title">Алкоголь в наличии:</p>
+                            <p class="info_content_var">
+                                {{item.restaurant_alcohol}}
+                            </p>
+                        </span>
+                    {% endif %}
+                    
+                    {% if item.restaurant_own_alcohol %}
+                        <span class="info_content">
+                            <p class="info_content_title">Свой алкоголь:</p> 
+                            <p class="info_content_var">
+                                {{item.restaurant_own_alcohol}}
+                            </p>
+                        </span>
+                    {% endif %}
+                    
+                    <span class="info_content">
+                        <p class="info_content_title">Проведение фейерверков:</p>
+                        {% if item.restaurant_firework %}
+                            <p class="info_content_var">
+                                да
+                            </p>
+                        {% else %}
+                            <p class="info_content_var">
+                                нет
+                            </p>
+                        {% endif %}
+                    </span>
+
+                    
+
+                    {% if item.restaurant_parking %}
+                        <span class="info_content">
+                            <p class="info_content_title">Парковка:</p>
+                            <p class="info_content_var">
+                                {{item.restaurant_parking}} машин
+                            </p>
+                        </span>
+                    {% endif %}
+
+                    {% if item.restaurant_extra_services %}
+                        <span class="info_content info_content_extra">
+                            {% set array = item.restaurant_extra_services|split(',') %}
+                            <p class="info_content_title">Сервисы за отдельную плату <span class="info_content_usd">$$</span></p> 
+                            {% for elem in array %}
+                                {% if loop.index != array|length %}
+                                    <p class="info_content_var">
+                                        {{elem}},
+                                    </p>
+                                {% else %}
+                                    <p class="info_content_var">
+                                        {{elem}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+                    
+                    {% if item.restaurant_payment %}
+                        <span class="info_content">
+                            {% set array = item.restaurant_payment|split(',') %}
+                            <p class="info_content_title">Способ оплаты:</p>
+                            {% for elem in array %}
+                                {% if loop.index != array|length %}
+                                    <p class="info_content_var">
+                                        {{elem}},
+                                    </p>
+                                {% else %}
+                                    <p class="info_content_var">
+                                        {{elem}}
+                                    </p>
+                                {% endif %}
+                            {% endfor %}
+                        </span>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            <div class="halls_wrapper">
+                {{ this.render('//components/generic/other_widjet.twig', {'items':other_rooms, 'restaurant_name':item.restaurant_name}) | raw }}
+            </div>  
+
+            <div class="halls_carousel">
+                {{ this.render('//components/generic/form_callback_card.twig',  {'seo':seo}) | raw }}
+            </div>
+
+            <div class="carousel_list_wrapper">
+
+                {{ this.render('//components/generic/similar_widjet.twig', {'items':items}) | raw }}            
+
+            </div> 
+
+            {# <div class="otherHalls_wrapper_mob">
+                {{ this.render('//components/generic/listing.twig', {'items':items}) | raw }} 
+            </div>       #}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        {# <div class="object_head"> #}
+
+            {# <div class="object_gallery" data-gallery data-id="{{item.restaurant_id}}">
+
+                <div class="swiper-container gallery-top">
+
+                    <div class="swiper-wrapper">
+                        {% for image in item.restaurant_images %}
+                            <div class="swiper-slide">
+                                <a href="{{image.waterpath}}=s0" data-lightbox="top_slider"><img src="{{image.subpath}}=w710-h472-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/></a>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+                <div class="swiper-container gallery-thumbs">
+
+                    <div class="swiper-wrapper">
+                        {% for image in item.restaurant_images %}
+                            <div class="swiper-slide object_thumb">
+                                <img src="{{image.subpath}}=w138-h92-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </div>
+
+
+            </div> #}
+
+            {# <div class="object_tags">
+                {% for type in item.restaurant_types %}
+                    {% if type.id == 1 %}
+                        <a class="_link" href="/ploshhadki/restorany/">{{type.name}}</a>
+                    {% endif %}
+                    {% if type.id == 2 %}
+                        <a class="_link" href="/ploshhadki/banketnye-zaly/">{{type.name}}</a>
+                    {% endif %}
+                    {% if type.id == 3 %}
+                        <a class="_link" href="/ploshhadki/kafe/">{{type.name}}</a>
+                    {% endif %}
+                    {% if type.id == 4 %}
+                        <a class="_link" href="/ploshhadki/bary/">{{type.name}}</a>
+                    {% endif %}
+                    {% if type.id == 16 %}
+                        <a class="_link" href="/ploshhadki/kluby/">{{type.name}}</a>
+                    {% endif %}
+                {% endfor %}
+            </div> #}
+
+            {# <div class="object_book">
+                <p class="object_book_text">Узнать об актуальных акциях и забронировать можно по телефону:</p>
+                <div class="object_book_hidden">
+                    <p class="object_book_phone">
+                        <span class="object_fake_phone">+7 <span class="object_fake_phone_snowflakes">❆❆❆ ❆❆❆ ❆❆ ❆❆</span></span>
+                        <a href="tel:{{item.restaurant_phone}}" class="object_real_phone">{{item.restaurant_phone}}</a>
+                    </p>
+
+                    <div class="object_book_hidden_button _link" data-action="show_phone">Показать номер</div>
+                          
+                </div>
+                <p class="object_book_action">Забронируй зал в ресторане {{item.restaurant_name}} до 01.12.2020 и получи новогодний подарок!</p>
+            </div> #}
+
+            {# <div class="object_parameters">
+
+                {{ this.render('//components/generic/item_parameter_list.twig', {'item':item}) | raw }}
+                
+            </div> #}
+
+        {# </div> #}
+    {# </div> #}
+
+    {# <div class="map">
+        <div id="map" data-mapDotX="{{item.restaurant_latitude}}" data-mapDotY="{{item.restaurant_longitude}}" data-name="{{item.restaurant_name}}" data-address="{{item.restaurant_address}}" data-balloon="" data-hint="">
+        </div>
+    </div> #}
+
+    
+
+    {# <div class="content_block form_booking_wrapper">
+
+        {{ this.render('//components/generic/form_booking.twig', {'items':other_rooms}) | raw }}
+
+    </div> #}
+
+{# </div> #}

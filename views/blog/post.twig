@@ -1,0 +1,82 @@
+{{ use('yii/widgets/Pjax') }}
+{{ use('yii/widgets/ListView') }}
+
+<div class="content_wrap post" data-page-type="post">
+
+	<div class="content_block" data-page>
+
+		{{ this.render('//components/generic/title.twig', {'count':count, 'seo':seo}) | raw }}
+
+		<div class="post_content_block">
+
+			<h1 class="post_title">{{post.name}}</h1>
+
+			<div class="post_wrapper">
+
+				<div class="post_img">
+					<img src="{{ post.getFileData('image').src}}" alt="">
+				</div>
+
+				{{ post.getHtml()|raw}}
+
+				<div class="post_bottom_wrapper">
+
+					<p class="post_date">10 откября 2019</p>
+
+					<div class="post_social">
+						<span class="post_social_text">Поделиться</span>
+
+						{% for i in 1..5 %}
+						<a href="#" class="post_social_icon">
+							<img src="/dist/images/postSocial-{{i}}.svg">
+						</a>
+						{% endfor %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		{# <div class="carousel_post_wrapper">
+			{{ this.render('//blog/similar_posts.twig', {'model':model}) | raw }}            
+		</div> #}
+
+		<div class="carousel_post_wrapper">
+			<p class="carousel_list_title">Похожие статьи</p>
+
+			<div class="object_gallery _list">
+				<div class="carousel_nav">
+					<div class="carousel_nav_prev_list"></div>
+
+					<div class="carousel_nav_next_list"></div>
+				</div>
+
+					{# {{  pjax_begin({'id' : 'blog-listing','enablePushState':true}) }} #}
+						<div class="swiper-container gallery-top-list">
+							{{  list_view_widget(listConfig) }}
+						</div>
+					{# {{  pjax_end()  }} #}
+
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+{# <div data-page-type="post">
+  	<a class="post back_to_blog_list" href="/blog/">Статьи блога</a>
+
+  	<div class="post_wrapper">
+
+  		<h1>{{ post.name}}</h1>
+
+  		<figure>
+		    <img src="{{ post.getFileData('image').src}}" alt="">
+		</figure>
+
+		{{ post.getHtml()|raw}}
+	</div>
+</div> #}
+
