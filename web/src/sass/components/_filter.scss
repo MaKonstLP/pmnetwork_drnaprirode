@@ -150,11 +150,13 @@
                 }
 
                 .thumb_chek {
-                    left: 68.6px;
+                    // left: 68.6px;
+                    left: 0;
                 }
 
                 .thumb_chelovek {
-                    left: 25.725px;
+                    left: 0;
+                    // left: 68.6px;
                 }
             }
 
@@ -625,16 +627,10 @@
     }
 }
 
-.filter_index {
-    // transform: translateY(-3px);
-}
-
 .filter_fixed {
     position: fixed;
-    // transition: $transition;
 }
 
 .filter_absolute {
     position: absolute;
-    // transition: $transition;
 }

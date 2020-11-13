@@ -16,7 +16,7 @@ export default class Listing{
 
 		//КЛИК ПО ПАГИНАЦИИ
 		$('body').on('click', '[data-pagination-wrapper] [data-listing-pagitem]', function(){
-			self.filter.paginationStateRefresh($('[data-pagination-wrapper]'));
+			// self.filter.paginationStateRefresh($('[data-pagination-wrapper]'));
 			self.reloadListing($(this).data('page-id'));
 		});
 
@@ -56,9 +56,9 @@ export default class Listing{
 				} else {
 					$('html,body').animate({scrollTop:$('.title').offset().top}, 400);
 				}
-				history.pushState({}, '', '/ploshhadki/'+response.url);
+				history.pushState({}, '', '/katalog-ploshchadok/'+response.url);
 				this.yaMap.refresh(this.filter);
 			}
-		);
+		);		
 	}
 }

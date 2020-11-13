@@ -56,7 +56,6 @@ export default class Main{
 
 		$(document).ready(
 			self.headerScrolling(),
-			// self.citySelectMove()
 		);
 
 		$(document).on('scroll', function() {
@@ -145,20 +144,10 @@ export default class Main{
 			
 			if ($(window).width() > 767) {
 				$('.header_menu').addClass('header_menu_fixed');
-
-				// $('.header_logo').addClass('logo_min');
-				// $('.header_city_select').addClass('header_fixed_pos');
-				// $('.header_phone').addClass('header_fixed_pos');
-				// $('.btn_wrapper').addClass('header_fixed_pos');
 			}
 			
 		} else {
 			$('.header_menu').removeClass('header_menu_fixed');
-
-			// $('.header_logo').removeClass('logo_min');
-			// $('.header_city_select').removeClass('header_fixed_pos');
-			// $('.header_phone').removeClass('header_fixed_pos');
-			// $('.btn_wrapper').removeClass('header_fixed_pos');
 		}
 	}
 
@@ -255,34 +244,4 @@ export default class Main{
 			$(window).scrollTop(y);
 		}
 	}
-
-	// Подвинем кнопку выбора города при длинном названии города (для разрешений меньше 1300)
-	// citySelectMove() {
-	// 	let citySelect = $('.header_city_select_notdesc');
-
-	// 	if ($(document).width() > 850) {
-	// 		$(citySelect).css({
-	// 			left: -($(citySelect).width() / 2) + ($('.btn_banquet').width() / 2), 
-	// 			'max-width': 'max-content'
-	// 		});
-	// 	} else {
-			
-
-	// 		if ($(document).width() >= 768 && $(citySelect).width() > 135) {
-	// 			$(citySelect).css({
-	// 				top: '-42px',
-	// 				'max-width': '130px'
-	// 			});
-	// 		} else if ($(citySelect).width() > 135) {
-	// 			$(citySelect).css({
-	// 				top: '-45px',
-	// 				'max-width': '130px'
-	// 			});
-	// 		}
-
-	// 		$(citySelect).css({
-	// 			left: -($(citySelect).width() / 2) + ($('.btn_banquet').width() / 2), 
-	// 		});
-	// 	}
-	// }
 }

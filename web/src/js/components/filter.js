@@ -16,7 +16,7 @@ export default class Filter{
 
 		// Слайдеры
 		self.sliderCalc(this.$filter.find('.slider_chek'), 5);
-		self.sliderCalc(this.$filter.find('.slider_chelovek'), 12);
+		self.sliderCalc(this.$filter.find('.slider_chelovek'), 5);
 		
 		// Клик по селекту
 		this.$filter.find('.dropFilter_content').on('click', function(){
@@ -307,30 +307,33 @@ export default class Filter{
 		});
 
 		this.resetSlider(this.$filter.find('.slider_chek'), 5);
-		this.resetSlider(this.$filter.find('.slider_chelovek'), 12);
+		this.resetSlider(this.$filter.find('.slider_chelovek'), 5);
+
+		this.state = {};
 	}
 
 	resetSlider(sliderElem, sections) {
 		let average = $(sliderElem).closest('.slider_container').find('.average_item');
 		let thumbElem = sliderElem.children(); 
-		let sliderElemPos = sliderElem.position().left;
-		let minLeft = sliderElemPos - 1;
-		let maxRight = minLeft + sliderElem.width() - thumbElem.width() + 1;
-		let sliderLineWidth = maxRight - minLeft;
-		let externalSectionLength = sliderLineWidth / sections;
-		let sliderInnerLineWidth = sliderLineWidth - externalSectionLength;
-		let innerSectionLength = sliderInnerLineWidth / (sections - 2);
-		let thumbInnerSectionFinish = 1; 
+		// let sliderElemPos = sliderElem.position().left;
+		// let minLeft = sliderElemPos - 1;
+		// let maxRight = minLeft + sliderElem.width() - thumbElem.width() + 1;
+		// let sliderLineWidth = maxRight - minLeft;
+		// let externalSectionLength = sliderLineWidth / sections;
+		// let sliderInnerLineWidth = sliderLineWidth - externalSectionLength;
+		// let innerSectionLength = sliderInnerLineWidth / (sections - 2);
+		// let thumbInnerSectionFinish = 1; 
 
 		$(average).removeClass('visible');
 
 		$(average).each(function(i) {
-			if (i == 1) {
+			if (i == 0) {
 				$(this).addClass('visible');
 			}
 		});
 
-		$(thumbElem).css('left', `${((innerSectionLength / 2) * thumbInnerSectionFinish) + (externalSectionLength / 2)}px`);
+		// $(thumbElem).css('left', `${((innerSectionLength / 2) * thumbInnerSectionFinish) + (externalSectionLength / 2)}px`);
+		$(thumbElem).css('left', `-1px`);
 		$(thumbElem).css('transition', 'all 0.25s ease');
 	}
 
@@ -373,7 +376,9 @@ export default class Filter{
             error: function(response) {
 
             }
-        });
+		});
+		
+		console.log('a');
 	}
 
 	filterMainSubmit(){
@@ -393,7 +398,7 @@ export default class Filter{
             data: data,
             success: function(response) {
             	if(response){
-            		self.resolve('/ploshhadki/'+response);
+            		self.resolve('/katalog-ploshchadok/'+response);
             	}
             	else{
             		self.resolve(self.filterListingHref());
@@ -468,17 +473,18 @@ export default class Filter{
 		}
 
 		self.state = self.statePag;
+		console.log('paginationStateRefresh')
 	}
 
 	filterListingHref(){
 		if(Object.keys(this.state).length > 0){
-			var href = '/ploshhadki/?';
+			var href = '/katalog-ploshchadok/?';
 			$.each(this.state, function(key, value){
 				href += '&' + key + '=' + value;
 			});
 		}
 		else{
-			var href = '/ploshhadki/';
+			var href = '/katalog-ploshchadok/';
 		}			
 
 		return href;

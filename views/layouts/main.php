@@ -177,26 +177,26 @@ AppAsset::register($this);
                     </div>
 
                     <div class="drop_content">
-                        <a href="/ploshhadki/zagorodniy-kompleks/">Загородный комплекс</a>
-                        <a href="/ploshhadki/kottedzh/">Коттедж</a>
-                        <a href="/ploshhadki/baza-otdyha/">База отдыха</a>
-                        <a href="/ploshhadki/shater/">Шатёр</a>
-                        <a href="/ploshhadki/veranda-besedka/">Веранды</a>
-                        <a href="/ploshhadki/veranda-besedka/">Террасы</a>
+                        <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
+                        <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
+                        <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
+                        <a href="/katalog-ploshchadok/shater/">Шатёр</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
                         <a href="#">Крыша</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/shater/">В шатре</a>
+                        <a href="/katalog-ploshchadok/shater/">В шатре</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/veranda-besedka/">На веранде</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На веранде</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/veranda-besedka/">На террасе</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе</a>
                     </div>
 
                     <div class="header_list">
@@ -222,26 +222,26 @@ AppAsset::register($this);
                     </div>
 
                     <div class="drop_content">
-                        <a href="/ploshhadki/zagorodniy-kompleks/">Загородный комплекс</a>
-                        <a href="/ploshhadki/kottedzh/">Коттедж</a>
-                        <a href="/ploshhadki/baza-otdyha/">База отдыха</a>
-                        <a href="/ploshhadki/shater/">Шатёр</a>
-                        <a href="/ploshhadki/veranda-besedka/">Веранды</a>
-                        <a href="/ploshhadki/veranda-besedka/">Террасы</a>
+                        <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
+                        <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
+                        <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
+                        <a href="/katalog-ploshchadok/shater/">Шатёр</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
                         <a href="#">Крыша</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/shater/">В шатре</a>
+                        <a href="/katalog-ploshchadok/shater/">В шатре</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/veranda-besedka/">На веранде</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На веранде</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/ploshhadki/veranda-besedka/">На террасе</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе</a>
                     </div>
 
                     <div class="header_list">

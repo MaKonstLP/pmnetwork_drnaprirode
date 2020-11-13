@@ -56,16 +56,17 @@ class SiteController extends Controller
 
     public function actionKontakty()
     {
-        echo 'Контакты';
-        exit;
-        return $this->render('error.twig');
+        return $this->render('kontakty.twig');
     }
 
     public function actionPrivacyPolicy()
     {
-        echo 'Политика конфиденциальности';
-        exit;
-        return $this->render('error.twig');
+        return $this->render('privacy_policy.twig');
+    }
+
+    public function actionCookiePolicy()
+    {
+        return $this->render('cookie-policy.twig');
     }
 
     public function actionRobots()
