@@ -216,7 +216,7 @@ export default class YaMapSingleObject{
 
           myMap.geoObjects.add(object);
           myMap.setCenter(mapCoordinates);
-          object.balloon.open(balloonCoordinates, {closeButton: false});
+          // object.balloon.open(balloonCoordinates, {closeButton: false});
     		});
       });
 	}

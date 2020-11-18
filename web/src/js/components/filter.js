@@ -376,9 +376,7 @@ export default class Filter{
             error: function(response) {
 
             }
-		});
-		
-		console.log('a');
+		});		
 	}
 
 	filterMainSubmit(){
@@ -452,29 +450,28 @@ export default class Filter{
 		}
 	}
 
-	paginationStateRefresh($block){
-		let self = this;
-		let blockType = $block.data('type');		
-		let $items = $block.find('[data-listing-pagitem]._active');
+	// paginationStateRefresh($block){
+	// 	let self = this;
+	// 	let blockType = $block.data('type');		
+	// 	let $items = $block.find('[data-listing-pagitem]._active');
 
-		if($items.length > 0){
-			self.statePag[blockType] = '';
-			$items.each(function(){
-				if(self.statePag[blockType] !== ''){
-					self.statePag[blockType] += ','+$(this).data('page-id');
-				}
-				else{
-					self.statePag[blockType] = $(this).data('page-id');
-				}
-			});
-		}
-		else{
-			delete self.statePag[blockType];
-		}
+	// 	if($items.length > 0){
+	// 		self.statePag[blockType] = '';
+	// 		$items.each(function(){
+	// 			if(self.statePag[blockType] !== ''){
+	// 				self.statePag[blockType] += ','+$(this).data('page-id');
+	// 			}
+	// 			else{
+	// 				self.statePag[blockType] = $(this).data('page-id');
+	// 			}
+	// 		});
+	// 	}
+	// 	else{
+	// 		delete self.statePag[blockType];
+	// 	}
 
-		self.state = self.statePag;
-		console.log('paginationStateRefresh')
-	}
+	// 	self.state = self.statePag;
+	// }
 
 	filterListingHref(){
 		if(Object.keys(this.state).length > 0){

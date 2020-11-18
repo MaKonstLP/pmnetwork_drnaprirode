@@ -16,17 +16,20 @@ export default class Listing{
 
 		//КЛИК ПО ПАГИНАЦИИ
 		$('body').on('click', '[data-pagination-wrapper] [data-listing-pagitem]', function(){
-			// self.filter.paginationStateRefresh($('[data-pagination-wrapper]'));
 			self.reloadListing($(this).data('page-id'));
 		});
 
 
 		$('body').on('click', '[data-pagination-wrapper] [data-pagswitch-prev]', function(){
-			self.reloadListing($(this).data('page-id'));
+			if (!$('[data-pagswitch-prev]').hasClass('pagination_switсh_disabled')) {
+				self.reloadListing($(this).data('page-id'));
+			}
 		});
 
 		$('body').on('click', '[data-pagination-wrapper] [data-pagswitch-next]', function(){
-			self.reloadListing($(this).data('page-id'));
+			if (!$('[data-pagswitch-next]').hasClass('pagination_switсh_disabled')) {
+				self.reloadListing($(this).data('page-id'));
+			}
 		});
 	}
 

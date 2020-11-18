@@ -10,7 +10,7 @@ class Breadcrumbs {
 			case 1:
 				$breadcrumbs=[
 					'/' => 'Дни рождения на природе',
-					'/ploshhadki/' => 'Летом',					
+					'/katalog-ploshchadok/' => 'Летом',					
 				];
 				break;
 			case 2:
@@ -22,7 +22,7 @@ class Breadcrumbs {
 			case 3:
 				$breadcrumbs=[
 					'/' => 'Дни рождения на природе',
-					'/ploshhadki/' => 'Летом',
+					'/katalog-ploshchadok/' => 'Летом',
 					'' => $title,
 				];
 				break;

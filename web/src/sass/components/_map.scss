@@ -76,7 +76,7 @@
 	}
 
 	.close {
-		display: none;
+		// display: none;
 	}
 
 	.arrow {
@@ -184,7 +184,7 @@
 			.balloon_header{
 				text-align: center;
 
-				a {
+				a, p {
 					font-family: 'Museo Sans Cyrl';
 					font-style: normal;
 					font-weight: 600;

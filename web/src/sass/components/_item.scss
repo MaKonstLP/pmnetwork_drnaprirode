@@ -189,68 +189,71 @@
             span:first-child {
                 margin-top: 0;
             }
-        }
-        
-        .place_price {
-            font-family: 'Proxima Nova';
-            font-style: normal;
-            font-weight: bold;
-            font-size: 18px;
-            text-align: center;
-            letter-spacing: 0.01em;
-            color: $clrBlack;
-            background: #F6F6F6;
-            border-radius: 20px;
-            width: 100%;
-            margin: 24px 0 40px;
 
-            @include for-notdesc {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 8px 0;
-                // margin: 25px 0;
-                margin: 21px 0 24px;
-            }
-
-            @media (max-width: 1299px) {
-                max-width: 210px;
-                height: max-content;
-                margin-top: 12px;
-            }
-
-            @include for-mobile {
+            .place_price {
+                font-family: 'Proxima Nova';
+                font-style: normal;
+                font-weight: bold;
+                font-size: 18px;
+                text-align: center;
+                letter-spacing: 0.01em;
+                color: $clrBlack;
+                background: #F6F6F6;
+                border-radius: 20px;
                 width: 100%;
-                margin-top: 16px;
-                margin-bottom: 0;
-                max-width: 100%;
-                flex-direction: row;
-                height: 40px;
-                box-sizing: border-box;
-                align-items: center;
-            }
-
-            span {
-                line-height: 250%;
-
+                margin: 24px 0 40px;
+    
                 @include for-notdesc {
-                    font-size: 16px;
-                    line-height: 110%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    padding: 8px 0;
+                    // margin: 25px 0;
+                    margin: 21px 0 22px;
                 }
-
-                &:first-of-type {
-                    margin-left: -5px;
-
-                    @include for-mobile {
-                        margin-right: 5px;
+    
+                @media (max-width: 1299px) {
+                    max-width: 210px;
+                    height: max-content;
+                    margin-top: 19px;
+                    margin-bottom: 9px;
+                }
+    
+                @include for-mobile {
+                    width: 100%;
+                    margin-top: 16px;
+                    margin-bottom: 0;
+                    max-width: 100%;
+                    flex-direction: row;
+                    height: 40px;
+                    box-sizing: border-box;
+                    align-items: center;
+                }
+    
+                span {
+                    line-height: 250%;
+                    margin-top: 0;
+    
+                    @include for-notdesc {
+                        font-size: 16px;
+                        line-height: 110%;
+                    }
+    
+                    &:first-of-type {
+                        margin-left: -5px;
+    
+                        @include for-mobile {
+                            margin-right: 5px;
+                        }
                     }
                 }
-            }
-
-            span:last-of-type {
-                font-weight: normal;
+    
+                span:last-of-type {
+                    font-weight: normal;
+                }
             }
         }
+
 
         .place_reserv {
             width: 100%;
@@ -262,6 +265,7 @@
             order: 2;
             position: sticky;
             top: 93px;
+            margin-bottom: 652px;
 
             @include for-notdesc {
                 padding: 20px 12px;
@@ -271,7 +275,7 @@
 
             @media (max-width: 1299px) {
                 width: 48%;
-                margin-top: 10px;
+                margin-top: -65px;
                 min-height: 156px;
                 height: max-content;
                 display: flex;
@@ -446,42 +450,42 @@
             }
         }
 
-        .place_map {
-            height: 210px;
-            margin-bottom: 40px;
-            order: 1;
+        // .place_map {
+        //     height: 210px;
+        //     margin-bottom: 40px;
+        //     order: 1;
 
-            @include for-notdesc {
-                height: 170px;
-                margin-bottom: 25px;
-            }
+        //     @include for-notdesc {
+        //         height: 170px;
+        //         margin-bottom: 25px;
+        //     }
 
-            @media (max-width: 1299px) {
-                width: 48%;
-                margin-top: 24px;
-                min-height: 156px;
-                margin-bottom: 0;
-                // height: 190px;
-                order: 2;
-            }
+        //     @media (max-width: 1299px) {
+        //         width: 48%;
+        //         margin-top: 24px;
+        //         min-height: 156px;
+        //         margin-bottom: 0;
+        //         // height: 190px;
+        //         order: 2;
+        //     }
 
-            @include for-mobile {
-                width: 100%;
-                margin-top: 20px;
-            }
+        //     @include for-mobile {
+        //         width: 100%;
+        //         margin-top: 20px;
+        //     }
 
-            .ymaps-2-1-77-map {
-                height: 210px !important;
+        //     .ymaps-2-1-77-map {
+        //         height: 210px !important;
 
-                @include for-notdesc {
-                    height: 170px !important;
-                }
+        //         @include for-notdesc {
+        //             height: 170px !important;
+        //         }
 
-                @media (max-width: 1299px) {
-                    height: 156px !important;
-                }
-            }
-        }
+        //         @media (max-width: 1299px) {
+        //             height: 156px !important;
+        //         }
+        //     }
+        // }
     }
 
     .main_block {
@@ -1201,4 +1205,46 @@
             }
         }
     }
+}
+
+
+.place_map {
+    // width: 1000px;
+    height: 210px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 500px;
+    // order: 1;
+
+    @include for-notdesc {
+        height: 170px;
+        margin-bottom: 42px;
+        height: 300px;
+    }
+
+    @media (max-width: 1299px) {
+        width: 100%;
+        margin-top: 24px;
+        min-height: 156px;
+        margin-bottom: 40px;
+        // height: 190px;
+        // order: 2;
+    }
+
+    @include for-mobile {
+        width: 100%;
+        margin-top: 42px;
+    }
+
+    // .ymaps-2-1-77-map {
+    //     height: 210px !important;
+
+    //     @include for-notdesc {
+    //         height: 170px !important;
+    //     }
+
+    //     @media (max-width: 1299px) {
+    //         height: 156px !important;
+    //     }
+    // }
 }

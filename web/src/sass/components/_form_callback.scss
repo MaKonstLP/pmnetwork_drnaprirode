@@ -60,13 +60,13 @@
       }
 
       @include for-pad {
-        position: relative;
         max-width: 100%;
-        left: auto;
         top: 17px;
       }
 
       @include for-mobile {
+        position: relative;
+        left: auto;
         top: auto;
       }
     }
@@ -301,7 +301,7 @@
         }
       }
     }
-  }
+  }  
   .form_success {
     display: none;
   }

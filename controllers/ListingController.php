@@ -18,7 +18,7 @@ use common\models\Filter;
 use common\models\Slices;
 use common\models\GorkoApi;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\priroda_dr\models\ElasticItems;
+use frontend\modules\gorko_ny\models\ElasticItems;
 use common\models\Seo;
 
 

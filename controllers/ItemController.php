@@ -11,7 +11,7 @@ use common\models\elastic\RestaurantElastic;
 use frontend\modules\priroda_dr\components\Breadcrumbs;
 use common\models\elastic\ItemsWidgetElastic;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\priroda_dr\models\ElasticItems;
+use frontend\modules\gorko_ny\models\ElasticItems;
 use common\models\Seo;
 
 class ItemController extends Controller

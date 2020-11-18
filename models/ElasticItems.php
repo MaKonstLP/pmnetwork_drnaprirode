@@ -1,6 +1,7 @@
 <?php
 namespace frontend\modules\priroda_dr\models;
 
+use Yii;
 use common\models\Restaurants;
 use common\models\RestaurantsTypes;
 use yii\helpers\ArrayHelper;
@@ -170,11 +171,13 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         $res = self::deleteIndex();
         $res = self::updateMapping();
         $res = self::createIndex();
+
         $restaurants = Restaurants::find()
             ->with('rooms')
             ->with('images')
             ->with('subdomen')
             ->limit(100000)
+            ->where(['city_id' => 4917])
             ->all();
 
         $all_res = '';
@@ -189,9 +192,9 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         //exit;
         foreach ($restaurants as $restaurant) {
             $res = self::addRecord($restaurant, $restaurants_types);   
-            $all_res .= $res.'<br><br><br><br><br><br><br><br><br><br><br><br>';
+            //$all_res .= $res.'<br><br><br><br><br><br><br><br><br><br><br><br>';
         }
-        echo 'Обновление индекса '. self::index().' '. self::type() .' завершено<br>'.$all_res;
+        echo 'Обновление индекса '. self::index().' '. self::type() .' завершено<br>';
     }
 
     public static function addRecord($restaurant, $restaurants_types){
@@ -212,13 +215,13 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             $record->setPrimaryKey($restaurant->id);
         }
 
-        if(!$restaurant->commission){
-            return 'Не платный';
-        }
+        //if(!$restaurant->commission){
+        //    return 'Не платный';
+        //}
 
-        if(!$restaurant->subdomen->active){
-            return 'Мало ресторанов';
-        }
+        //if(!$restaurant->subdomen->active){
+        //    return 'Мало ресторанов';
+        //}
 
         //Св-ва ресторана
         $record->id = $restaurant->id;
@@ -280,6 +283,16 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
         }
         $record->restaurant_location = $restaurant_location;
 
+        //Особенности
+        //$restaurant_specials = [];
+        //$restaurant_specials_rest = explode(',', $restaurant->specials);
+        //foreach ($restaurant_specials_rest as $key => $value) {
+        //    $restaurant_specials_arr = [];
+        //    $restaurant_specials_arr['id'] = $value;
+        //    array_push($restaurant_specials, $restaurant_specials_arr);
+        //}
+        //$record->restaurant_specials = $restaurant_specials;
+
         //Св-ва залов
         $rooms = [];
         $restaurant_price = 9999999999;
@@ -337,6 +350,6 @@ class ElasticItems extends \yii\elasticsearch\ActiveRecord
             $result = $e;
         }
         
-        return $result;
+        return 1;
     }
 }

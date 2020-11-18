@@ -39,9 +39,9 @@ window.$ = $;
 			}
 
 	    if ($('.map').length > 0) {
-				if($('[data-page-type="item"]').length > 0) {
-					var yaMap = new YaMapSingleObject();
-				}
+			if($('[data-page-type="item"]').length > 0) {
+				var yaMap = new YaMapSingleObject();
+			}
 		}
 
 		if ($('.calendar').length > 0) {
@@ -51,14 +51,12 @@ window.$ = $;
 		}
 
 		if ($('.breadcrumbs').length > 0) {
-				var breadcrumbs = new Breadcrumbs();
+			var breadcrumbs = new Breadcrumbs();
 		}
 
 		if ($('.post').length > 0) {
-				var post = new Post();
+			var post = new Post();
 		}
-
-
 
 	    var main = new Main();
 	    var form = [];

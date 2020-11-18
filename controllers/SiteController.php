@@ -9,8 +9,9 @@ use common\widgets\FilterWidget;
 use common\models\Pages;
 use common\models\Filter;
 use common\models\Slices;
+use common\models\Subdomen;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\priroda_dr\models\ElasticItems;
+use frontend\modules\gorko_ny\models\ElasticItems;
 use common\models\Seo;
 
 class SiteController extends Controller

@@ -130,7 +130,11 @@ export default class YaMapAll{
 			  
 			ymaps.ready(function(){
 				let map = document.querySelector(".map");
-				self.myMap = new ymaps.Map(map, {center: [55.76, 37.64], zoom: 14}, {balloonPanelMaxMapArea: 0});
+				self.myMap = new ymaps.Map(map, {
+					center: [55.76, 37.64],
+					zoom: 14,
+					controls: ['zoomControl', 'fullscreenControl', 'typeSelector', 'trafficControl', 'geolocationControl']
+				}, {balloonPanelMaxMapArea: 0});
 				self.myMap.behaviors.disable('scrollZoom');
 
 				self.myBalloonLayout = ymaps.templateLayoutFactory.createClass(

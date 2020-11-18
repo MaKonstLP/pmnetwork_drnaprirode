@@ -171,7 +171,7 @@
         background-image: url('/dist/images/paginationArrowPrev.svg');
         width: 13px;
         height: 8px;
-        transform: translateX(-5px) translateY(0px);
+        transform: translateX(-5px) translateY(.5px);
         transition: $transition;
     }
 
@@ -204,7 +204,7 @@
         background-image: url('/dist/images/paginationArrowNext.svg');
         width: 13px;
         height: 8px;
-        transform: translateX(6px) translateY(0px);
+        transform: translateX(6px) translateY(.5px);
         transition: $transition;
     }
 }
@@ -213,5 +213,27 @@
     &::after {
         background-image: url('/dist/images/paginationArrowNextHover.svg');
         transition: $transition;
+    }
+}
+
+.pagination_switсh_disabled {
+    opacity: .5;
+    cursor: default;
+
+    &:hover {
+        color: $clrBlack;
+        border: 1px solid rgba(39, 39, 39, .15);;
+    }
+}
+
+.pagination_switсh_disabled:hover {
+    &::before {
+        background-image: url('/dist/images/paginationArrowPrev.svg');
+    }
+}
+
+.pagination_switсh_disabled:hover {
+    &::after {
+        background-image: url('/dist/images/paginationArrowNext.svg');
     }
 }
