@@ -195,7 +195,7 @@ export default class YaMapAll{
 						return element && element[0] && element.find('.arrow')[0];
 					}
 					}
-				);
+                );                
 
 				self.myBalloonContentLayout = ymaps.templateLayoutFactory.createClass(
 					`<div class="balloon_wrapper">

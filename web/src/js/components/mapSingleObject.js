@@ -110,7 +110,7 @@ export default class YaMapSingleObject{
           let mapCoordinates = [`${correctedMapDotX}`, $("#map").attr("data-mapDotY")];
 
           let myBalloonLayout = ymaps.templateLayoutFactory.createClass(
-            `<div class="balloon_layout balloon_layout_single top">
+            `<div class="balloon_layout top">
               <a class="close" href="#"></a>
               <div class="arrow"></div>
               <div class="balloon_inner">
@@ -178,26 +178,31 @@ export default class YaMapSingleObject{
           );
 
           let myBalloonContentLayout = 
-            `<div class="balloon_wrapper single_balloon_wrapper">
-  
-              <div class="balloon_content">
-  
-                <div class="balloon_text">
-  
-                  <div class="balloon_address single_balloon_address">
-                    <p>${$("#map").attr("data-address")}</p>
-                  </div>
+           
 
-                  <div class="single_balloon_phone">
-                    <p class="telShow">Показать контакты</p>
-                    <a href="tel:${$("#map").attr("data-phone")}" class="single_map_tel telHidden">${$("#map").attr("data-phone")}</a>
-                  </div>
-  
-                </div>
-  
-              </div>
-              
-            </div>`
+            `<div class="balloon_wrapper">
+
+						<div class="balloon_content">
+
+							<div class="balloon_text">
+
+								<div class="balloon_header">
+									<a href="{{properties.link}}">${$("[data-title]").html()}</a></button>
+								</div>
+
+								<div class="balloon_type">
+									<p>${$("[data-place-type]").html()}</p>
+								</div>
+
+								<div class="balloon_address">
+									<p>${$("[data-title-address]").html()}</p>
+								</div>
+
+							</div>
+
+						</div>
+						
+					</div>`
 
           let object = new ymaps.Placemark(balloonCoordinates,
             {

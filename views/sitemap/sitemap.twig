@@ -1,26 +1,34 @@
-{# <?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"> 
         <url>
             <loc>{{host}}</loc>
         </url>
         <url>
-            <loc>{{host}}/ploshhadki/</loc>
+            <loc>{{host}}/katalog-ploshchadok/</loc>
+            <lastmod></lastmod>
+            <priority></priority>
         </url>
 
         {% for slice in slices %}
         	<url>
-	            <loc>{{host}}/ploshhadki/{{slice.alias}}/</loc>
+	            <loc>{{host}}/katalog-ploshchadok/{{slice.alias}}/</loc>
+                <lastmod></lastmod>
+                <priority></priority>
 	        </url>
         {% endfor %}
 
         <url>
             <loc>{{host}}/privacy/</loc>
+            <lastmod></lastmod>
+            <priority></priority>
         </url>
 
         {% for item in items %}
         	<url>
-	            <loc>{{host}}/ploshhadki/{{item.id}}/</loc>
+	            <loc>{{host}}/katalog-ploshchadok/{{item.id}}/</loc>
+                <lastmod></lastmod>
+                <priority></priority>
 	        </url>
         {% endfor %}
         
-    </urlset> #}
+    </urlset>

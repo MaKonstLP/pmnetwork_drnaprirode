@@ -13,6 +13,13 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WTV3BGB');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -26,6 +33,11 @@ AppAsset::register($this);
 
 </head>
 <body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WTV3BGB"
+height="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <?php $this->beginBody() ?>
 
@@ -118,7 +130,8 @@ AppAsset::register($this);
 
                     </div>
 
-                    <a href="tel:+78462458000" class="header_phone">(846) 245-80-00</a>
+                    <!-- <a href="tel:+78462458000" class="header_phone">(846) 245-80-00</a> -->
+                    <a href="tel:+79252380159" class="header_phone">+7 (925) 238-01-59</a>
 
                     <div class="btn_wrapper">
                         <div class="btn_banquet">
@@ -137,7 +150,7 @@ AppAsset::register($this);
                                 <!-- <span>Уфа</span> -->
                             </div>
 
-                            <a href="tel:+78462458000" class="header_phone header_phone_notdesc">(846) 245-80-00</a>
+                            <a href="tel:+79252380159" class="header_phone header_phone_notdesc">+7 (925) 238-01-59</a>
                         </div>
                         
                     </div>
@@ -171,7 +184,7 @@ AppAsset::register($this);
 
                 <div class="header_list_wrapper">
                     <div class="header_list header_list_drop">
-                        <div class="header_list_dropBtn">За городом</div>
+                        <a href="/katalog-ploshchadok/za-gorodom/" class="header_list_dropBtn">За городом</a>
 
                         
                     </div>
@@ -180,27 +193,31 @@ AppAsset::register($this);
                         <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
                         <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
                         <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
-                        <a href="/katalog-ploshchadok/shater/">Шатёр</a>
+                        <!-- <a href="/katalog-ploshchadok/shater/">Шатёр</a>
                         <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
                         <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
-                        <a href="#">Крыша</a>
+                        <a href="#">Крыша</a> -->
                     </div>
 
                     <div class="header_list">
                         <a href="/katalog-ploshchadok/shater/">В шатре</a>
                     </div>
 
-                    <div class="header_list">
+                    <!-- <div class="header_list">
                         <a href="/katalog-ploshchadok/veranda-besedka/">На веранде</a>
+                    </div> -->
+
+                    <div class="header_list">
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе/веранде</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе</a>
+                        <a href="/katalog-ploshchadok/krysha/">На крыше</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="#">На крыше</a>
+                        <a href="/katalog-ploshchadok/">Все площадки</a>
                     </div>
 
                     <div class="header_list">
@@ -208,7 +225,7 @@ AppAsset::register($this);
                     </div>
 
                     <div class="header_list">
-                        <a href="#">Контакты</a>
+                        <a href="/contacts/">Контакты</a>
                     </div>
                 </div>
 
@@ -225,11 +242,11 @@ AppAsset::register($this);
                         <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
                         <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
                         <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
-                        <a href="/katalog-ploshchadok/shater/">Шатёр</a>
+                        <!-- <a href="/katalog-ploshchadok/shater/">Шатёр</a>
                         <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
                         <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
-                        <a href="#">Крыша</a>
+                        <a href="#">Крыша</a> -->
                     </div>
 
                     <div class="header_list">
@@ -237,15 +254,19 @@ AppAsset::register($this);
                     </div>
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На веранде</a>
+                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе/веранде</a>
                     </div>
 
-                    <div class="header_list">
+                    <!-- <div class="header_list">
                         <a href="/katalog-ploshchadok/veranda-besedka/">На террасе</a>
+                    </div> -->
+
+                    <div class="header_list">
+                        <a href="/katalog-ploshchadok/krysha/">На крыше</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="#">На крыше</a>
+                        <a href="/katalog-ploshchadok/">Все площадки</a>
                     </div>
 
                     <div class="header_list">
@@ -253,7 +274,7 @@ AppAsset::register($this);
                     </div>
 
                     <div class="header_list">
-                        <a href="#">Контакты</a>
+                        <a href="/contacts/">Контакты</a>
                     </div>
 
                 </div>
@@ -286,7 +307,7 @@ AppAsset::register($this);
                     </div>
 
                     <div class="footer_block_right">
-                        <a href="tel:+78462458000" class="footer_phone">(846) 245-80-00</a>
+                        <a href="tel:+79252380159" class="footer_phone">+7 (925) 238-01-59</a>
                     </div>
                 </div>
             </div>

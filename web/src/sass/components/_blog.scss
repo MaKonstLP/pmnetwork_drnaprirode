@@ -105,6 +105,46 @@
         }
       }
 
+      .no_image {
+        width: max-content;
+        margin: 0 auto 23px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 312px;
+
+        img {
+            width: 77px;
+            height: 114px;
+            // object-fit: cover;
+
+            // @include for-notdesc {
+            // height: 195px;
+            // }
+
+            // @include for-pad {
+            // height: 141px;
+            // }
+
+            // @include for-mobile {
+            // height: 195px;
+            // }
+        }
+
+        p {
+            text-align: center;
+            max-width: 280px;
+            margin: 14px 0 0;
+            color: #b6b6b6;
+            font-family: 'Proxima Nova';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 106.92%;
+        }
+      }
+
       .blog_item_title {
         font-family: 'Museo Sans Cyrl';
         font-style: normal;
@@ -150,6 +190,16 @@
         @include for-mobile {
           font-size: 14px;
         }
+      }
+
+      .blog_item_date {
+        font-family: 'Proxima Nova';
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 130%;
+        color: #828282;
+        margin-top: 10px;
       }
     }
   }

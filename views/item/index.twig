@@ -8,8 +8,8 @@
 
         <div class="card_left">
             <div class="title_mob">
-                <h1>{{seo.h1}}</h1>
-                <span class="title_address">{{item.restaurant_address}}</span>
+                <h1 data-title>{{seo.h1}}</h1>
+                <span class="title_address" data-title-address>{{item.restaurant_address}}</span>
             </div>
 
             <div class="place_capacity">
@@ -38,9 +38,9 @@
             </div> #}
 
             <div class="place_reserv">
-                <span class="place_reserv_name"><span>Забронировать</span><br><span>{{seo.h1}}</span></span>
+                <span class="place_reserv_name"><span>Забронировать <span class="place_reserv_type" data-place-type>{{item.restaurant_types[0].name}}</span></span><br><span>{{seo.h1}}</span></span>
 
-                <p class="place_reserv_present">При бронировании <span>до 20 февраля</span> подарок имениннику!</p>
+                <p class="place_reserv_present">При бронировании <span>до </span><span class="place_reserv_date"></span> подарок имениннику!</p>
 
                 <div class="place_reserv_tel">
                     <span class="place_reserv_telNumber place_reserv_telNumber_mob">+7 
@@ -70,8 +70,8 @@
         <div class="main_block">
 
             <div class="title">
-                <h1>{{seo.h1}}</h1>
-                <span class="title_address">{{item.restaurant_address}}</span>
+                <h1 data-title>{{seo.h1}}</h1>
+                <span class="title_address" data-title-address>{{item.restaurant_address}}</span>
             </div>
 
             <div class="place_info_wrapper">
@@ -118,7 +118,7 @@
 
                 <div class="info_wrapper">
 
-                    {% if item.restaurant_types %}
+                    {# {% if item.restaurant_types %}
                         <span class="info_content">
                             <p class="info_content_title">Тип заведения:</p>
                             {% for i in item.restaurant_types %}
@@ -133,7 +133,7 @@
                                 {% endif %}
                             {% endfor %}
                         </span> 
-                    {% endif %}
+                    {% endif %} #}
                     
                     {% if item.restaurant_location %}
                         <span class="info_content">
@@ -173,11 +173,11 @@
                         <span class="info_content">
                             <p class="info_content_title">Особенности:</p>
                             {% for elem in array %}
-                                {% if loop.index != array|length %}
+                                {% if loop.index != array|length and elem != ' Велком зона' and elem != ' Выездная регистрация' %}
                                     <p class="info_content_var">
                                         {{elem}},
                                     </p>
-                                {% else %}
+                                {% elseif elem != ' Велком зона' and elem != ' Выездная регистрация' %}
                                     <p class="info_content_var">
                                         {{elem}}
                                     </p>
@@ -233,11 +233,11 @@
                             {% set array = item.restaurant_extra_services|split(',') %}
                             <p class="info_content_title">Сервисы за отдельную плату <span class="info_content_usd">$$</span></p> 
                             {% for elem in array %}
-                                {% if loop.index != array|length %}
+                                {% if loop.index != array|length and elem != ' Номер для новобрачных' %}
                                     <p class="info_content_var">
                                         {{elem}},
                                     </p>
-                                {% else %}
+                                {% elseif elem != ' Номер для новобрачных' %}
                                     <p class="info_content_var">
                                         {{elem}}
                                     </p>

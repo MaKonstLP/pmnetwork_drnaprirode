@@ -2,119 +2,231 @@
 
     {% for item in items %}
 
-        <div class="hall_card_wrapper">
+        {% if item.images|length > 0 %}
 
-            <div class="hall_card_title">
-                <h2>{{item.name}}</h2>
+            <div class="hall_card_wrapper">
 
-                {% if item.price %}
-                    <span>от {{item.price}} руб./чел</span>
-                {% endif %}
-            </div> 
+                <div class="hall_card_title">
+                    <h2>{{item.name}}</h2>
 
-            <div class="hall_card_carousel">
-                <div class="carousel_nav">
-                    <div class="carousel_nav_prev_hall carousel_nav_prev_hall-{{loop.index}}"></div>
+                    {% if item.price %}
+                        <span>от {{item.price}} руб./чел</span>
+                    {% endif %}
+                </div> 
 
-                    <div class="carousel_nav_next_hall carousel_nav_next_hall-{{loop.index}}"></div>
+                <div class="hall_card_carousel">
+                    <div class="carousel_nav">
+                        <div class="carousel_nav_prev_hall carousel_nav_prev_hall-{{loop.index}}"></div>
+
+                        <div class="carousel_nav_next_hall carousel_nav_next_hall-{{loop.index}}"></div>
+                    </div>
+
+                    <div class="object_gallery _room">
+                        <div class="swiper-container gallery-top-room">
+                            <div class="swiper-wrapper">
+
+                                {# {% if item.images|length > 0 %} #}
+
+                                    {% for image in item.images %}
+
+                                        <div class="swiper-slide object_thumb">
+                                            <a href="{{image.waterpath}}=s0" data-lightbox="top_slider"><img src="{{image.subpath}}=w710-h472-n-l95" alt="Фото №{{loop.index}} зала {{item.name}}"/></a>
+                                        </div>
+                                        
+                                    {% endfor %}
+
+                                {# {% else %} #}
+
+                                    {# <div class="swiper-slide object_thumb">
+                                        <img src="/dist/images/slider_img.svg" alt=""/>
+                                    </div> #}
+
+                                {# {% endif %} #}
+
+
+                            </div>
+                        </div>
+
+                        <div class="swiper-container gallery-thumbs-room">
+                            <div class="swiper-wrapper">
+
+                                {% for image in item.images %}
+                                    <div class="swiper-slide object_thumb">
+                                        <img src="{{image.subpath}}=w138-h92-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/>
+                                    </div>
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>  
                 </div>
 
-                 <div class="object_gallery _room">
-                    <div class="swiper-container gallery-top-room">
-                        <div class="swiper-wrapper">
+                <div class="hall_card_info">
+                    {% if item.type_name %}
+                        <div class="info_row">
+                            <span class="info_row_left">Тип</span>
 
-                            {% for image in item.images %}
-                                <div class="swiper-slide object_thumb">
-                                    <a href="{{image.waterpath}}=s0" data-lightbox="top_slider"><img src="{{image.subpath}}=w710-h472-n-l95" alt="Фото №{{loop.index}} зала {{item.name}}"/></a>
-                                </div>
-                            {% endfor %}
-
+                            <div class="info_row_right">
+                                <span>{{item.type_name}}</span>
+                            </div>
                         </div>
-                    </div>
+                    {% endif %}
 
-                    <div class="swiper-container gallery-thumbs-room">
-                        <div class="swiper-wrapper">
+                    {% if item.capacity %}
+                        <div class="info_row">
+                            <span class="info_row_left">Вместимость</span>
 
-                            {% for image in item.images %}
-                                <div class="swiper-slide object_thumb">
-                                    <img src="{{image.subpath}}=w138-h92-n-l95" alt="Фото №{{loop.index}} зала {{item.restaurant_name}}"/>
-                                </div>
-                            {% endfor %}
-
+                            <div class="info_row_right">
+                                <span>{{item.capacity}} чел.</span>
+                            </div>
                         </div>
-                    </div>
-                </div>  
-            </div>
+                    {% endif %}
 
-            <div class="hall_card_info">
-                {% if item.type_name %}
-                    <div class="info_row">
-                        <span class="info_row_left">Тип</span>
+                    {% if item.capacity_reception %}
+                        <div class="info_row">
+                            <span class="info_row_left">Вместимость на фуршет</span>
 
-                        <div class="info_row_right">
-                            <span>{{item.type_name}}</span>
+                            <div class="info_row_right">
+                                <span>{{item.capacity_reception}} чел.</span>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
 
-                {% if item.capacity %}
-                    <div class="info_row">
-                        <span class="info_row_left">Вместимость</span>
+                    {% if item.bright_room %}
+                        <div class="info_row">
+                            <span class="info_row_left">Светлый зал</span>
 
-                        <div class="info_row_right">
-                            <span>{{item.capacity}} чел.</span>
+                            {# <div class="info_row_right">
+                                <span>Да</span>
+                            </div> #}
                         </div>
-                    </div>
-                {% endif %}
+                    {# {% else %}
+                        <div class="info_row">
+                            <span class="info_row_left">Светлый зал</span>
 
-                {% if item.capacity_reception %}
-                    <div class="info_row">
-                        <span class="info_row_left">Вместимость на фуршет</span>
+                            <div class="info_row_right">
+                                <span>Нет</span>
+                            </div>
+                        </div> #}
+                    {% endif %}
 
-                        <div class="info_row_right">
-                            <span>{{item.capacity_reception}} чел.</span>
+                    {% if item.separate_entrance %}
+                        <div class="info_row">
+                            <span class="info_row_left">Отдельный вход</span>
+
+                            {# <div class="info_row_right">
+                                <span>Да</span>
+                            </div> #}
                         </div>
-                    </div>
-                {% endif %}
+                    {# {% else %}
+                        <div class="info_row">
+                            <span class="info_row_left">Отдельный вход</span>
 
-                {% if item.bright_room %}
-                    <div class="info_row">
-                        <span class="info_row_left">Светлый зал</span>
+                            <div class="info_row_right">
+                                <span>Нет</span>
+                            </div>
+                        </div> #}
+                    {% endif %}
+                </div>
 
-                        <div class="info_row_right">
-                            <span>Да</span>
+            </div>  
+
+        {% else %}
+
+            <div class="hall_card_wrapper">
+
+                <div class="hall_card_title">
+                    <h2>{{item.name}}</h2>
+
+                    {% if item.price %}
+                        <span>от {{item.price}} руб./чел</span>
+                    {% endif %}
+                </div> 
+
+                <div class="hall_card_carousel">
+                    <div class="object_gallery _room">
+
+                        <div class="no_image">
+                            <img src="/dist/images/slider_img.svg" alt=""/>
+                            <p>К сожалению изображений зала нет, мы над этим работаем</p>
                         </div>
-                    </div>
-                {% else %}
-                    <div class="info_row">
-                        <span class="info_row_left">Светлый зал</span>
+                                
+                    </div>  
+                </div>
 
-                        <div class="info_row_right">
-                            <span>Нет</span>
+                <div class="hall_card_info">
+                    {% if item.type_name %}
+                        <div class="info_row">
+                            <span class="info_row_left">Тип</span>
+
+                            <div class="info_row_right">
+                                <span>{{item.type_name}}</span>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
+                    {% endif %}
 
-                {% if item.separate_entrance %}
-                    <div class="info_row">
-                        <span class="info_row_left">Отдельный вход</span>
+                    {% if item.capacity %}
+                        <div class="info_row">
+                            <span class="info_row_left">Вместимость</span>
 
-                        <div class="info_row_right">
-                            <span>Да</span>
+                            <div class="info_row_right">
+                                <span>{{item.capacity}} чел.</span>
+                            </div>
                         </div>
-                    </div>
-                {% else %}
-                    <div class="info_row">
-                        <span class="info_row_left">Отдельный вход</span>
+                    {% endif %}
 
-                        <div class="info_row_right">
-                            <span>Нет</span>
+                    {% if item.capacity_reception %}
+                        <div class="info_row">
+                            <span class="info_row_left">Вместимость на фуршет</span>
+
+                            <div class="info_row_right">
+                                <span>{{item.capacity_reception}} чел.</span>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
-            </div>
+                    {% endif %}
 
-        </div>  
+                    {% if item.bright_room %}
+                        <div class="info_row">
+                            <span class="info_row_left">Светлый зал</span>
+
+                            {# <div class="info_row_right">
+                                <span>Да</span>
+                            </div> #}
+                        </div>
+                    {# {% else %}
+                        <div class="info_row">
+                            <span class="info_row_left">Светлый зал</span>
+
+                            <div class="info_row_right">
+                                <span>Нет</span>
+                            </div>
+                        </div> #}
+                    {% endif %}
+
+                    {% if item.separate_entrance %}
+                        <div class="info_row">
+                            <span class="info_row_left">Отдельный вход</span>
+
+                            {# <div class="info_row_right">
+                                <span>Да</span>
+                            </div> #}
+                        </div>
+                    {# {% else %}
+                        <div class="info_row">
+                            <span class="info_row_left">Отдельный вход</span>
+
+                            <div class="info_row_right">
+                                <span>Нет</span>
+                            </div>
+                        </div> #}
+                    {% endif %}
+                </div>
+
+            </div>  
+
+        {% endif %}
+
+
     
     {% endfor %}
 

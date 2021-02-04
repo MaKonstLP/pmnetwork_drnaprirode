@@ -45,8 +45,14 @@ export default class Main{
 			self.burgerHandler();
 		});
 
-		$('.header_list_drop').on('click', function() {
+		$('.header_list_drop').on('mouseover', function() {
 			self.openHeaderDropMenu();
+        });
+        
+		$('.drop_content').on('mouseout', function(e) {
+            if (!$(e.relatedTarget).closest('.drop_content').length) {
+                $(e.target).removeClass("drop_content_visible");
+            }			
 		});
 
 		$(document).on('mouseup', function(e) {
@@ -64,11 +70,11 @@ export default class Main{
 	}
 
 	openHeaderDropMenu() {
-		if ($('.drop_content').hasClass('drop_content_visible')) {
-			$('.drop_content').removeClass('drop_content_visible');
-		} else {
+		// if ($('.drop_content').hasClass('drop_content_visible')) {
+		// 	$('.drop_content').removeClass('drop_content_visible');
+		// } else {
 			$('.drop_content').addClass('drop_content_visible');
-		}
+		// }
 	}
 
 	closeHeaderDropMenu(e) {

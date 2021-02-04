@@ -39,7 +39,8 @@ class ListingController extends Controller
 
 	public function actionSlice($slice)
 	{
-		$slice_obj = new QueryFromSlice($slice);
+        $slice_obj = new QueryFromSlice($slice);
+        $seo = $this->getSeo($slice, $params['page'], 0);
 		if($slice_obj->flag){
 			$this->view->params['menu'] = $slice;
 			$params = $this->parseGetQuery($slice_obj->params, Filter::find()->with('items')->orderBy(['sort' => SORT_ASC])->all(), $this->slices_model);
@@ -53,9 +54,8 @@ class ListingController extends Controller
 			return $this->actionListing(
 				$page 			=	$params['page'],
 				$per_page		=	$this->per_page,
-				$params_filter	= 	$params['params_filter'],
-				$breadcrumbs 	=	Breadcrumbs::get_breadcrumbs(1),
-				// $breadcrumbs 	=	Breadcrumbs::get_breadcrumbs(1, '', $canonical),
+                $params_filter	= 	$params['params_filter'],
+				$breadcrumbs 	=	Breadcrumbs::get_breadcrumbs(1, $slice),
 				$canonical 		= 	$canonical,
 				$type 			=	$slice
 			);

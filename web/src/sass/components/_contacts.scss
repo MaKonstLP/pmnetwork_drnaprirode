@@ -1,251 +1,466 @@
-// [data-page-type="contacts"]{
-//   display: flex;
-//   flex-flow: row wrap;
-//   width: 1200px;
-//   margin: 20px auto 20px auto;
+.contacts {
+    .breadcrumbs {
+        margin-top: 52px;
 
-//   .breadcrumbs{
-//     width: 100%;
-//     padding: 0 0 20px 0;
-//     flex-grow: 1;
+        @include for-notdesc {
+            margin-top: 17px;
+        }
 
-//     p{
-//       margin: 0 0 0 15px;
-//       font-size: 14px;
-//       color: #666666;
+        @include for-mobile {
+            margin-top: 15px;
+        }
+    }
 
-//     }
-//   }
+    .contacts_title {
+        font-family: 'Museo Sans Cyrl';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 36px;
+        line-height: 100%;
+        text-align: center;
+        letter-spacing: 0.01em;
+        color: $clrBlack;
+        margin: 49px 0 30px;
 
-//   .contacts_container{
-//     width: 50%;
-//     padding: 0 30px 0 0;
-//   }
+        @include for-notdesc {
+            font-size: 30px;
+            margin: 31px 0 20px;
+        }
 
-//   .title_wrapper{
-
-//     h1{
-//       padding: 0 0 10px 0;
-//       font-size: 28px;
-//     }
-
-//     p{
-//       font-size: 14px;
-//     }
-//   }
-
-//   .mail_wrapper,
-//   .phone_wrapper{
-
-//     h4{
-//       padding: 0 0 10px 0;
-//       font-weight: 600;
-//     }
-//   }
-
-//   .mail_wrapper{
-//     padding: 20px 0 0 0;
-//   }
-
-//   .phone_wrapper{
-//     padding: 20px 0 20px 0;
-
-//     a{
-//       position: relative;
-//       padding: 0 0 0 21px;
-//       font-weight: 600;
-//       font-size: 22px;
-
-//       &:before{
-//         position: absolute;
-//         top: 3px;
-//         left: -5px;
-//         content: '';
-//         width: 24px;
-//         height: 24px;
-//         background: url(/img/phone_icon.svg) no-repeat;
-//       }
-//     }
-//   }
-  
-//   .object_book{
-//     max-width: 450px;
-//     margin: 0 0 20px 0;
-
-//     .object_book_hidden{
-//       flex-flow: row wrap;
-//       justify-content: space-between;
-
-//       .object_book_hidden_button{
-//         cursor: default;
-//         position: static;
-//         padding: 3px 0 0 0;
-
-
-//       }
-//     }
-
-//     ._link:hover{
-//       color: #D83603;
-//     }
-  
-//   }
-
-//   .object_book .object_book_hidden .object_book_phone .object_real_phone{
-//     display: block;
-//   }
-
-//   .object_book .object_book_action{
-//     position: relative;
-//     padding: 3px 0 0 43px;
-//     background: none;
-
-//     &:before{
-//       position: absolute;
-//       top: 3px;
-//       left: 0;
-//       content: '';
-//       width: 30px;
-//       height: 37px;
-//       background: url(/img/gift.svg) no-repeat;
-//       background-size: contain;
-//     }
-//   }
-
-//   .bottom_pane_wrapper{
-//     padding: 0 0 0 30px;
-//     border-left: 2px solid #d83603;
-
-//     & > p{
-//       padding: 0 0 20px 0;
-//       font-size: 14px;
-//     }
-
-//     & > p:last-of-type{
-//       padding: 0 0 0 0;
-//     }
-//   }
-
-//   .form_wrapper.callback{
-//     width: 50%;
-//     margin: 30px 0 0 0;
-//     padding: 20px 20px 32px 20px;
-//   }
-
-//   .form_wrapper.callback .form_title{
-//     width: auto;
-//   }
-
-//   .form_wrapper.callback .form_title .form_title_main{
-//     font-size: 22px;
-//   }
-
-//   .form_wrapper.callback .form_title .form_title_desc,
-//   .form_block .form_inputs .input_wrapper .input_label{
-//     font-size: 14px;
-//   }
-
-//   .form_wrapper.callback .form_block .form_inputs{
-//     flex-flow: row wrap;
-//     width: auto;
-//     height: auto;
-//   }
-
-//   .form_wrapper.callback .form_block .form_inputs .input_wrapper{
-//     width: 270px;
-
-//     &:nth-of-type(2){
-//       margin: 0 0 20px 0;
-//     }
-
-//     &:nth-child(3){
-//       width: 100%;
-//       margin: 0 0 20px 0;
-
-//       textarea{
-//         width: 100%;
-//       }
-//     }
-//   }
-
-//   @include for-notdesc{
-
-//     .object_book{
-//       width: 100%;
-//     }
-//   }
-
-//   @include for-pad{
-//     width: 100%;
-//     margin: 20px 0 20px 0;
-//     padding: 0 15px 0 15px;
-
-//     .contacts_container{
-//       width: calc(50% - 15px);
-//       padding: 0 20px 0 0;
-//     }
+        @include for-pad {
+            font-size: 24px;
+            margin: 31px 0 26px;
+        }
+    }
     
-//     .form_wrapper.callback{
-//       width: calc(50% - 15px);
+    .contacts_wrapper {
+        width: 1195px;
+        margin: 0 auto;
 
-//       &:before,
-//       &:after{
-//         content: none;
-//       }
-//     }
+        @include for-notdesc {
+            max-width: 930px;
+        }
 
-//     .form_wrapper.callback .form_block .form_inputs .input_wrapper{
-//       width: calc(50% - 10px);
-  
-//       &:nth-of-type(2){
-//         margin: 0 0 20px 0;
-//       }
-  
-//       &:nth-child(3){
-//         width: 100%;
-//         margin: 0 0 20px 0;
-  
-//         textarea{
-//           width: 100%;
-//         }
-//       }
-//     }
-//   }
+        @include for-pad {
+            max-width: 690px;
+        }
 
+        @include for-mobile {
+            max-width: 100%;
+        }
 
+        .contacts_block_wrapper {
+            margin: 0 0 39px;
 
-//   @media (max-width: 1200px) {
+            @include for-notdesc {
+                margin: 0 0 29px;
+            }
 
-//     .form_wrapper.callback .form_block .form_inputs .input_wrapper{
-//       width: 100%;
-  
-//       &:nth-of-type(2){
-//         margin: 0 0 20px 0;
-//       }
-//     }
+            @include for-pad {
+                margin: 0 0 27px;
+            }
 
-//   }
+            @include for-mobile {
+                margin: 0 0 31px;
+            }
 
-//   @include for-mobile{
-//     width: calc(100% - 30px);
-//     margin: 20px 15px 20px 15px;
-//     flex-flow: column nowrap;
+            .contacts_block_title {
+                font-family: 'Museo Sans Cyrl';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 100%;
+                letter-spacing: 0.01em;
+                color: $clrBlack;
+                margin: 0 0 15px;
 
-//     .contacts_container,
-//     .form_wrapper.callback{
-//       width: 100%;
-//       padding: 0 0 0 0;
-//     }
+                @include for-notdesc {
+                    font-size: 20px;
+                    margin: 0 0 11px;
+                }
 
-//     .form_wrapper.callback{
-//       margin: 20px 0 0 0;
-//       padding: 20px 20px 32px 20px;
-//     }
+                @include for-pad {
+                    font-size: 18px;
+                    margin: 0 0 13px;
+                }
+            }
 
-//     .object_book .object_book_hidden .object_book_phone .object_fake_phone,
-//     .object_book .object_book_hidden .object_book_phone .object_real_phone{
-//       font-size: 22px;
-//     }
+            .contacts_block_text {
+                font-family: 'Museo Sans Cyrl';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 14px;
+                line-height: 130%;
+                color: #333333;
+                margin: 0;
 
-//   }
-// }
+                @include for-notdesc {
+                    max-width: 98%;
+                }
+
+                @include for-mobile {
+                    max-width: 100%;
+                }
+            }
+        }
+
+        .contacts_contact_wrapper {
+            margin: 51px 0 60px;
+
+            @include for-notdesc {
+                margin: -6px 0 43px;
+            }
+
+            @include for-pad {
+                margin: -19px 0 30px;
+            }
+
+            @include for-mobile {
+                margin: -4px 0 39px;
+            }
+
+            .contacts_phone, .contacts_mail {
+                font-family: 'Museo Sans Cyrl';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 24px;
+                line-height: 180%;
+                color: $clrBlack;
+                margin: 0;
+                display: block;
+                text-decoration: none;
+
+                @include for-notdesc {
+                    font-size: 20px;
+                }
+
+                @include for-pad {
+                    font-size: 18px;
+                }
+            }
+
+            .contacts_phone {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    background-image: url('/dist/images/phone_contacts.svg');
+                    width: 20px;
+                    height: 20px;
+                    margin-right: 10px;
+                    transform: translateY(3px);
+
+                    @include for-pad {
+                        margin-right: 12px;
+                    }
+                }
+            }
+
+            .contacts_mail {
+                &::before {
+                    content: '';
+                    display: inline-block;
+                    background-image: url('/dist/images/mail_contacts.svg');
+                    width: 20px;
+                    height: 16px;
+                    margin-right: 10px;
+
+                    @include for-notdesc {
+                        transform: translateY(4px);
+                    }
+
+                    @include for-pad {
+                        margin-right: 12px;
+                    }
+                }
+            }
+        }
+        
+        .contacts_personal_wrapper {
+            @include for-notdesc {
+                max-width: 926px;
+            }
+
+            .contacts_personal_title {
+                font-family: 'Museo Sans Cyrl';
+                font-style: normal;
+                font-weight: 600;
+                font-size: 26px;
+                line-height: 100%;
+                text-align: center;
+                letter-spacing: 0.01em;
+                color: $clrBlack;
+                margin: 0;
+
+                @include for-notdesc {
+                    font-size: 24px;
+                }
+
+                @include for-pad {
+                    font-size: 20px;
+                }
+            }
+
+            .personal_members_wrapper {
+                display: flex;
+                justify-content: space-between;
+                margin-top: 19px;
+
+                @include for-notdesc {
+                    margin-top: 22px;
+                }
+
+                @include for-pad {
+                    margin-top: 21px;
+                }
+
+                @include for-mobile {
+                    display: flex;
+                    flex-wrap: wrap;
+                }
+
+                .personal_member {
+                    width: calc(25% - 22.5px);
+
+                    @include for-notdesc {
+                        width: calc(25% - 17.5px);
+                    }
+
+                    @include for-pad {
+                        width: calc(25% - 23px);
+                    }
+
+                    @include for-mobile {
+                        width: calc(50% - 15px);
+                    }
+    
+                    .personal_member_img {
+                        width: 100%;
+                        height: 276px;
+                        background: url('/dist/images/personal_member_img.jpg') no-repeat center center / 100%;
+
+                        @include for-notdesc {
+                            height: 214px;
+                        }
+
+                        @include for-pad {
+                            height: 150px;
+                        }
+                    }
+    
+                    .personal_member_name {
+                        font-family: 'Museo Sans Cyrl';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 18px;
+                        line-height: 100%;
+                        letter-spacing: 0.01em;
+                        color: #000000;
+                        text-align: center;
+                        margin: 28px 0 5px;
+
+                        @include for-notdesc {
+                            margin: 22px 0 5px;
+                        }
+
+                        @include for-pad {
+                            margin: 15px 0 5px;
+                            font-size: 16px;
+                        }
+                    }
+    
+                    .personal_member_position {
+                        font-family: 'Museo Sans Cyrl';
+                        font-style: normal;
+                        font-weight: 600;
+                        font-size: 16px;
+                        line-height: 100%;
+                        letter-spacing: 0.01em;
+                        color: #000000;
+                        text-align: center;
+                        margin: 0;
+                    }
+    
+                    .personal_member_about {
+                        font-family: 'Museo Sans Cyrl';
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: $clrCardInfo;
+                        margin: 4px 0 5px;
+
+                        @include for-notdesc {
+                            margin: 15px 0 5px;
+                        }
+
+                        @include for-pad {
+                            font-size: 14px;
+                            line-height: 17px;
+                            margin: 13px 0 11px;
+                        }
+
+                        @include for-mobile {
+                            margin: 13px 0 12px;
+                        }
+                    }
+    
+                    .personal_member_mail {
+                        font-family: 'Museo Sans Cyrl';
+                        font-style: normal;
+                        font-weight: normal;
+                        font-size: 16px;
+                        line-height: 19px;
+                        color: $clrPersonalMail;
+                        display: block;
+                        text-decoration: none;
+                        border-bottom: 1px solid $clrPersonalMail;
+                        width: max-content;
+                        margin: 0 auto;
+
+                        @include for-pad {
+                            font-size: 12px;
+                            line-height: 12px;
+                        }
+
+                        @media (max-width: 359px) {
+                            font-size: 11px;
+                        }
+                    }
+                }
+
+                .personal_member:nth-child(n+3) {
+                    @include for-mobile {
+                        margin-top: 30px;
+                    }
+                }
+
+                .personal_member:not(:first-of-type) {
+                    .personal_member_about {
+                        @include for-notdesc {
+                            margin-left: 7px;
+                        }
+
+                        @include for-mobile {
+                            margin-left: 0;
+                        }
+                    }
+                }
+            }
+        }
+
+        .contacts_form_wrapper {
+            max-width: 1073px;
+            margin: 52px auto 63px;
+            box-sizing: border-box;
+
+            @include for-notdesc {
+                margin: 50px auto 52px;
+                padding: 49px 65px;
+            }
+
+            @include for-pad {
+                margin: 41px auto 38px;
+                padding: 30px 55px;
+            }
+
+            @include for-mobile {
+                margin: 39px auto;
+                padding: 30px 24px 35px;
+            }
+
+            .form_title {
+                .form_title_main {
+                    @include for-notdesc {
+                        font-size: 24px;
+                        transform: translateX(2px);
+                    }
+
+                    @include for-pad {
+                        font-size: 20px;
+                    }
+
+                    @include for-mobile {
+                        transform: none;
+                    }
+                }
+                
+                .form_title_desc {
+                    margin-top: 8px;
+
+                    @include for-notdesc {
+                        position: relative;
+                        margin: -9px auto 0;
+                        transform: translateX(2px);
+                        left: auto;
+                    }
+
+                    @include for-mobile {
+                        margin: 13px auto 0;
+                        transform: none;
+                    }
+                }
+            }
+
+            .form_block {
+                margin-top: 20px;
+
+                @include for-notdesc {
+                    margin-top: 37px;
+                }
+
+                @include for-pad {
+                    margin-top: 36px;
+                }
+
+                @include for-mobile {
+                    margin-top: 21px;
+                }
+
+                .form_inputs {
+                    width: 580px;
+                    max-width: 100%;
+                    margin: 0 auto;
+
+                    @include for-mobile {
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+
+                    .input_wrapper {
+                        width: calc(50% - 10px);
+                        margin-bottom: 11px;
+
+                        @include for-mobile {
+                            width: 100%;
+                            margin-bottom: 15px;
+                        }
+                    }
+                }
+
+                .form_submit_callback {
+                    .form_policy {
+                        .checkbox_pseudo {
+                            @include for-mobile {
+                                transform: translate(3px, -2px);
+                            }
+
+                            &::before {
+                                background-position: 60% 50%;
+                            }
+                        }
+                    }
+
+                    ._button {
+                        margin-top: 17px;
+                        height: 40px;
+
+                        @include for-mobile {
+                            margin-top: 13px;
+                            transform: translateX(2px);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

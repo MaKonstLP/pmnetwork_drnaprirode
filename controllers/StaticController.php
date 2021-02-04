@@ -7,6 +7,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use common\models\Pages;
 use common\models\Seo;
+use frontend\modules\priroda_dr\components\Breadcrumbs;
 
 class StaticController extends Controller
 {
@@ -22,8 +23,12 @@ class StaticController extends Controller
 		$seo = new Seo('privacy', 1);
         $this->setSeo($seo->seo);
 
+        $seo = [];
+        $seo['breadcrumbs'] = Breadcrumbs::get_breadcrumbs(6);
+
 		return $this->render('privacy.twig', [
-			'page' => $page,
+            'page' => $page,
+            'seo' => $seo
 		]);
 	}
 

@@ -23,7 +23,8 @@ class SitemapController extends Controller
 		$slices = Slices::find('alias')->all();
 
 		$elastic_model = new ElasticItems;
-		$items = new ItemsFilterElastic([], 9999, 1, false, 'rooms', $elastic_model);
+		// $items = new ItemsFilterElastic([], 9999, 1, false, 'rooms', $elastic_model);
+		$items = new ItemsFilterElastic([], 9999, 1, false, 'restaurants', $elastic_model);
 
 		return $this->renderPartial('sitemap.twig', [
 			'host' => $host,

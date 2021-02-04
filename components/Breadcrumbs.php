@@ -5,12 +5,42 @@ namespace frontend\modules\priroda_dr\components;
 use Yii;
 
 class Breadcrumbs {
-	public static function get_breadcrumbs($level, $title = '') {
+	public static function get_breadcrumbs($level, $title = '', $crumb = '') {
+        if ($title === 'zagorodniy-kompleks') {
+            $title = 'Загородный комплекс';
+        } elseif ($title ===  'kottedzh') {
+            $title = 'Коттедж';
+        } elseif ($title ===  'baza-otdyha') {
+            $title = 'База отдыха';
+        } elseif ($title ===  'shater') {
+            $title = 'В шатре';
+        } elseif ($title ===  'veranda-besedka') {
+            $title = 'На террасе/веранде';
+        } elseif ($title ===  '') {
+            $title = 'Все площадки';
+        }
+
+        $crumbUrl = $crumb;
+
+        if (stripos($crumb, 'zagorodniy-kompleks')) {
+            $crumb = 'Загородный комплекс';
+        } elseif (stripos($crumb, 'kottedzh')) {
+            $crumb = 'Коттедж';
+        } elseif (stripos($crumb, 'baza-otdyha')) {
+            $crumb = 'База отдыха';
+        } elseif (stripos($crumb, 'shater')) {
+            $crumb = 'В шатре';
+        } elseif (stripos($crumb, 'veranda-besedka')) {
+            $crumb = 'На террасе/веранде';
+        } else {
+            $crumb = 'Все площадки';
+        }
+        
 		switch ($level) {
 			case 1:
 				$breadcrumbs=[
 					'/' => 'Дни рождения на природе',
-					'/katalog-ploshchadok/' => 'Летом',					
+                    '' => $title,
 				];
 				break;
 			case 2:
@@ -22,7 +52,9 @@ class Breadcrumbs {
 			case 3:
 				$breadcrumbs=[
 					'/' => 'Дни рождения на природе',
-					'/katalog-ploshchadok/' => 'Летом',
+                    // '/katalog-ploshchadok/' => $crumb,
+                    $crumbUrl => $crumb,
+					// '' => $crumb,
 					'' => $title,
 				];
 				break;
@@ -31,6 +63,18 @@ class Breadcrumbs {
 					'/' => 'Дни рождения на природе',
 					'/blog/' => 'Наши статьи',
 					'' => $title,
+				];
+				break;
+			case 5:
+				$breadcrumbs=[
+					'/' => 'Дни рождения на природе',
+					'/contacts/' => 'Контакты',
+				];
+				break;
+			case 6:
+				$breadcrumbs=[
+					'/' => 'Дни рождения на природе',
+					'/privacy/' => 'Политика конфиденциальности',
 				];
 				break;
 		}

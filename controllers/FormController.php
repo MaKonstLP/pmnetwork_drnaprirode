@@ -31,7 +31,7 @@ class FormController extends Controller
         //}
 
         //$to   = ['martynov@liderpoiska.ru', 'sharapova@liderpoiska.ru', 'sites@plusmedia.ru'];
-        $to   = ['sk@liderpoiska.ru'];
+        $to   = ['sk@liderpoiska.ru', 'zakaz@drnaprirode.ru'];
 
         if($_POST['type'] == 'main' or $_POST['type'] == 'header'){
             $subj = "Заявка на выбор площадки.";

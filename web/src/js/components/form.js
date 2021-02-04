@@ -8,6 +8,7 @@ export default class Form {
 	constructor(form) {
 		this.$form = $(form);
 		this.$formWrap = this.$form.parents('.form_wrapper');
+		this.$formCal = this.$form.find('.calendar_wrapper');
 		this.$submitButton = this.$form.find('button[type="submit"]');
 		this.$policy = this.$form.find('[name="policy"]');
 		this.to = (this.$form.attr('action') == undefined || this.$form.attr('action') == '') ? this.to : this.$form.attr('action');
@@ -104,35 +105,35 @@ export default class Form {
 		this.$form.reset();
 	}
 
-	success(data, formType) {
-		switch(formType) {
-		  case 'main':
-		    ym(66603799,'reachGoal','feedback');
-		    gtag('event', 'Feedback', {
-			  'event_category': 'Order',
-			});
-		    gtag('event', 'form');
-		    break;
+	// success(data, formType) {
+	// 	switch(formType) {
+	// 	  case 'main':
+	// 	    ym(66603799,'reachGoal','feedback');
+	// 	    gtag('event', 'Feedback', {
+	// 		  'event_category': 'Order',
+	// 		});
+	// 	    gtag('event', 'form');
+	// 	    break;
 
-		  case 'item':
-		    ym(66603799,'reachGoal','roomorder');
-		    gtag('event', 'Roomorder', {
-			  'event_category': 'Order',
-			});
-		    break;
-		  case 'header':
-		    ym(66603799,'reachGoal','quickorder');
-		    gtag('event', 'Quickorder', {
-			  'event_category': 'Order',
-			});
-		    break;
-		}
+	// 	  case 'item':
+	// 	    ym(66603799,'reachGoal','roomorder');
+	// 	    gtag('event', 'Roomorder', {
+	// 		  'event_category': 'Order',
+	// 		});
+	// 	    break;
+	// 	  case 'header':
+	// 	    ym(66603799,'reachGoal','quickorder');
+	// 	    gtag('event', 'Quickorder', {
+	// 		  'event_category': 'Order',
+	// 		});
+	// 	    break;
+	// 	}
 
-		this.reset();
-		this.$formWrap.find('[data-success] [data-success-name]').text(data.name);
-		this.$formWrap.find('[data-success] [data-success-phone]').text(data.phone);
-		this.$formWrap.find('[data-success]').removeClass('_hide');
-	}
+	// 	this.reset();
+	// 	this.$formWrap.find('[data-success] [data-success-name]').text(data.name);
+	// 	this.$formWrap.find('[data-success] [data-success-phone]').text(data.phone);
+	// 	this.$formWrap.find('[data-success]').removeClass('_hide');
+	// }
 
 	sendIfValid(e) {
 	    e.preventDefault();
@@ -168,6 +169,11 @@ export default class Form {
 
 		// Отображаем попап успешной отправки
 		$('.message_send').removeClass('_hide');
+
+		// Сбросим поля формы
+		this.$form[0].reset(); // сбросим все поля формы (кроме даты)
+		$($(this.$form[0]).find('[name="date"]')[0]).attr("value", ""); // сбросим поле даты
+		$($(this.$formCal[0]).find('.fc-selected-date')[0]).removeClass('fc-selected-date'); // сбросим выбранную дату на календаре
 
 		// Узнаем, через какую формы было отправлено - всплывающую или статичную
 		let logic = true; 

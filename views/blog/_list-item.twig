@@ -2,7 +2,18 @@
 
   <a class="blog_item" href="{{ model.getUrl() }}">
 
-    <img class="blog_item_img" src="{{ model.getFileData('image').src }}" alt="blog article image">
+    {% if model.getFileData('image').src == '/placeholder.png' %}
+
+        <div class="no_image">
+            <img class="blog_item_img" src="/dist/images/slider_img.svg">
+            <p>К сожалению, изображения нет, мы над этим работаем</p>
+        </div>
+
+    {% else %}
+
+        <img class="blog_item_img" src="{{ model.getFileData('image').src }}" alt="blog article image">
+        
+    {% endif %}
 
     <div class="blog_item_text_wrapper">
 
@@ -12,6 +23,21 @@
 
       <div class="blog_item_text">
         {{ model.short_intro }}
+      </div>
+
+      <div class="blog_item_date">
+        {% set monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] %}
+        {% set month = model.published_at|date("m") %}
+
+        {% if model.published_at|date("d")|first == 0 %}
+            {{ model.published_at|date("d")|replace({'0':''}) }}
+        {% else %}
+            {{ model.published_at|date("d") }}
+        {% endif %}
+
+        {{ monthArr[month-1] }}
+        
+        {{ model.published_at|date("Y") }}
       </div>
 
     </div>

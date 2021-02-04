@@ -26,7 +26,7 @@ class BlogController extends Controller
 		$dataProvider = new ActiveDataProvider([
 			'query' => $query,
 			'pagination' => [
-				'pageSize' => 100,
+				'pageSize' => 15,
 				'forcePageParam' => false,
 				'totalCount' => $query->count()
 			],

@@ -153,7 +153,7 @@
             box-sizing: border-box;
             transition: $transition;
             overflow: hidden;
-            z-index: 2;
+            z-index: 3;
 
             @media (max-width: 1299px) {
                 top: 0;
@@ -223,6 +223,14 @@
                     }
                 }
             }
+        }
+
+        .season_link {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            z-index: 2;
         }
 
         &:nth-child(1) {
@@ -462,7 +470,8 @@
 
     .index_seo_text_wrapper {
         @include for-mobile {
-            height: 60px;
+            height: max-content;
+            max-height: 60px;
             position: relative;
             overflow: hidden;
         }
@@ -485,6 +494,7 @@
     .index_seo_text_wrapper-open {
         overflow: visible;
         height: auto;
+        max-height: none;
     }
 
     .index_seo_text_wrapper-open .index_toggle {

@@ -2,7 +2,7 @@
 
 {% if loop.index <= 6 %}
 
-	<a href="/ploshhadki/{{item.id}}/" class="item swiper-slide {{type}}">
+	<a href="/katalog-ploshchadok/{{item.id}}/" class="item swiper-slide {{type}}">
         <div class="item_img">
             <img src="{{item.restaurant_images[0].subpath}}=w440-h302-n-l95" loading="lazy" alt="{{img_alt | replace({"**rest_name**" : item.restaurant_name})}}"/>
 
@@ -19,7 +19,11 @@
                 
             {% endif %}
                 
-            <div class="item_meta">                   
+            <div class="item_meta">         
+
+                <div class="item_meta_item">
+                    <span class="item_meta_label">{{item.rooms|length}} открытых площадки</span>
+                </div>          
 
                 <div class="item_meta_item">
                     <span class="item_meta_label">Вместимость: </span>
@@ -40,10 +44,6 @@
                     {% endfor %}
 
                     человек</span>
-                </div>
-
-                <div class="item_meta_item">
-                    <span class="item_meta_label">{{item.rooms|length}} открытых площадки</span>
                 </div>
 
                 {% if item.restaurant_price %}

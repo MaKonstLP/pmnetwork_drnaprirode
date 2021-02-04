@@ -3,10 +3,9 @@
     font-family: "Proxima Nova";
     font-style: normal;
     font-weight: normal;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 130%;
     letter-spacing: 0.01em;
-    text-transform: capitalize;
     color: $clrBlack;
     margin: 0 0 0 8px;
 
@@ -16,35 +15,187 @@
     }
 
     ul{
-        margin: 0;
+        margin: 0 0 10px;
 
         li{
-            margin: 0;
+            margin: 0 0 2px;
+            list-style: none;
+            position: relative;
+
+            &::before {
+                content: '';
+                width: 8px;
+                height: 8px;
+                background: url('/dist/images/list_circle.svg');
+                position: absolute;
+                top: 7px;
+                left: -16px;
+            }
+
+            ul{
+                margin: 0 0 10px;
+        
+                li{
+                    margin: 0 0 2px;
+                    list-style: none;
+                    position: relative;
+        
+                    &::before {
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        background: url('/dist/images/list_circle.svg');
+                        position: absolute;
+                        top: 7px;
+                        left: -16px;
+                    }
+                }
+            }
+
+            ol {
+                margin: 0 0 10px;
+                counter-reset: myCounter;
+        
+                li {
+                    margin: 0 0 2px;
+                    list-style: none;
+                    position: relative;
+        
+                    &::before {
+                        counter-increment: myCounter;
+                        content: counter(myCounter);
+                        position: absolute;
+                        width: 30px;
+                        top: 2px;
+                        left: -30px;
+                        text-align: center;
+                        font-family: 'Proxima Nova';
+                        font-style: normal;
+                        font-weight: 900;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: $clrFormError;
+                    }
+                }
+            }
         }
     }
 
-    ol{
-        margin: 0;
+    ol {
+        margin: 0 0 10px;
+        counter-reset: myCounter;
 
-        li{
-            margin: 0;
+        li {
+            margin: 0 0 2px;
+            list-style: none;
+            position: relative;
+
+            &::before {
+                counter-increment: myCounter;
+                content: counter(myCounter);
+                position: absolute;
+                width: 30px;
+                top: 2px;
+                left: -30px;
+                text-align: center;
+                font-family: 'Proxima Nova';
+                font-style: normal;
+                font-weight: 900;
+                font-size: 16px;
+                line-height: 100%;
+                color: $clrFormError;
+            }
+
+            ol {
+                margin: 5px 0;
+                counter-reset: myCounter2;
+        
+                li {
+                    margin: 0 0 2px;
+                    list-style: none;
+                    position: relative;
+        
+                    &::before {
+                        counter-increment: myCounter2;
+                        content: counter(myCounter) '.' counter(myCounter2);
+                        position: absolute;
+                        width: 30px;
+                        top: 2px;
+                        left: -30px;
+                        text-align: center;
+                        font-family: 'Proxima Nova';
+                        font-style: normal;
+                        font-weight: 900;
+                        font-size: 16px;
+                        line-height: 100%;
+                        color: $clrFormError;
+                    }
+
+                    ol {
+                        margin: 5px 0;
+                        counter-reset: myCounter3;
+                
+                        li {
+                            margin: 0 0 2px;
+                            list-style: none;
+                            position: relative;
+                
+                            &::before {
+                                counter-increment: myCounter3;
+                                content: counter(myCounter) '.' counter(myCounter2) '.' counter(myCounter3);
+                                position: absolute;
+                                width: 40px;
+                                top: 2px;
+                                left: -40px;
+                                text-align: center;
+                                font-family: 'Proxima Nova';
+                                font-style: normal;
+                                font-weight: 900;
+                                font-size: 16px;
+                                line-height: 100%;
+                                color: $clrFormError;
+                            }
+                        }
+                    }
+                }
+            }
+
+            ul{
+                margin: 0 0 10px;
+        
+                li{
+                    margin: 0 0 2px;
+                    list-style: none;
+                    position: relative;
+        
+                    &::before {
+                        content: '';
+                        width: 8px;
+                        height: 8px;
+                        background: url('/dist/images/list_circle.svg');
+                        position: absolute;
+                        top: 7px;
+                        left: -16px;
+                    }
+                }
+            }
         }
     }
 
     p{
-        margin: 0;
+        margin: 0 0 10px;
     }
 
     h2{
-        margin: 0;
+        margin: 25px 0 15px;
     }
 
     h3{
-        margin: 0;
+        margin: 25px 0 15px;
     }
 
     h4{
-        margin: 0;
+        margin: 25px 0 15px;
     }
 
     .seo_text_control{

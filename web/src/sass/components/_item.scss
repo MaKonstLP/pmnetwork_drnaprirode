@@ -71,6 +71,7 @@
                     line-height: 106.92%;
                     color: $clrGreen;
                     position: relative;
+                    cursor: pointer;
 
                     @include for-mobile {
                         margin-left: 17px !important;
@@ -132,6 +133,7 @@
                     color: $clrGreen;
                     position: relative;
                     margin-left: -2px;
+                    cursor: pointer;
                     // text-decoration-line: underline;
             
                     &::before {
@@ -316,6 +318,10 @@
                 span:first-of-type {
                     @include for-pad {
                         margin-right: 5px;
+                    }
+
+                    .place_reserv_type {
+                        text-transform: lowercase;
                     }
                 }
             }
@@ -544,6 +550,7 @@
                 line-height: 106.92%;
                 color: $clrGreen;
                 position: relative;
+                cursor: pointer;
 
                 &:after {
                     content: '';
@@ -723,22 +730,22 @@
                         text-transform: lowercase;
                         transition: $transition;
                         position: relative;
-                        cursor: pointer;
+                        // cursor: pointer;
 
-                        &:hover {
-                            transition: $transition;
-                            color: $clrGreen;
+                        // &:hover {
+                        //     transition: $transition;
+                        //     color: $clrGreen;
 
-                            &::after {
-                                content: '';
-                                width: 100%;
-                                height: 1px;
-                                background: $clrGreen;
-                                position: absolute;
-                                left: 0;
-                                bottom: 1px;
-                            }
-                        }
+                        //     &::after {
+                        //         content: '';
+                        //         width: 100%;
+                        //         height: 1px;
+                        //         background: $clrGreen;
+                        //         position: absolute;
+                        //         left: 0;
+                        //         bottom: 1px;
+                        //     }
+                        // }
                     }
                 }
 
@@ -911,6 +918,46 @@
 
                     .gallery-thumbs-room {
                         display: none;
+                    }
+
+                    .no_image {
+                        width: max-content;
+                        margin: 0 auto;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+                        height: 446px;
+
+                        @include for-notdesc {
+                            height: 320px;
+                        }
+
+                        @include for-mobile {
+                            height: 168px;
+                        }
+
+                        img {
+                            width: 77px;
+                            height: 114px;
+                        }
+
+                        p {
+                            text-align: center;
+                            max-width: 280px;
+                            margin: 14px 0 0;
+                            color: #B6B6B6;
+                            font-family: 'Proxima Nova';
+                            font-style: normal;
+                            font-weight: normal;
+                            font-size: 16px;
+                            line-height: 106.92%;
+
+                            @include for-mobile {
+                                font-size: 14px;
+                                max-width: 250px;
+                            }
+                        }
                     }
                 }
 

@@ -37,10 +37,32 @@ export default class Item{
 		$('[data-title-address]').on('click', function(){
             let map_offset_top = $('.map').offset().top;
             let map_height = $('.map').height();
-            let header_height = $('header').height();
+            let header_height = $('.header_wrap_fixed').height();
             let window_height = $(window).height();
             let scroll_length = map_offset_top - header_height - ((window_height - header_height)/2) + map_height/2;
             $('html,body').animate({scrollTop:scroll_length}, 400);
+        });
+
+
+        $(document).ready(function() {
+            let presentDate = new Date();
+            presentDate.setDate(presentDate.getDate() + 14);
+
+            function formatDate(date) {
+                var monthNames = [
+                  "января", "февраля", "марта",
+                  "апреля", "мая", "июня", "июля",
+                  "августа", "сентября", "октября",
+                  "ноября", "декабря"
+                ];
+              
+                var day = date.getDate();
+                var monthIndex = date.getMonth();
+              
+                return day + ' ' + monthNames[monthIndex];
+            }
+
+            $('.place_reserv_date').html(formatDate(presentDate));
         });
 
 

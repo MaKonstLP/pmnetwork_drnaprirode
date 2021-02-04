@@ -17,10 +17,16 @@
 			{{  pjax_end()  }}
 
 		</div>
+
+        <div class="pagination"> 
+            <div data-pagination-wrapper data-type='page'>
+                {{pagination | raw }}
+            </div>
+        </div>
 		
 	</div>
 
-  {# <div class="content_block items_list_blog" data-blog-wrapper> #}
+    {# <div class="content_block items_list_blog" data-blog-wrapper> #}
 
 		{# <div class="items_list" data-blog-list>
 

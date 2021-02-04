@@ -21,16 +21,45 @@
 
 				<div class="post_bottom_wrapper">
 
-					<p class="post_date">10 откября 2019</p>
+					<p class="post_date">
+                        {% set monthArr = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря'] %}
+                        {% set month = post.published_at|date("m") %}
+
+                        {% if post.published_at|date("d")|first == 0 %}
+                            {{ post.published_at|date("d")|replace({'0':''}) }}
+                        {% else %}
+                            {{ post.published_at|date("d") }}
+                        {% endif %}
+
+                        {{ monthArr[month-1] }}
+                        
+                        {{ post.published_at|date("Y") }}
+                    </p>
 
 					<div class="post_social">
 						<span class="post_social_text">Поделиться</span>
 
-						{% for i in 1..5 %}
+						{# {% for i in 1..5 %}
 						<a href="#" class="post_social_icon">
 							<img src="/dist/images/postSocial-{{i}}.svg">
 						</a>
-						{% endfor %}
+						{% endfor %} #}
+
+                        {# <div id="test3"></div> #}
+                        <script src="https://yastatic.net/share2/share.js"></script>
+                        <div class="ya-share2" data-curtain data-limit="4" data-services="vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,messenger"></div>
+                        <script>
+                            // Ya.share2(document.getElementById("test3"), {
+                            //     content: {
+                            //         url: "https://yandex.com"
+                            //     },
+                            //     theme: {
+                            //         services: 'vkontakte,facebook,odnoklassniki,telegram,twitter,viber,whatsapp,messenger',
+                            //         limit: 8,
+                            //         copy: 'last',
+                            //     }
+                            // });
+                        </script>
 					</div>
 
 				</div>
