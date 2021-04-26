@@ -11,7 +11,7 @@ use common\models\Filter;
 use common\models\Slices;
 use common\models\Subdomen;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\gorko_ny\models\ElasticItems;
+use frontend\modules\priroda_dr\models\ElasticItems;
 use common\models\Seo;
 
 class SiteController extends Controller
@@ -23,6 +23,10 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        //$elastic_model = new ElasticItems;
+        //$elastic_model::refreshIndex();
+        //exit;
+
         $filter_model = Filter::find()->with('items')->where(['active' => 1])->orderBy(['sort' => SORT_ASC])->all();
         $slices_model = Slices::find()->all();
         $seo = $this->getSeo('index');
@@ -62,7 +66,8 @@ class SiteController extends Controller
 
     public function actionPrivacyPolicy()
     {
-        return $this->render('privacy_policy.twig');
+        $seo = $this->getSeo('privacy-policy');
+        return $this->render('privacy_policy.twig', ['page' => $seo]);
     }
 
     public function actionCookiePolicy()
@@ -80,12 +85,7 @@ class SiteController extends Controller
             $subdomen_alias = '';
         }
         echo 'User-agent: *
-Disallow: /*rest_type=
-Disallow: /*chelovek=
-Disallow: /*price=
-Disallow: /*firework=
-Disallow: /*svoy-alko=
-Sitemap: https://'.$subdomen_alias.'korporativ-ng.ru/sitemap/';
+Disallow: /';
         exit;
     }
 

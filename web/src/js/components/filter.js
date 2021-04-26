@@ -15,8 +15,8 @@ export default class Filter{
 		// My
 
 		// Слайдеры
-		self.sliderCalc(this.$filter.find('.slider_chek'), 5);
-		self.sliderCalc(this.$filter.find('.slider_chelovek'), 5);
+		self.sliderCalc(this.$filter.find('.slider_cost'), 5);
+		self.sliderCalc(this.$filter.find('.slider_quantity'), 5);
 		
 		// Клик по селекту
 		this.$filter.find('.dropFilter_content').on('click', function(){
@@ -53,8 +53,8 @@ export default class Filter{
 		// Клик показать
 		this.$filter.find('[data-filter-button]').on('click', function() {
 			self.selectStateRefresh($('.list_select_rest_type').closest('[data-filter-select-block]'));
-			self.scrollStateRefresh($('.slider_chek').closest('[data-filter-scroll-block]'));
-			self.scrollStateRefresh($('.slider_chelovek').closest('[data-filter-scroll-block]'));
+			self.scrollStateRefresh($('.slider_cost').closest('[data-filter-scroll-block]'));
+			self.scrollStateRefresh($('.slider_quantity').closest('[data-filter-scroll-block]'));
 		});
 
 		// Клик сбросить фильтр
@@ -306,8 +306,8 @@ export default class Filter{
 			$(this).removeClass('_active');
 		});
 
-		this.resetSlider(this.$filter.find('.slider_chek'), 5);
-		this.resetSlider(this.$filter.find('.slider_chelovek'), 5);
+		this.resetSlider(this.$filter.find('.slider_cost'), 5);
+		this.resetSlider(this.$filter.find('.slider_quantity'), 5);
 
 		this.state = {};
 	}
@@ -371,6 +371,7 @@ export default class Filter{
             data: data,
             success: function(response) {
             	response = $.parseJSON(response);
+            	ym(70764172,'reachGoal','filter_use');
                 self.resolve(response);
             },
             error: function(response) {
@@ -396,7 +397,8 @@ export default class Filter{
             data: data,
             success: function(response) {
             	if(response){
-            		self.resolve('/katalog-ploshchadok/'+response);
+            		ym(70764172,'reachGoal','filter_use');
+            		self.resolve('/'+response);
             	}
             	else{
             		self.resolve(self.filterListingHref());

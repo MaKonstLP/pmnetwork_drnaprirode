@@ -152,6 +152,7 @@ export default class Item{
 
 		$('.place_reserv_telToggle').on('click', function() {
 			self.showNumber();
+			yaCounter70764172.reachGoal('show_phone_gift');
 		});
 
 		$('.telShow').on('click', function() {

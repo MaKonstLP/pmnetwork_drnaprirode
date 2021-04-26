@@ -13,13 +13,6 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-WTV3BGB');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="<?= Yii::$app->charset ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,8 +22,15 @@ AppAsset::register($this);
     <?php $this->head() ?>
     <?php if (!empty($this->params['desc'])) echo "<meta name='description' content='".$this->params['desc']."'>";?>
     <?php if (!empty($this->params['kw'])) echo "<meta name='keywords' content='".$this->params['kw']."'>";?>
+    <?php if (!empty($this->params['canonical'])) echo "<link rel='canonical' href='".$this->params['canonical']."'>";?>
     <?= Html::csrfMetaTags() ?>
-
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WTV3BGB');</script>
+<!-- End Google Tag Manager -->
 </head>
 <body>
 
@@ -84,7 +84,13 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                                 function createCityNameLine($city){
                                     if($city->alias){
-                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='http://$city->alias.drnaprirode.ru/'>
+                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://$city->alias.drnaprirode.ru/'>
+                                                    <input type='checkbox' name='city' class='personalData' checked='' data-required>
+                                                    <p class='checkbox_pseudo'>$city->name</p>
+                                                    </div>";
+                                    }
+                                    else{
+                                        $newLine = "<div class='city_checkbox' data-action='city_checkbox' data-href='https://drnaprirode.ru/'>
                                                     <input type='checkbox' name='city' class='personalData' checked='' data-required>
                                                     <p class='checkbox_pseudo'>$city->name</p>
                                                     </div>";
@@ -184,48 +190,48 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                 <div class="header_list_wrapper">
                     <div class="header_list header_list_drop">
-                        <a href="/katalog-ploshchadok/za-gorodom/" class="header_list_dropBtn">За городом</a>
+                        <a href="/za-gorodom/" class="header_list_dropBtn">За городом</a>
 
                         
                     </div>
 
                     <div class="drop_content">
-                        <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
-                        <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
-                        <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
-                        <!-- <a href="/katalog-ploshchadok/shater/">Шатёр</a>
-                        <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
-                        <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
+                        <a href="/zagorodniy-kompleks/">Загородный комплекс</a>
+                        <a href="/kottedzh/">Коттедж</a>
+                        <a href="/baza-otdyha/">База отдыха</a>
+                        <!-- <a href="/shater/">Шатёр</a>
+                        <a href="/veranda-besedka/">Веранды</a>
+                        <a href="/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
                         <a href="#">Крыша</a> -->
                     </div>
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/shater/">В шатре</a>
+                        <a href="/shater/">В шатре</a>
                     </div>
 
                     <!-- <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На веранде</a>
+                        <a href="/veranda-besedka/">На веранде</a>
                     </div> -->
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе/веранде</a>
+                        <a href="/veranda-besedka/">На террасе/веранде</a>
                     </div>
 
-                    <div class="header_list">
-                        <a href="/katalog-ploshchadok/krysha/">На крыше</a>
-                    </div>
+                    <!-- <div class="header_list">
+                        <a href="/krysha/">На крыше</a>
+                    </div>-->
 
                     <div class="header_list">
                         <a href="/katalog-ploshchadok/">Все площадки</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/blog/">Статьи</a>
+                        <a href="https://drnaprirode.ru/blog/">Статьи</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/contacts/">Контакты</a>
+                        <a href="/kontakty/">Контакты</a>
                     </div>
                 </div>
 
@@ -239,30 +245,30 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="drop_content">
-                        <a href="/katalog-ploshchadok/zagorodniy-kompleks/">Загородный комплекс</a>
-                        <a href="/katalog-ploshchadok/kottedzh/">Коттедж</a>
-                        <a href="/katalog-ploshchadok/baza-otdyha/">База отдыха</a>
-                        <!-- <a href="/katalog-ploshchadok/shater/">Шатёр</a>
-                        <a href="/katalog-ploshchadok/veranda-besedka/">Веранды</a>
-                        <a href="/katalog-ploshchadok/veranda-besedka/">Террасы</a>
+                        <a href="/zagorodniy-kompleks/">Загородный комплекс</a>
+                        <a href="/kottedzh/">Коттедж</a>
+                        <a href="/baza-otdyha/">База отдыха</a>
+                        <!-- <a href="/shater/">Шатёр</a>
+                        <a href="/veranda-besedka/">Веранды</a>
+                        <a href="/veranda-besedka/">Террасы</a>
                         <a href="#">Беседки</a>
                         <a href="#">Крыша</a> -->
                     </div>
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/shater/">В шатре</a>
+                        <a href="/shater/">В шатре</a>
                     </div>
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе/веранде</a>
+                        <a href="/veranda-besedka/">На террасе/веранде</a>
                     </div>
 
                     <!-- <div class="header_list">
-                        <a href="/katalog-ploshchadok/veranda-besedka/">На террасе</a>
+                        <a href="/veranda-besedka/">На террасе</a>
                     </div> -->
 
                     <div class="header_list">
-                        <a href="/katalog-ploshchadok/krysha/">На крыше</a>
+                        <a href="/krysha/">На крыше</a>
                     </div>
 
                     <div class="header_list">
@@ -274,7 +280,7 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
                     </div>
 
                     <div class="header_list">
-                        <a href="/contacts/">Контакты</a>
+                        <a href="/kontakty/">Контакты</a>
                     </div>
 
                 </div>
@@ -302,7 +308,7 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </a>
                         <div class="footer_info">
                             <p class="footer_copy">Дни рождения на природе © <?php echo date("Y");?></p>
-                            <a href="/privacy/" class="footer_link">Политика конфиденциальности</a>
+                            <a href="/privacy-policy/" class="footer_link">Политика конфиденциальности</a>
                         </div>                        
                     </div>
 
@@ -314,7 +320,6 @@ height="0" style="display:none;visibility:hidden"></iframe></noscript>
         </footer>
 
     </div> 
-
 <?php $this->endBody() ?>
 
 </body>

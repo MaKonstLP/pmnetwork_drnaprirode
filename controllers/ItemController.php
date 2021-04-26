@@ -11,16 +11,27 @@ use common\models\elastic\RestaurantElastic;
 use frontend\modules\priroda_dr\components\Breadcrumbs;
 use common\models\elastic\ItemsWidgetElastic;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\gorko_ny\models\ElasticItems;
+use frontend\modules\priroda_dr\models\ElasticItems;
 use common\models\Seo;
 
 class ItemController extends Controller
 {
 
-	public function actionIndex($id)
+	public function actionIndex($slug)
 	{
 		$elastic_model = new ElasticItems;
-		$item = $elastic_model::get($id);
+		//echo 1;
+		//exit;
+		$item = $elastic_model::find()->query([
+			'bool' => [
+				'must' => [
+					['match' => ['restaurant_slug' => $slug]],
+					['match' => ['restaurant_city_id' => \Yii::$app->params['subdomen_id']]],
+				],
+			]
+		])->one();
+		if(!$item)
+			throw new \yii\web\NotFoundHttpException();
 		$items = new ItemsFilterElastic([], 10, 1, false, 'restaurants', $elastic_model);
 		// $items = new ItemsFilterElastic($params_filter, $per_page, $page, false, 'restaurants', $elastic_model);
 
@@ -31,7 +42,7 @@ class ItemController extends Controller
 		//$item = ApiItem::getData($item->restaurants->gorko_id);
 
         $seo['h1'] = $item->restaurant_name;
-        $seo['breadcrumbs'] = Breadcrumbs::get_breadcrumbs(3, $seo['h1'], $_SERVER['HTTP_REFERER']);
+        $seo['breadcrumbs'] = Breadcrumbs::get_breadcrumbs(3, $seo['h1'], isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false);
 		$seo['desc'] = $item->restaurant_name;
 		$seo['address'] = $item->restaurant_address;
 
@@ -44,7 +55,7 @@ class ItemController extends Controller
 		return $this->render('index.twig', array(
 			'items' => $items->items,
 			'item' => $item,
-			'queue_id' => $id,
+			'queue_id' => $item->id,
 			'seo' => $seo,
 			'other_rooms' => $other_rooms
 		));

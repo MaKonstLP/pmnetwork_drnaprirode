@@ -26,7 +26,7 @@ export default class Index{
 				gtag('event', 'Filter', {
 				  'event_category': 'Search',
 				});*/
-				window.location.href = response;
+				window.location.href = response;				
 			}
 		);
 	}

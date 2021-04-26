@@ -107,18 +107,18 @@
                     </div>
 
                     <div data-listing-text-bottom>
-                        <div class="seo_text" data-seo-text>
+                        <!--<div class="seo_text" data-seo-text>
                             <p>
                                 Понтон на воде 400 м2 с белым шатром 260 м2. Вмещает до 180 постояльцев банкетной рассадкой. На территории понтона размещаются 2 маленькие веранды, которые уже входят в стоимость аренды, а на свободных от шатра углах устроилась мягкая мебель. Шатер оборудован барной стойкой со светодиодной подсветкой, необходимым для вечернего освещения количеством люстр, а на каждой стальной дуге вывешены световые «Пары». В случае непогоды по периметру заакрываются шторы, которые не пропускают воду и ветер, и предоставляются газовые и электронные обогреватели. Понтон содержит отдельный подъезд и личную парковку на 20 машиномест, собственно что выделяет ему превосходство перед другими площадками. Ресторан дает текстиль на столы и стулья и индивидуальные тканевые салфетки. Громкая музыка вероятна до 21:30, впоследствии лишь только в фоновом режиме.
                             </p>
-                        </div>
+                        </div>-->
                     </div>
 
                 </div>
 
                 <div class="info_wrapper">
 
-                    {# {% if item.restaurant_types %}
+                    {% if item.restaurant_types %}
                         <span class="info_content">
                             <p class="info_content_title">Тип заведения:</p>
                             {% for i in item.restaurant_types %}
@@ -133,7 +133,7 @@
                                 {% endif %}
                             {% endfor %}
                         </span> 
-                    {% endif %} #}
+                    {% endif %}
                     
                     {% if item.restaurant_location %}
                         <span class="info_content">
@@ -186,14 +186,18 @@
                         </span>
                     {% endif %}
                     
-                    {% if item.restaurant_alcohol %}
+                    
                         <span class="info_content">
                             <p class="info_content_title">Алкоголь в наличии:</p>
                             <p class="info_content_var">
-                                {{item.restaurant_alcohol}}
+                                {% if item.restaurant_alcohol %}
+                                    Да
+                                {% else %}
+                                    Нет
+                                {% endif %}
                             </p>
                         </span>
-                    {% endif %}
+                    
                     
                     {% if item.restaurant_own_alcohol %}
                         <span class="info_content">

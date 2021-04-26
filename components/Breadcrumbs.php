@@ -18,7 +18,16 @@ class Breadcrumbs {
             $title = 'На террасе/веранде';
         } elseif ($title ===  '') {
             $title = 'Все площадки';
+        } elseif ($title ===  'leto') {
+            $title = 'Лето';
+        } elseif ($title ===  'zima') {
+            $title = 'Зима';
+        } elseif ($title ===  'vesna') {
+            $title = 'Весна';
+        } elseif ($title ===  'osen') {
+            $title = 'Осень';
         }
+
 
         $crumbUrl = $crumb;
 
@@ -32,6 +41,14 @@ class Breadcrumbs {
             $crumb = 'В шатре';
         } elseif (stripos($crumb, 'veranda-besedka')) {
             $crumb = 'На террасе/веранде';
+        }elseif (stripos($crumb, 'leto')) {
+            $crumb = 'Лето';
+        }elseif (stripos($crumb, 'zima')) {
+            $crumb = 'Зима';
+        }elseif (stripos($crumb, 'vesna')) {
+            $crumb = 'Весна';
+        }elseif (stripos($crumb, 'osen')) {
+            $crumb = 'Осень';
         } else {
             $crumb = 'Все площадки';
         }
@@ -68,7 +85,7 @@ class Breadcrumbs {
 			case 5:
 				$breadcrumbs=[
 					'/' => 'Дни рождения на природе',
-					'/contacts/' => 'Контакты',
+					'/kontakty/' => 'Контакты',
 				];
 				break;
 			case 6:

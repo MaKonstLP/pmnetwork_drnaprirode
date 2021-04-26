@@ -3,16 +3,27 @@
 export default class Main{
 	constructor(){
 		let self = this;
+
+		if($('.listing_title_empty').length > 0){
+			ym(70764172,'reachGoal','filling_process');
+		}
+
+		if($('[data-page-type="error"]').length > 0){
+			ym(70764172,'reachGoal','error_404');
+		}
+
 		$('body').on('click', '[data-seo-control]', function(){
 			$(this).closest('[data-seo-text]').addClass('_active');
 		});
 
 		$('.btn_banquet').on('click', function() {
 			self.showDropForm($('.banquet_form_wrapper'));
+			ym(70764172,'reachGoal','order_banquet');
 		});
 
 		$('.btn_call').on('click', function() {
 			self.showDropForm($('.call_form_wrapper'));
+			ym(70764172,'reachGoal','request_call');
 		});
 
 		$('.header_city_select').on('click', function() {

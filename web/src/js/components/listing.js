@@ -46,6 +46,10 @@ export default class Listing{
 				// });
 				// ym(64598434,'reachGoal','filter');
 				// gtag('event', 'filter');
+				if(!response.listing){
+					console.log('filling_process');
+					yaCounter70764172.reachGoal('filling_process');
+				}
 				$('[data-listing-list]').html(response.listing);
 				$('[data-listing-title]').html(response.title);
 				$('[data-listing-text-top]').html(response.text_top);
@@ -59,7 +63,12 @@ export default class Listing{
 				} else {
 					$('html,body').animate({scrollTop:$('.title').offset().top}, 400);
 				}
-				history.pushState({}, '', '/katalog-ploshchadok/'+response.url);
+				if(response.url.charAt(0) == '?'){
+					history.pushState({}, '', '/katalog-ploshchadok/'+response.url);
+				}
+				else{
+					history.pushState({}, '', '/'+response.url);
+				}
 				this.yaMap.refresh(this.filter);
 			}
 		);		

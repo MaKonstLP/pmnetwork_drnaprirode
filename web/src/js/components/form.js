@@ -105,35 +105,19 @@ export default class Form {
 		this.$form.reset();
 	}
 
-	// success(data, formType) {
-	// 	switch(formType) {
-	// 	  case 'main':
-	// 	    ym(66603799,'reachGoal','feedback');
-	// 	    gtag('event', 'Feedback', {
-	// 		  'event_category': 'Order',
-	// 		});
-	// 	    gtag('event', 'form');
-	// 	    break;
-
-	// 	  case 'item':
-	// 	    ym(66603799,'reachGoal','roomorder');
-	// 	    gtag('event', 'Roomorder', {
-	// 		  'event_category': 'Order',
-	// 		});
-	// 	    break;
-	// 	  case 'header':
-	// 	    ym(66603799,'reachGoal','quickorder');
-	// 	    gtag('event', 'Quickorder', {
-	// 		  'event_category': 'Order',
-	// 		});
-	// 	    break;
-	// 	}
-
-	// 	this.reset();
-	// 	this.$formWrap.find('[data-success] [data-success-name]').text(data.name);
-	// 	this.$formWrap.find('[data-success] [data-success-phone]').text(data.phone);
-	// 	this.$formWrap.find('[data-success]').removeClass('_hide');
-	// }
+	success(data, formType) {
+		switch(formType) {
+		  case 'main_order':
+		  	ym(70764172,'reachGoal','send_banquet');
+		    break;
+		  case 'main_call':
+		  	ym(70764172,'reachGoal','send_call');
+		    break;
+		  case 'main_callback':
+		  	ym(70764172,'reachGoal','send_find_place');
+		    break;
+		}
+	}
 
 	sendIfValid(e) {
 	    e.preventDefault();

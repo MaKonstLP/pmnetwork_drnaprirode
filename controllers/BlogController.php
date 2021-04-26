@@ -38,6 +38,10 @@ class BlogController extends Controller
 		
 		$topPosts = (clone $query)->where(['featured' => true])->limit(5)->all();
 
+		//echo '<pre>';
+		//print_r($dataProvider);
+		//exit;
+
 		$listConfig = [
 			'dataProvider' => $dataProvider,
 			'itemView' => '_list-item.twig',

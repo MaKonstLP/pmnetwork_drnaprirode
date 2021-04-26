@@ -5,7 +5,7 @@ use Yii;
 use yii\web\Controller;
 use common\controllers\ApiController as BaseApiController;
 use common\models\api\MapAll;
-use frontend\modules\gorko_ny\models\ElasticItems;
+use frontend\modules\priroda_dr\models\ElasticItems;
 use common\models\Filter;
 use common\models\Slices;
 use frontend\components\ParamsFromQuery;
@@ -23,7 +23,7 @@ class ApiController extends BaseApiController
 		$slices_model = Slices::find()->all();
 		$elastic_model = new ElasticItems;
 		$params = $this->parseGetQuery(json_decode($_POST['filter'], true), $filter_model, $slices_model);
-		$map_all = new MapAll($elastic_model, $_POST['subdomain_id'], $params['params_filter'], 'restaurants');
+		$map_all = new MapAll($elastic_model, $_POST['subdomain_id'], $params['params_filter'], 'restaurants', '/katalog-ploshchadok/', 'slug');
 
 		//echo '<pre>';
 		//print_r($map_all->coords);

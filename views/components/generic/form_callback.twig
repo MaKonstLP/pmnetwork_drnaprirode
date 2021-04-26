@@ -5,7 +5,7 @@
 		<p class="form_title_desc">Мы поможем вам подобрать место для проведения Дня рождения</p>
 	</div>
 
-  <form class="form_block" action="/ajax/form/"  data-type="{{type ? type : 'main'}}">
+  <form class="form_block" action="/ajax/form/"  data-type="{{type ? type : 'main_callback'}}">
 
     <div class="form_inputs">
     
@@ -38,7 +38,7 @@
     <div class="form_submit_callback">
 			<div class="form_policy checkbox_item _active" data-action="form_checkbox" data-form-privacy>
 				<input type="checkbox" name="policy" class="personalData" checked=""  data-required>
-				<p class="checkbox_pseudo">Согласен с <a class="_link" href="/privacy/" target="_blank">политикой конфиденциальности</a></p>
+				<p class="checkbox_pseudo">Согласен с <a class="_link" href="/privacy-policy/" target="_blank">политикой конфиденциальности</a></p>
 			</div>
       <button class="_button" type="submit">Отправить</button>
 		</div>

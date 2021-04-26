@@ -2,7 +2,7 @@
 <div class="slider_container" data-type="{{label}}" data-filter-scroll-block>
     <div class="average">
 
-        {% if label == 'chek' %}
+        {% if label == 'cost' %}
             <p>
                 {% if filter_item.active is not null %}
                     <span class="average_item">Любой</span>
@@ -50,7 +50,7 @@
     </div>
 
     <div class="slider_numbers">
-        {% if label == 'chek' %}
+        {% if label == 'cost' %}
             <p class="slider_{{label}}_left">Любой</p>
         {% else %}
             <p class="slider_{{label}}_left">Любая</p>

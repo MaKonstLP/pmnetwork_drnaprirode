@@ -18,7 +18,7 @@ use common\models\Filter;
 use common\models\Slices;
 use common\models\GorkoApi;
 use common\models\elastic\ItemsFilterElastic;
-use frontend\modules\gorko_ny\models\ElasticItems;
+use frontend\modules\priroda_dr\models\ElasticItems;
 use common\models\Seo;
 
 
@@ -39,8 +39,9 @@ class ListingController extends Controller
 
 	public function actionSlice($slice)
 	{
+		//Pages::createSiteObjects();
         $slice_obj = new QueryFromSlice($slice);
-        $seo = $this->getSeo($slice, $params['page'], 0);
+        //$seo = $this->getSeo($slice, $params['page'], 0);
 		if($slice_obj->flag){
 			$this->view->params['menu'] = $slice;
 			$params = $this->parseGetQuery($slice_obj->params, Filter::find()->with('items')->orderBy(['sort' => SORT_ASC])->all(), $this->slices_model);
@@ -48,8 +49,10 @@ class ListingController extends Controller
 
 			$canonical = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 			if($params['page'] > 1){
-				$canonical .= $params['canonical'];
+				//$canonical .= $params['canonical'];
 			}
+
+
 
 			return $this->actionListing(
 				$page 			=	$params['page'],
@@ -73,7 +76,7 @@ class ListingController extends Controller
 			$params = $this->parseGetQuery($getQuery, $this->filter_model, $this->slices_model);
 			$canonical = $_SERVER['REQUEST_SCHEME'] .'://'. $_SERVER['HTTP_HOST'] . explode('?', $_SERVER['REQUEST_URI'], 2)[0];
 			if($params['page'] > 1){
-				$canonical .= $params['canonical'];
+				$canonical .= '?'.$params['canonical'];
 			}
 
 			return $this->actionListing(
@@ -130,6 +133,10 @@ class ListingController extends Controller
 		}
 
 		$main_flag = ($seo_type == 'listing' and count($params_filter) == 0);
+
+		//echo '<pre>';
+		//print_r($seo);
+		//exit;
 
 		return $this->render('index.twig', array(
 			'items' => $items->items,
